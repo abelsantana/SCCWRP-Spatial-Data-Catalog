@@ -46,6 +46,8 @@ def check_fetch(fetch):
         for k in HANDLER_KEYS[h]:
             if k not in spec:
                 errors.append(f'{where}: handler {h} needs "{k}"')
+        if 'min_tools' in spec and not re.match(r'^\d+\.\d+\.\d+$', str(spec['min_tools'])):
+            errors.append(f'{where}: min_tools is a version such as "0.2.0"')
         if spec.get('kind') and spec['kind'] not in ('vector', 'raster'):
             errors.append(f'{where}: kind must be vector or raster')
         for p, d in spec.get('params', {}).items():

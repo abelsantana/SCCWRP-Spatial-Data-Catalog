@@ -9,7 +9,7 @@
 
 Runs in ArcGIS Pro's Python (arcgispro-py3 or a clone), which has GDAL, geopandas, rasterio, PDAL and xarray.
 """
-__version__ = '0.1.0'
+__version__ = '0.2.0'
 
 from .clipareas import areas, choices  # noqa: E402,F401
 from .entries import CatalogError, catalog, info, layers  # noqa: E402,F401

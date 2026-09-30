@@ -67,6 +67,7 @@ def resolve_params(spec, given):
             if ('min' in d and v < d['min']) or ('max' in d and v > d['max']):
                 raise CatalogError(f'{name}={v} is outside {d.get("min")}..{d.get("max")}')
         elif t == 'choice':
+            v = next((c for c in d['choices'] if str(c) == str(v)), v)   # "2019" from a form matches 2019
             if v not in d['choices']:
                 raise CatalogError(f'{name}="{v}" is not one of {d["choices"]}')
         elif t == 'list':

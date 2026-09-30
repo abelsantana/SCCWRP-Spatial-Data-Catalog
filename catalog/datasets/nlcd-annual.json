@@ -57,7 +57,11 @@
             "default": 2024,
             "description": "Land cover year"
           }
-        }
+        },
+        "grid_origin": [
+          -2415585,
+          3314805
+        ]
       }
     }
   },

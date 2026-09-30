@@ -23,26 +23,35 @@ def _fill(template, params):
 
 @handler('wcs')
 def wcs(ctx):
-    """OGC WCS 1.0.0 GetCoverage in the coverage's native CRS and cell size, tiled. Spec: url, coverage,
-    native_crs, resolution, max_size, time (template filled from params, e.g. "{year}-01-01T00:00:00.000Z"),
-    resampling."""
+    """OGC WCS 1.0.0 GetCoverage in the coverage's native CRS and cell size, tiled. Spec: url, coverage (may hold
+    {param} placeholders), native_crs, resolution, max_size, time (template filled from params, e.g.
+    "{year}-01-01T00:00:00.000Z"), grid_origin ([x, y] of any cell corner, so requests line up with the source
+    cells), nodata (overrides the value the server tags; null for none), resampling."""
     s = ctx.spec
     crs, res = s['native_crs'], s['resolution']
+    coverage = _fill(s['coverage'], ctx.params)
     tiles = plan_tiles(ctx.area.bounds(crs, pad=2 * res), res, int(s.get('max_size', 2000)),
-                       keep=ctx.area.geometry(crs))
+                       keep=ctx.area.geometry(crs), origin=s.get('grid_origin', (0, 0)))
     extra = {}
     if s.get('time'):
         extra['time'] = _fill(s['time'], ctx.params)
 
     def one(i, t):
         minx, miny, maxx, maxy, w, h = t
-        p = dict(service='WCS', version='1.0.0', request='GetCoverage', coverage=s['coverage'], crs=crs,
+        p = dict(service='WCS', version='1.0.0', request='GetCoverage', coverage=coverage, crs=crs,
                  bbox=f'{minx},{miny},{maxx},{maxy}', width=w, height=h, format=s.get('format', 'GeoTIFF'), **extra)
         r = http.get(s['url'], params=p)
         if 'xml' in r.headers.get('content-type', ''):
             raise RuntimeError(f'WCS error: {r.text[:400]}')
         out = ctx.workdir / f'wcs_{i}.tif'
         out.write_bytes(r.content)
+        ds = gdal.Open(str(out), gdal.GA_Update)
+        # Some servers write the georeference with millimetre rounding noise; the cells are the ones asked for
+        ds.SetGeoTransform((minx, (maxx - minx) / w, 0, maxy, 0, -(maxy - miny) / h))
+        if 'nodata' in s:
+            band = ds.GetRasterBand(1)
+            band.DeleteNoDataValue() if s['nodata'] is None else band.SetNoDataValue(s['nodata'])
+        ds = None
         return out
 
     vrt = mosaic(fetch_tiles(tiles, one, ctx.log), ctx.workdir / 'mosaic.vrt')

@@ -1778,7 +1778,11 @@
         "default": 2024,
         "description": "Land cover year"
        }
-      }
+      },
+      "grid_origin": [
+       -2415585,
+       3314805
+      ]
      }
     }
    },
@@ -1821,205 +1825,76 @@
     "how": "Clip what you need from ScienceBase editions or the MRLC viewer; legacy WMS for viewing only"
    },
    "fetch": {
-    "default": "land-cover-2021",
+    "default": "land-cover",
     "layers": {
-     "land-cover-2001": {
-      "title": "NLCD 2001 land cover, 30 m (2021 release)",
+     "land-cover": {
+      "title": "NLCD land cover, 30 m (2021 release, 2001–2021 editions)",
       "handler": "wcs",
       "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2001_Land_Cover_L48",
       "native_crs": "EPSG:5070",
       "resolution": 30,
+      "grid_origin": [
+       -2493045,
+       3310005
+      ],
       "max_size": 2000,
       "resampling": "nearest",
-      "version": "NLCD 2021 release, 2001 edition"
+      "version": "NLCD 2021 release",
+      "min_tools": "0.2.0",
+      "coverage": "mrlc_download:NLCD_{year}_Land_Cover_L48",
+      "params": {
+       "year": {
+        "type": "choice",
+        "choices": [
+         2001,
+         2004,
+         2006,
+         2008,
+         2011,
+         2013,
+         2016,
+         2019,
+         2021
+        ],
+        "default": 2021,
+        "description": "NLCD edition year (2021 release)"
+       }
+      }
      },
-     "land-cover-2004": {
-      "title": "NLCD 2004 land cover, 30 m (2021 release)",
+     "impervious": {
+      "title": "NLCD percent developed imperviousness, 30 m (2021 release, 2001–2021 editions)",
       "handler": "wcs",
       "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2004_Land_Cover_L48",
       "native_crs": "EPSG:5070",
       "resolution": 30,
+      "grid_origin": [
+       -2493045,
+       3310005
+      ],
       "max_size": 2000,
       "resampling": "nearest",
-      "version": "NLCD 2021 release, 2004 edition"
-     },
-     "land-cover-2006": {
-      "title": "NLCD 2006 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2006_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2006 edition"
-     },
-     "land-cover-2008": {
-      "title": "NLCD 2008 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2008_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2008 edition"
-     },
-     "land-cover-2011": {
-      "title": "NLCD 2011 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2011_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2011 edition"
-     },
-     "land-cover-2013": {
-      "title": "NLCD 2013 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2013_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2013 edition"
-     },
-     "land-cover-2016": {
-      "title": "NLCD 2016 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2016_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2016 edition"
-     },
-     "land-cover-2019": {
-      "title": "NLCD 2019 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2019_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2019 edition"
-     },
-     "land-cover-2021": {
-      "title": "NLCD 2021 land cover, 30 m (2021 release)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
-      "coverage": "mrlc_download:NLCD_2021_Land_Cover_L48",
-      "native_crs": "EPSG:5070",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2021 edition"
-     },
-     "impervious-2001": {
-      "title": "NLCD 2001 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2001_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2001 edition"
-     },
-     "impervious-2004": {
-      "title": "NLCD 2004 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2004_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2004 edition"
-     },
-     "impervious-2006": {
-      "title": "NLCD 2006 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2006_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2006 edition"
-     },
-     "impervious-2008": {
-      "title": "NLCD 2008 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2008_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2008 edition"
-     },
-     "impervious-2011": {
-      "title": "NLCD 2011 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2011_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2011 edition"
-     },
-     "impervious-2013": {
-      "title": "NLCD 2013 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2013_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2013 edition"
-     },
-     "impervious-2016": {
-      "title": "NLCD 2016 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2016_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2016 edition"
-     },
-     "impervious-2019": {
-      "title": "NLCD 2019 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2019_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2019 edition"
-     },
-     "impervious-2021": {
-      "title": "NLCD 2021 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
-      "handler": "wcs",
-      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
-      "coverage": "mrlc_display:NLCD_2021_Impervious_L48",
-      "native_crs": "EPSG:3857",
-      "resolution": 30,
-      "max_size": 2000,
-      "resampling": "nearest",
-      "version": "NLCD 2021 release, 2021 edition"
+      "version": "NLCD 2021 release",
+      "min_tools": "0.2.0",
+      "coverage": "mrlc_download:NLCD_{year}_Impervious_L48",
+      "nodata": 127,
+      "params": {
+       "year": {
+        "type": "choice",
+        "choices": [
+         2001,
+         2004,
+         2006,
+         2008,
+         2011,
+         2013,
+         2016,
+         2019,
+         2021
+        ],
+        "default": 2021,
+        "description": "NLCD edition year (2021 release)"
+       }
+      }
      }
     }
    },

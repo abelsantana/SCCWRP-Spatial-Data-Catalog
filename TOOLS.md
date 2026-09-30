@@ -161,7 +161,7 @@ Outputs go to `tests/output/`, which is not version-controlled.
    |---|---|---|
    | `arcgis-features` | `url` (the layer, ending in `/<n>`) | `where`, `out_fields` |
    | `arcgis-image` | `url` | `resolution` (m), `pixel_type`, `nodata`, `resampling`, `max_size`, `rendering_rule` |
-   | `wcs` | `url`, `coverage`, `native_crs`, `resolution` | `time` (template such as `{year}-01-01T00:00:00.000Z`), `max_size`, `format`, `resampling` |
+   | `wcs` | `url`, `coverage` (may hold `{param}` placeholders), `native_crs`, `resolution` | `time` (template such as `{year}-01-01T00:00:00.000Z`), `grid_origin` (`[x, y]` of any cell corner, so requests line up with the source cells), `nodata` (overrides the value the server tags; `null` for none), `max_size`, `format`, `resampling` |
    | `opendap` | `url` (the dodsC URL), `variable`, `x`, `y`, `crs` | `nodata`, `fill_value`, `fixed` (index for other dimensions, e.g. `{"time": 0}`) |
    | `cog-tiles` | `url_template` with `{tile}`, `tile_scheme` (`usgs-1deg`), `crs` | `resampling` |
    | `ept` | `url` (ept.json) | `max_points` |
@@ -172,6 +172,8 @@ Outputs go to `tests/output/`, which is not version-controlled.
    | `local` | `holding` (key in the internal holdings file), `kind` | `layer_name`, `resampling` |
 
    Any layer can have `version` (overrides `versions.latest` in the manifest) and `params`. Each parameter has a `type` (`int`, `str`, `choice`, `list` or `dates`), plus `default`, `required`, `min`/`max`, `choices` and `description`. Parameters fill `{name}` placeholders in URLs and templates.
+
+   A layer that relies on a handler option added in a later version of the tools also sets `min_tools` (for example `"0.2.0"`, the version in `sccwrp_data/__init__.py`). Installs older than that keep their installed copy of the entry instead of sending requests they can't make. Bump the version when you add such an option.
 3. For a `local` layer, add the path to `layers` in the internal holdings file (`"<dataset-id>/<layer>": "relative\\path"`). Server paths never go in this repo.
 4. Check it: `python scripts/validate_catalog.py`, then run a request for a small area. Consider adding a smoke case if it uses a new handler or behaves unusually.
 
@@ -189,7 +191,8 @@ A new kind of service needs a new handler: a function decorated with `@handler('
 - **The Water Board's statewide Basin Plan map service returns no geometry.** Queries answer with attributes only, so the regional hosted feature services are used. The beneficial-use codes are in each regional service's `WB_BenUses` table (join on `wbf_id`), not in the fetched layers.
 - **TIGERweb repeats each layer at several scales** (for example Transportation layers 1/2, 4–6 and 7/8 return the same roads). County and tract clips pick up slivers of neighbouring units along the edge; use `method=intersects` or filter by GEOID for a clean set.
 - **The CDT city boundaries store bay and ocean portions as separate features** (`OFFSHORE` = bay or ocean). The default layer filters them out.
-- **MRLC GeoServer:** the full GetCapabilities times out; the workspace endpoints (`/geoserver/mrlc_download/ows`) answer in about a second. Legacy impervious in `mrlc_download` marks 0% as nodata, so `nlcd-legacy` uses the `mrlc_display` copy, which is stored in Web Mercator (output cells about 24.7 m unless `resolution=30` is asked for).
+- **MRLC GeoServer:** the full GetCapabilities times out; the workspace endpoints (`/geoserver/mrlc_download/ows`) answer in about a second. Legacy impervious in `mrlc_download` tags 0 as nodata although 0% is a real value; its background is 127, so the layer sets `nodata: 127`. Avoid the `mrlc_display` copies: they are Web Mercator resamples.
+- **NLCD cell edges sit on odd multiples of 15 m** in EPSG:5070 (legacy from −2493045, 3310005; Annual NLCD from −2415585, 3314805). Requests snapped to multiples of 30 m made GeoServer resample every request half a cell off, changing the class of about 0.5% of cells, so both layers set `grid_origin`. The Annual NLCD server also writes its GeoTIFF georeference with millimetre rounding noise; the `wcs` handler stamps the requested bounds on each tile.
 - **USGS NAIP Plus serves only the latest vintage per place** (2022 in California). NAIP 2009 exists only in the CNRA archive, as county MrSID mosaics or uncompressed quarter-quad tiles.
 - **The 3DEP ImageServer at 1 m in Orange County uses the 2023 and 2018 lidar**, not the 2011 county survey; `oc-dem-1m/points-2011` gets the 2011 point cloud.
 - **NCEI's bathymetry image services default to a coloured hillshade**, so their layers set `rendering_rule` to `None` to get depths. `bag_bathymetry` switches to overviews above about 16 m cells.

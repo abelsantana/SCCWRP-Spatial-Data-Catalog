@@ -2,7 +2,7 @@
 
 With a URL source (the default outside a git checkout) the tools fetch docs/catalog.json once per process, keep the
 last good copy, and fall back to it, then to the bundled catalog/datasets/, when GitHub cannot be reached. Entries this
-version of the code cannot run (a handler it does not have) keep their bundled version.
+version of the code cannot run (a handler it does not have, or a newer min_tools) keep their bundled version.
 """
 import json
 import time
@@ -73,9 +73,17 @@ def _download(url):
         return None
 
 
+def _version(v):
+    return tuple(int(x) for x in str(v).split('.'))
+
+
 def _runnable(entry):
+    """True if this code can run every layer: it has the handler, and is at least the layer's min_tools version
+    (set when a layer relies on a handler option added later)."""
+    from . import __version__
     layers = (entry.get('fetch') or {}).get('layers') or {}
-    return all(spec.get('handler') in KNOWN_HANDLERS for spec in layers.values())
+    return all(spec.get('handler') in KNOWN_HANDLERS and _version(__version__) >= _version(spec.get('min_tools', 0))
+               for spec in layers.values())
 
 
 @lru_cache(maxsize=None)

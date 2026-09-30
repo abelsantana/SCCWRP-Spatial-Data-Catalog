@@ -19,15 +19,17 @@ def epsg(crs):
     return int(s.split(':')[1])
 
 
-def plan_tiles(bounds, res, tile_px, keep=None):
+def plan_tiles(bounds, res, tile_px, keep=None, origin=(0, 0)):
     """Split bounds into a grid of tiles of at most tile_px cells a side, aligned to res.
 
     Returns [(minx, miny, maxx, maxy, width, height)]. keep: optional shapely geometry (same CRS);
     tiles that do not touch it are skipped, so a diagonal coastline does not fetch empty ocean.
+    origin: any cell corner of the source grid, so tiles line up with its cells and the server does not resample.
     """
     minx, miny, maxx, maxy = bounds
-    minx, miny = math.floor(minx / res) * res, math.floor(miny / res) * res
-    maxx, maxy = math.ceil(maxx / res) * res, math.ceil(maxy / res) * res
+    ox, oy = origin
+    minx, miny = math.floor((minx - ox) / res) * res + ox, math.floor((miny - oy) / res) * res + oy
+    maxx, maxy = math.ceil((maxx - ox) / res) * res + ox, math.ceil((maxy - oy) / res) * res + oy
     cols, rows = round((maxx - minx) / res), round((maxy - miny) / res)
     if cols * rows > MAX_CELLS:
         need = res * math.sqrt(cols * rows / MAX_CELLS)
