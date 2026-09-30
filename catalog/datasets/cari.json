@@ -30,6 +30,23 @@
     "mode": "stream",
     "how": "CARI v3.3 FeatureServers (CDFW BIOS)"
   },
+  "fetch": {
+    "default": "wetlands",
+    "layers": {
+      "wetlands": {
+        "title": "CARI v3.3 wetlands and open water (polygons)",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2835_fpu/FeatureServer/0",
+        "version": "CARI v3.3 (Feb 2026)"
+      },
+      "streams": {
+        "title": "CARI v3.3 streams (lines)",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2836_fnu/FeatureServer/0",
+        "version": "CARI v3.3 (Feb 2026)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "v0.2 is badly outdated.",

@@ -32,6 +32,32 @@
     "mode": "stream",
     "how": "Soil Data Access (SQL, WMS, WFS) and soilDB; gSSURGO state geodatabase only for heavy raster work"
   },
+  "fetch": {
+    "layers": {
+      "ssurgo": {
+        "title": "SSURGO soil map unit polygons with map unit attributes (Soil Data Access)",
+        "handler": "sda",
+        "url": "https://sdmdataaccess.nrcs.usda.gov/Tabular/post.rest",
+        "columns": {
+          "mapunit": [
+            "musym",
+            "muname",
+            "mukind"
+          ],
+          "muaggatt": [
+            "hydgrpdcd",
+            "drclassdcd",
+            "flodfreqdcd",
+            "slopegradwta",
+            "aws0150wta",
+            "brockdepmin",
+            "wtdepannmin",
+            "hydclprs"
+          ]
+        }
+      }
+    }
+  },
   "packages": [
     {
       "language": "R",

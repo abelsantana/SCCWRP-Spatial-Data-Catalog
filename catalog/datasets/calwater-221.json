@@ -25,6 +25,35 @@
     "mode": "stream",
     "how": "CDFW FeatureServer (calw_poly_wm)"
   },
+  "fetch": {
+    "default": "planning-watersheds",
+    "layers": {
+      "planning-watersheds": {
+        "title": "CalWater 2.2.1 planning watersheds, with all hydrologic region, unit, area and sub-area codes and names (CDFW)",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/calw_poly_wm/FeatureServer/0",
+        "version": "CalWater 2.2.1 (2004)"
+      },
+      "hydrologic-units": {
+        "title": "CalWater 2.2.1 hydrologic units (dissolved, State Water Board)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/1",
+        "version": "CalWater 2.2.1 (2004)"
+      },
+      "hydrologic-areas": {
+        "title": "CalWater 2.2.1 hydrologic areas (dissolved, State Water Board)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/3",
+        "version": "CalWater 2.2.1 (2004)"
+      },
+      "hydrologic-subareas": {
+        "title": "CalWater 2.2.1 hydrologic sub-areas (dissolved, State Water Board)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/2",
+        "version": "CalWater 2.2.1 (2004)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Hub export (shapefile/FGDB) from landing page"

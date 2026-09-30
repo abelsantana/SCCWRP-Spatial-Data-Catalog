@@ -30,6 +30,29 @@
     "mode": "stream",
     "how": "USGS 3DEP ImageServer and py3dep (1 m where available)"
   },
+  "fetch": {
+    "default": "dem-1m",
+    "layers": {
+      "dem-1m": {
+        "title": "3DEP best available DEM at 1 m (in Orange County mostly the 2023 CA_CaliforniaGaps_B23 lidar, with 2018 SoCal Wildfires lidar where that is missing); the current successor to the 2011-based county DEM",
+        "handler": "arcgis-image",
+        "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+        "version": "3DEP 1 m best available (CA_CaliforniaGaps_B23, 2023)",
+        "resolution": 1,
+        "max_size": 8000,
+        "pixel_type": "F32",
+        "nodata": -9999,
+        "resampling": "bilinear"
+      },
+      "points-2011": {
+        "title": "2011 Orange County lidar point cloud (USGS Entwine copy of CA_OrangeCo_2011, the source of the 1 m county DEM)",
+        "handler": "ept",
+        "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/CA_OrangeCo_2011/ept.json",
+        "version": "CA_OrangeCo_2011",
+        "max_points": 300000000
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",

@@ -36,6 +36,24 @@
     "mode": "download-on-demand",
     "how": "2009 county mosaics from the CNRA archive; 2010+ stream from USGS NAIPPlus ImageServer or Planetary Computer"
   },
+  "fetch": {
+    "layers": {
+      "naip-latest": {
+        "title": "Latest NAIP served by USGS (2022 in California, 0.6 m, 4-band RGB + near-infrared); not the 2009 imagery",
+        "handler": "arcgis-image",
+        "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+        "version": "NAIP 2022 (California), as served by USGS NAIP Plus",
+        "resolution": 1,
+        "max_size": 4000,
+        "pixel_type": "U8",
+        "nodata": 0,
+        "resampling": "bilinear",
+        "rendering_rule": {
+          "rasterFunction": "None"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "GEE USDA/NAIP/DOQQ"

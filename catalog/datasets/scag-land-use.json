@@ -30,6 +30,96 @@
     "mode": "keep-local",
     "how": "2008 and earlier are not online; current years stream from SCAG services"
   },
+  "fetch": {
+    "default": "current-la",
+    "layers": {
+      "current-la": {
+        "title": "Los Angeles County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_LA/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "current-orange": {
+        "title": "Orange County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_OR/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "current-riverside": {
+        "title": "Riverside County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_RV/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "current-san-bernardino": {
+        "title": "San Bernardino County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_SB/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "current-ventura": {
+        "title": "Ventura County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_VN/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "current-imperial": {
+        "title": "Imperial County existing land use 2024 (parcels, SCAG)",
+        "handler": "arcgis-features",
+        "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_IM/MapServer/0",
+        "version": "SCAG 2024 Existing Land Use"
+      },
+      "lu-2001": {
+        "title": "Land use 2001, six-county SCAG region (with 1990 and 1993 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2001",
+        "kind": "vector",
+        "version": "SCAG 2001 land use"
+      },
+      "lu-2008-la": {
+        "title": "Los Angeles County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-la",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      },
+      "lu-2008-orange": {
+        "title": "Orange County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-orange",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      },
+      "lu-2008-riverside": {
+        "title": "Riverside County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-riverside",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      },
+      "lu-2008-san-bernardino": {
+        "title": "San Bernardino County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-san-bernardino",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      },
+      "lu-2008-ventura": {
+        "title": "Ventura County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-ventura",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      },
+      "lu-2008-imperial": {
+        "title": "Imperial County land use 2008 (parcels, with 1990-2005 codes)",
+        "handler": "local",
+        "holding": "scag-land-use/lu-2008-imperial",
+        "kind": "vector",
+        "version": "SCAG 2008 land use"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Hub item downloads"

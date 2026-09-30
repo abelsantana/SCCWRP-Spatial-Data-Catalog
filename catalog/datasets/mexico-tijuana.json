@@ -25,6 +25,32 @@
     "mode": "keep-local",
     "how": "Legacy SDSU site may disappear; small, keep local"
   },
+  "fetch": {
+    "default": "tijuana-watershed",
+    "layers": {
+      "tijuana-watershed": {
+        "title": "Tijuana River watershed boundary (US and Mexico)",
+        "handler": "local",
+        "holding": "mexico-tijuana/tijuana-watershed",
+        "kind": "vector",
+        "version": "SDSU Tijuana River watershed GIS (legacy)"
+      },
+      "mexico-states": {
+        "title": "Mexican states (with 1990 census attributes)",
+        "handler": "local",
+        "holding": "mexico-tijuana/mexico-states",
+        "kind": "vector",
+        "version": "Legacy SCCWRP copy (1990s)"
+      },
+      "shoreline": {
+        "title": "Mexico and Central America land and islands (World Vector Shoreline)",
+        "handler": "local",
+        "holding": "mexico-tijuana/shoreline",
+        "kind": "vector",
+        "version": "World Vector Shoreline (legacy copy)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "Small; keep local copy since the SDSU site is unmaintained.",

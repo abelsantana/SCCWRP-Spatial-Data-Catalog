@@ -1,6 +1,6 @@
 {
   "id": "parcels",
-  "title": "Parcels (LA County 2014, San Diego, OC, Ventura)",
+  "title": "County parcels (Los Angeles, San Diego, Ventura)",
   "category": "Boundaries & reference",
   "provider": "LA County Assessor / SanGIS",
   "recommendation": "keep-local",
@@ -35,6 +35,36 @@
   "access": {
     "mode": "keep-local",
     "how": "Historical parcel geometry is not published; current parcels stream from county services"
+  },
+  "fetch": {
+    "default": "current-los-angeles",
+    "layers": {
+      "current-los-angeles": {
+        "title": "Los Angeles County parcels (current, Assessor)",
+        "handler": "arcgis-features",
+        "url": "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0",
+        "version": "LA County Assessor parcels (current)"
+      },
+      "current-san-diego": {
+        "title": "San Diego County parcels (current, SANDAG / SanGIS)",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Parcels/FeatureServer/0",
+        "version": "SANDAG / SanGIS parcels (current)"
+      },
+      "current-ventura": {
+        "title": "Ventura County parcels (current, County of Ventura)",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/XJ5Tb7dTYtAMoyYT/arcgis/rest/services/Parcels_Quarterly/FeatureServer/0",
+        "version": "Ventura County parcels (current)"
+      },
+      "ventura-2016": {
+        "title": "Ventura County parcels, March 2016",
+        "handler": "local",
+        "holding": "parcels/ventura-2016",
+        "kind": "vector",
+        "version": "Ventura County parcels, March 2016"
+      }
+    }
   },
   "packages": [],
   "other_access": [],

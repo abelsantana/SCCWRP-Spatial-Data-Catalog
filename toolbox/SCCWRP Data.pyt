@@ -164,8 +164,7 @@ class GetData:
                 given = {n for n, _ in (params.values or [])}
                 if not given or not given <= set(declared):
                     params.values = [[n, str(d.get('default', ''))] for n, d in declared.items()]
-                kind = spec.get('kind') or {'arcgis-features': 'vector', 'streamcat': 'vector',
-                                            'ept': 'pointcloud'}.get(spec['handler'], 'raster')
+                kind = entries.layer_kind(spec)
                 fmt.filter.list = {'vector': ['gpkg', 'gdb', 'shp', 'geojson', 'parquet'],
                                    'raster': ['tif', 'gtiff'], 'pointcloud': ['laz']}[kind]
                 if fmt.valueAsText not in fmt.filter.list:

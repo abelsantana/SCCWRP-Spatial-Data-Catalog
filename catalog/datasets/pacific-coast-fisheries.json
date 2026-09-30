@@ -20,6 +20,43 @@
     "mode": "keep-local",
     "how": "Request only; keep local"
   },
+  "fetch": {
+    "default": "ca-fishing-blocks",
+    "layers": {
+      "ca-fishing-blocks": {
+        "title": "California fishing blocks (CDFW catch reporting grid)",
+        "handler": "local",
+        "holding": "pacific-coast-fisheries/ca-fishing-blocks",
+        "kind": "vector",
+        "layer_name": "CA_Blks",
+        "version": "Fisheries Database 2015"
+      },
+      "trawl-blocks": {
+        "title": "California trawl blocks",
+        "handler": "local",
+        "holding": "pacific-coast-fisheries/trawl-blocks",
+        "kind": "vector",
+        "layer_name": "caltrawl",
+        "version": "Fisheries Database 2015"
+      },
+      "reefs": {
+        "title": "Reefs (fishing locations)",
+        "handler": "local",
+        "holding": "pacific-coast-fisheries/reefs",
+        "kind": "vector",
+        "layer_name": "Reefs",
+        "version": "Fisheries Database 2015"
+      },
+      "ports": {
+        "title": "Fishing ports (California, Oregon, Washington)",
+        "handler": "local",
+        "holding": "pacific-coast-fisheries/ports",
+        "kind": "vector",
+        "layer_name": "Ports_Final",
+        "version": "Fisheries Database 2015"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Request from sdelacruz@usgs.gov / josh_adams@usgs.gov"

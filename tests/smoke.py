@@ -36,6 +36,7 @@ CASES = [
      {'value_range': (-600, 200)}),
     ('point-cloud', 'la-river-lidar-2016', 'points', box(-118.232, 34.050, -118.224, 34.056), {}, {'min_bytes': 1e5}),
     ('api-table', 'watershed-metric-resources', 'streamcat', 'huc10:1807010501', {}, {'min_features': 20}),
+    ('soil-sql', 'nrcs-soils', 'ssurgo', 'huc12:180702040103', {}, {'min_features': 300}),
     ('zip-download', 'shorelines', 'shoreline-1998', 'county-coastal:Orange', {}, {'min_features': 1}),
     ('templated-download', 'prism-daily', 'daily', 'socal',
      {'params': {'date': '2013-02-10/2013-02-12'}}, {'files': 3, 'value_range': (0, 400)}),

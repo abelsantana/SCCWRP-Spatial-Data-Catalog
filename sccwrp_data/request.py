@@ -18,7 +18,7 @@ from pathlib import Path
 
 from . import __version__, clip, config, stage
 from .clipareas import resolve as resolve_area
-from .entries import CatalogError, info, layer_spec
+from .entries import CatalogError, info, layer_kind, layer_spec
 from .handlers import HANDLERS, Context, resolve_params
 
 
@@ -88,8 +88,7 @@ def get(dataset_id, area, layer=None, *, params=None, buffer_km=0, method='clip'
     if handler is None:
         raise CatalogError(f'Unknown handler "{spec["handler"]}" for {dataset_id}/{layer}')
     params = resolve_params(spec, params)
-    kind = spec.get('kind') or {'arcgis-features': 'vector', 'streamcat': 'vector', 'ept': 'pointcloud'}.get(
-        spec['handler'], 'raster')
+    kind = layer_kind(spec)
     fmt = fmt or clip.DEFAULT_FORMAT[kind]
     ext = clip.extension(kind, fmt)
     a = resolve_area(area, buffer_km, method, mask)

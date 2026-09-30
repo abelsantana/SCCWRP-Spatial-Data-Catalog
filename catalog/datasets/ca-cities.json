@@ -31,6 +31,30 @@
     "mode": "stream",
     "how": "CDT city boundaries FeatureServer"
   },
+  "fetch": {
+    "default": "city-boundaries",
+    "layers": {
+      "city-boundaries": {
+        "title": "Incorporated city boundaries, land only (CDTFA / CDT)",
+        "handler": "arcgis-features",
+        "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2",
+        "where": "OFFSHORE IS NULL",
+        "version": "Current (CDT, updated monthly)"
+      },
+      "city-boundaries-with-water": {
+        "title": "Incorporated city boundaries including bay and ocean portions (CDT \"blue\" version)",
+        "handler": "arcgis-features",
+        "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2",
+        "version": "Current (CDT, updated monthly)"
+      },
+      "urban-areas-2020": {
+        "title": "Census 2020 urban areas",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/88",
+        "version": "2020 Census"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

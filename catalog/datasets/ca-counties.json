@@ -30,6 +30,25 @@
     "mode": "stream",
     "how": "CAL FIRE / CDT county FeatureServers"
   },
+  "fetch": {
+    "default": "counties",
+    "layers": {
+      "counties": {
+        "title": "California county boundaries (current, CA Dept. of Technology)",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer/0",
+        "version": "California Counties 26_2 (May 2026)"
+      },
+      "cnty24k09": {
+        "title": "CAL FIRE county boundaries cnty24k09 (1:24,000, 2009), polygons",
+        "handler": "download",
+        "url": "https://gisarchive.cnra.ca.gov/iso/Boundaries/Boundaries_%28project%29/CountyBoundaries2009/cnty24k09_1_shp.zip",
+        "kind": "vector",
+        "member": "cnty24k09_1_poly.shp",
+        "version": "cnty24k09_1 (2009)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

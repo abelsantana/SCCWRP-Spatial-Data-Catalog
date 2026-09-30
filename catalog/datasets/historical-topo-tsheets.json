@@ -30,6 +30,25 @@
     "mode": "keep-local",
     "how": "SCCWRP rectified products; raw scans stream from USGS topoView / TNM"
   },
+  "fetch": {
+    "default": "tsheet-habitats",
+    "layers": {
+      "tsheet-habitats": {
+        "title": "Historical coastal habitats mapped from NOAA T-sheets (South Coast, 1850s-1880s)",
+        "handler": "local",
+        "holding": "historical-topo-tsheets/tsheet-habitats",
+        "kind": "vector",
+        "version": "SCCWRP / SFEI South Coast T-sheet analysis (2009)"
+      },
+      "tsheet-index": {
+        "title": "Southern California T-sheet footprints and digitizing status",
+        "handler": "local",
+        "holding": "historical-topo-tsheets/tsheet-index",
+        "kind": "vector",
+        "version": "SCCWRP T-sheet index (2012)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "TNM Access API (datasets=Historical Topographic Maps)"

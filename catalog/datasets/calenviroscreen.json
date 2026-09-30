@@ -31,6 +31,29 @@
     "mode": "stream",
     "how": "OEHHA FeatureServers (final 5.0, draft 5.0, 4.0)"
   },
+  "fetch": {
+    "default": "ces-5-0",
+    "layers": {
+      "ces-5-0": {
+        "title": "CalEnviroScreen 5.0 results by census tract (final)",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/calenviroscreen50results_F_070126_gdb/FeatureServer/2",
+        "version": "CES 5.0 final (2026-07-01)"
+      },
+      "ces-5-0-draft": {
+        "title": "Draft CalEnviroScreen 5.0 results by census tract (January 2026, superseded)",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/CES5_Draft/FeatureServer/0",
+        "version": "CES 5.0 draft (January 2026)"
+      },
+      "ces-4-0": {
+        "title": "CalEnviroScreen 4.0 results by census tract",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/CalEnviroScreen_4_0_Results_/FeatureServer/0",
+        "version": "CES 4.0 (October 2021)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "Draft superseded; re-point analyses to the final 5.0.",

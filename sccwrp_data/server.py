@@ -115,8 +115,7 @@ def _catalog_payload():
         for name, spec in e['fetch']['layers'].items():
             s = staged.get((e['id'], name))
             lays.append({'id': name, 'title': spec.get('title', name), 'handler': spec['handler'],
-                         'kind': spec.get('kind') or {'arcgis-features': 'vector', 'streamcat': 'vector',
-                                                      'ept': 'pointcloud'}.get(spec['handler'], 'raster'),
+                         'kind': entries.layer_kind(spec),
                          'params': spec.get('params', {}),
                          'tier': 'instant' if s else ('internal' if spec['handler'] == 'local' else 'on-demand'),
                          'staged': {k: s[k] for k in ('built', 'features', 'source') if k in s} if s else None,

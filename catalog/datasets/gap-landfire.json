@@ -29,11 +29,56 @@
     }
   ],
   "access": {
-    "mode": "download-on-demand",
-    "how": "ScienceBase state subset; LANDFIRE LFPS API clips by area"
+    "mode": "stream",
+    "how": "LANDFIRE ImageServers (EVT, EVC, EVH), clipped by area; GAP NTE 2011 from ScienceBase state subsets"
+  },
+  "fetch": {
+    "default": "evt",
+    "layers": {
+      "evt": {
+        "title": "LANDFIRE Existing Vegetation Type, LF2025 (30 m class codes; successor to GAP land cover)",
+        "handler": "arcgis-image",
+        "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVT_CONUS/ImageServer",
+        "version": "LANDFIRE LF2025",
+        "resolution": 30,
+        "pixel_type": "S16",
+        "nodata": -9999,
+        "resampling": "nearest"
+      },
+      "evc": {
+        "title": "LANDFIRE Existing Vegetation Cover, LF2025 (30 m class codes)",
+        "handler": "arcgis-image",
+        "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVC_CONUS/ImageServer",
+        "version": "LANDFIRE LF2025",
+        "resolution": 30,
+        "pixel_type": "S16",
+        "nodata": -9999,
+        "resampling": "nearest"
+      },
+      "evh": {
+        "title": "LANDFIRE Existing Vegetation Height, LF2025 (30 m class codes)",
+        "handler": "arcgis-image",
+        "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVH_CONUS/ImageServer",
+        "version": "LANDFIRE LF2025",
+        "resolution": 30,
+        "pixel_type": "S16",
+        "nodata": -9999,
+        "resampling": "nearest"
+      },
+      "evt-2016": {
+        "title": "LANDFIRE Existing Vegetation Type, LF2016 Remap (30 m; nearest in time to GAP 2011)",
+        "handler": "arcgis-image",
+        "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2016/LF2016_EVT_CONUS/ImageServer",
+        "version": "LANDFIRE LF2016 Remap",
+        "resolution": 30,
+        "pixel_type": "S16",
+        "nodata": -9999,
+        "resampling": "nearest"
+      }
+    }
   },
   "packages": [],
   "other_access": [],
-  "notes": "",
+  "notes": "The tools get LANDFIRE, which replaces GAP: 2025 existing vegetation type, cover and height, and the 2016 type (closest to GAP 2011). Results are class codes; read them with the LANDFIRE attribute tables. The GAP 2011 services were unreliable in testing (HTTP 502/503), so GAP itself is download only.",
   "last_reviewed": "2026-09-29"
 }

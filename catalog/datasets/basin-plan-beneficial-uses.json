@@ -30,8 +30,49 @@
     "mode": "stream",
     "how": "Basin Plan beneficial uses MapServer and regional FeatureServers"
   },
+  "fetch": {
+    "default": "r4-lines",
+    "layers": {
+      "r4-lines": {
+        "title": "Los Angeles Region (4) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Los_Angeles_Basin_Plan_Beneficial_Uses/FeatureServer/1",
+        "version": "Region 4 Basin Plan service (current)"
+      },
+      "r4-polygons": {
+        "title": "Los Angeles Region (4) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Los_Angeles_Basin_Plan_Beneficial_Uses/FeatureServer/3",
+        "version": "Region 4 Basin Plan service (current)"
+      },
+      "r8-lines": {
+        "title": "Santa Ana Region (8) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_8S/FeatureServer/1",
+        "version": "Region 8 Basin Plan service (current)"
+      },
+      "r8-polygons": {
+        "title": "Santa Ana Region (8) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_8S/FeatureServer/3",
+        "version": "Region 8 Basin Plan service (current)"
+      },
+      "r9-lines": {
+        "title": "San Diego Region (9) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_9S/FeatureServer/1",
+        "version": "Region 9 Basin Plan service (current)"
+      },
+      "r9-polygons": {
+        "title": "San Diego Region (9) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_9S/FeatureServer/3",
+        "version": "Region 9 Basin Plan service (current)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "Region4L.gdb-style older files are not online; keep if needed.",
+  "notes": "Region4L.gdb-style older files are not online; keep if needed. The statewide MapServer answers queries without geometry, so fetch layers use the regional FeatureServers (Regions 4, 8 and 9; the other regions have matching services). Use designations are in each regional service's WB_BenUses table (join on wbf_id); fetched layers carry the waterbodies only.",
   "last_reviewed": "2026-09-29"
 }

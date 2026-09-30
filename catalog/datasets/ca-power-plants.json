@@ -25,6 +25,16 @@
     "mode": "stream",
     "how": "CEC Power_Plant FeatureServer"
   },
+  "fetch": {
+    "layers": {
+      "plants": {
+        "title": "California power plants (points)",
+        "handler": "arcgis-features",
+        "url": "https://services3.arcgis.com/bWPjFyq029ChCGur/arcgis/rest/services/Power_Plant/FeatureServer/0",
+        "version": "Current (CEC)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Hub download (CSV/SHP/GPKG)"

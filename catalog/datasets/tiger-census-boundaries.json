@@ -40,6 +40,53 @@
     "mode": "stream",
     "how": "TIGERweb vintage services, Census API, pygris / censusdis"
   },
+  "fetch": {
+    "default": "tracts",
+    "layers": {
+      "tracts": {
+        "title": "Census tracts",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/8",
+        "version": "TIGERweb Current (January 1, 2026 vintage)"
+      },
+      "block-groups": {
+        "title": "Census block groups",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/10",
+        "version": "TIGERweb Current (January 1, 2026 vintage)"
+      },
+      "blocks-2020": {
+        "title": "2020 Census blocks",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/12",
+        "version": "2020 Census"
+      },
+      "places": {
+        "title": "Incorporated places (cities)",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/28",
+        "version": "TIGERweb Current (January 1, 2026 vintage)"
+      },
+      "cdps": {
+        "title": "Census designated places (unincorporated communities)",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30",
+        "version": "TIGERweb Current (January 1, 2026 vintage)"
+      },
+      "zctas": {
+        "title": "2020 ZIP Code Tabulation Areas (ZCTAs)",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/2",
+        "version": "2020 Census"
+      },
+      "counties": {
+        "title": "Counties",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/82",
+        "version": "TIGERweb Current (January 1, 2026 vintage)"
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",

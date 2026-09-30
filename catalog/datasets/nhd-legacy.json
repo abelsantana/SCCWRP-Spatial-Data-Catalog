@@ -35,6 +35,62 @@
     "mode": "stream",
     "how": "Current NHD / 3DHP services; frozen NHD archive for old vintages"
   },
+  "fetch": {
+    "default": "flowlines",
+    "layers": {
+      "flowlines": {
+        "title": "NHD high-resolution flowlines (from the USGS HU4 geodatabase; one output per HU4)",
+        "handler": "download-template",
+        "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+        "iterate": "hu4",
+        "kind": "vector",
+        "member": "NHD_H_*_HU4_GDB.gdb",
+        "layer_name": "NHDFlowline",
+        "version": "Final static NHD (Dec 2023)",
+        "params": {
+          "hu4": {
+            "type": "list",
+            "default": "1807",
+            "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+          }
+        }
+      },
+      "waterbodies": {
+        "title": "NHD waterbodies (from the USGS HU4 geodatabase; one output per HU4)",
+        "handler": "download-template",
+        "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+        "iterate": "hu4",
+        "kind": "vector",
+        "member": "NHD_H_*_HU4_GDB.gdb",
+        "layer_name": "NHDWaterbody",
+        "version": "Final static NHD (Dec 2023)",
+        "params": {
+          "hu4": {
+            "type": "list",
+            "default": "1807",
+            "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+          }
+        }
+      },
+      "areas": {
+        "title": "NHD areas: wide rivers, canals, bays, etc. (from the USGS HU4 geodatabase; one output per HU4)",
+        "handler": "download-template",
+        "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+        "iterate": "hu4",
+        "kind": "vector",
+        "member": "NHD_H_*_HU4_GDB.gdb",
+        "layer_name": "NHDArea",
+        "version": "Final static NHD (Dec 2023)",
+        "params": {
+          "hu4": {
+            "type": "list",
+            "default": "1807",
+            "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+          }
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "NHD retired Oct 1, 2023.",

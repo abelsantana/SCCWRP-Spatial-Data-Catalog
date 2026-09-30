@@ -35,6 +35,39 @@
     "mode": "stream",
     "how": "NCEI multibeam and NOS hydro MapServers; BAGs per survey"
   },
+  "fetch": {
+    "default": "bag-bathymetry",
+    "layers": {
+      "bag-bathymetry": {
+        "title": "NOS hydrographic survey BAGs mosaicked by NCEI (elevation in metres, positive up, mostly MLLW); default 4 m cells",
+        "handler": "arcgis-image",
+        "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/bag_bathymetry/ImageServer",
+        "version": "NCEI BAG mosaic (live; surveys added continuously)",
+        "resolution": 4,
+        "max_size": 4000,
+        "pixel_type": "F32",
+        "nodata": -9999,
+        "resampling": "bilinear",
+        "rendering_rule": {
+          "rasterFunction": "None"
+        }
+      },
+      "multibeam-mosaic": {
+        "title": "NCEI multibeam bathymetry mosaic, 3 arc-second (about 90 m), elevation in metres, positive up",
+        "handler": "arcgis-image",
+        "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/multibeam_mosaic/ImageServer",
+        "version": "NCEI multibeam mosaic (live)",
+        "resolution": 90,
+        "max_size": 4000,
+        "pixel_type": "F32",
+        "nodata": -9999,
+        "resampling": "bilinear",
+        "rendering_rule": {
+          "rasterFunction": "None"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

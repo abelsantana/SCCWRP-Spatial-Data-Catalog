@@ -17,10 +17,10 @@ class CatalogError(ValueError):
 
 
 SCHEMA = 1   # docs/catalog.json format this code reads; build_site.py writes the same number
-# Handlers this code has (tests/toolbox_test.py checks it matches handlers.base.HANDLERS). Kept here so reading the
+# Handlers this code has (tests/smoke.py checks it matches handlers.base.HANDLERS). Kept here so reading the
 # catalog does not import the handlers and their GIS libraries.
 KNOWN_HANDLERS = {'arcgis-features', 'arcgis-image', 'download', 'download-template', 'local', 'wcs', 'opendap',
-                  'cog-tiles', 'ept', 'streamcat'}
+                  'cog-tiles', 'ept', 'streamcat', 'sda'}
 TIMEOUT = (3, 10)   # seconds to connect, to read: a slow network must not hold up opening the tools
 
 _status = {}
@@ -144,6 +144,16 @@ def layers(dataset_id):
         raise CatalogError(f'{dataset_id} has no "fetch" block yet, so the tools cannot get it. '
                            f'Use the links in the catalog: {entry["access"]["how"]}')
     return fetch['layers'], fetch.get('default') or next(iter(fetch['layers']))
+
+
+VECTOR_HANDLERS = {'arcgis-features', 'streamcat', 'sda'}
+
+
+def layer_kind(spec):
+    """'vector', 'raster' or 'pointcloud': the layer's own "kind", or the one its handler always returns."""
+    if spec.get('kind'):
+        return spec['kind']
+    return 'vector' if spec['handler'] in VECTOR_HANDLERS else 'pointcloud' if spec['handler'] == 'ept' else 'raster'
 
 
 def layer_spec(dataset_id, layer=None):

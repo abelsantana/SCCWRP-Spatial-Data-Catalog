@@ -30,6 +30,31 @@
     "mode": "stream",
     "how": "EPA ECHO services and weekly outfall layer zip"
   },
+  "fetch": {
+    "default": "npdes-individual-permits",
+    "layers": {
+      "npdes-individual-permits": {
+        "title": "NPDES individual-permit facilities (ECHO CWA facilities with an individual permit)",
+        "handler": "arcgis-features",
+        "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+        "where": "CWP_PERMIT_TYPE_DESC = 'NPDES Individual Permit'",
+        "version": "ECHO, updated weekly"
+      },
+      "potws": {
+        "title": "Publicly owned treatment works (ECHO CWA facilities flagged POTW)",
+        "handler": "arcgis-features",
+        "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+        "where": "CWP_FACILITY_TYPE_INDICATOR = 'POTW'",
+        "version": "ECHO, updated weekly"
+      },
+      "cwa-facilities": {
+        "title": "All ECHO Clean Water Act facilities (includes general-permit and stormwater sites)",
+        "handler": "arcgis-features",
+        "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+        "version": "ECHO, updated weekly"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "ECHO REST web services"

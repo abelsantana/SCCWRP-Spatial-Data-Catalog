@@ -22,7 +22,7 @@ HANDLER_KEYS = {
     'arcgis-features': ['url'], 'arcgis-image': ['url'],
     'wcs': ['url', 'coverage', 'native_crs', 'resolution'], 'opendap': ['url', 'variable', 'x', 'y', 'crs'],
     'cog-tiles': ['url_template', 'tile_scheme', 'crs'], 'ept': ['url'],
-    'streamcat': ['url', 'catchments'], 'download': ['url', 'kind'],
+    'streamcat': ['url', 'catchments'], 'sda': ['url'], 'download': ['url', 'kind'],
     'download-template': ['url_template', 'iterate', 'kind', 'member'], 'local': ['holding', 'kind'],
 }
 PARAM_TYPES = {'int', 'str', 'choice', 'list', 'dates'}

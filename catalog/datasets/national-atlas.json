@@ -30,6 +30,18 @@
     "mode": "download-on-demand",
     "how": "Frozen small-scale files from ScienceBase / TNM"
   },
+  "fetch": {
+    "layers": {
+      "states-2m": {
+        "title": "State boundaries, 1:2,000,000 (National Atlas statesp020)",
+        "handler": "download",
+        "url": "https://pubs.usgs.gov/of/2009/1151/data/basemap/statesp020.zip",
+        "kind": "vector",
+        "member": "statesp020.shp",
+        "version": "National Atlas statesp020 (frozen)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "TNM Access API (Small-scale Datasets)"

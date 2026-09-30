@@ -25,6 +25,23 @@
     "mode": "stream",
     "how": "Water Board Regional_Board_Boundary FeatureServer"
   },
+  "fetch": {
+    "default": "boundaries",
+    "layers": {
+      "boundaries": {
+        "title": "Regional Water Board boundaries (regions 1-9)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer/1",
+        "version": "Current (2026-03)"
+      },
+      "offices": {
+        "title": "Regional Water Board offices (points)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer/0",
+        "version": "Current (2026-03)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Shapefile item on landing page"

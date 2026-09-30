@@ -30,6 +30,16 @@
     "mode": "stream",
     "how": "Predicted conductivity FeatureServer by COMID; predictor table is a small download"
   },
+  "fetch": {
+    "layers": {
+      "predicted-ec": {
+        "title": "Predicted background conductivity (EC) by NHDPlus V2 flowline",
+        "handler": "arcgis-features",
+        "url": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/PredECHydroline/FeatureServer/0",
+        "version": "2019 model; predictions 2020"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

@@ -30,6 +30,47 @@
     "mode": "stream",
     "how": "EPA ecoregions MapServer; small zips on S3"
   },
+  "fetch": {
+    "default": "level4-ca",
+    "layers": {
+      "level4-ca": {
+        "title": "Level IV ecoregions of California (polygons)",
+        "handler": "download",
+        "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l4.zip",
+        "kind": "vector",
+        "member": "ca_eco_l4.shp",
+        "version": "California 2012 publication"
+      },
+      "level3-ca": {
+        "title": "Level III ecoregions of California (polygons)",
+        "handler": "download",
+        "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l3.zip",
+        "kind": "vector",
+        "member": "ca_eco_l3.shp",
+        "version": "California 2012 publication"
+      },
+      "level4-us": {
+        "title": "Level IV ecoregions, conterminous US (EPA map service)",
+        "handler": "arcgis-features",
+        "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer/7",
+        "version": "EPA map service (December 2011 Level IV)"
+      },
+      "level3-us": {
+        "title": "Level III ecoregions, conterminous US (EPA map service)",
+        "handler": "arcgis-features",
+        "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer/11",
+        "version": "EPA map service (December 2011 Level III)"
+      },
+      "cec-level3": {
+        "title": "CEC North American Level III ecoregions",
+        "handler": "download",
+        "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/cec_na/NA_CEC_Eco_Level3.zip",
+        "kind": "vector",
+        "member": "NA_CEC_Eco_Level3.shp",
+        "version": "CEC North America Level III"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "Old gaftp paths dead.",

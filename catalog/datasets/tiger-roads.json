@@ -30,6 +30,53 @@
     "mode": "stream",
     "how": "TIGERweb services and pygris / tigris (any vintage via year=)"
   },
+  "fetch": {
+    "default": "primary-roads",
+    "layers": {
+      "primary-roads": {
+        "title": "Primary roads (interstates and other limited-access highways), TIGERweb current",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/2",
+        "version": "TIGERweb, January 1, 2026"
+      },
+      "secondary-roads": {
+        "title": "Secondary roads (US, state and county highways), TIGERweb current",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/6",
+        "version": "TIGERweb, January 1, 2026"
+      },
+      "local-roads": {
+        "title": "Local roads (neighbourhood streets, rural roads, ramps and other minor roads), TIGERweb current",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/8",
+        "version": "TIGERweb, January 1, 2026"
+      },
+      "railroads": {
+        "title": "Railroads, TIGERweb current",
+        "handler": "arcgis-features",
+        "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/9",
+        "version": "TIGERweb, January 1, 2026"
+      },
+      "prisec-roads-by-year": {
+        "title": "Primary and secondary roads for California, TIGER/Line shapefile of a chosen vintage",
+        "handler": "download-template",
+        "url_template": "https://www2.census.gov/geo/tiger/TIGER{year}/PRISECROADS/tl_{year}_06_prisecroads.zip",
+        "iterate": "year",
+        "kind": "vector",
+        "member": "tl_*_06_prisecroads.shp",
+        "version": "TIGER/Line (vintage from the year parameter)",
+        "params": {
+          "year": {
+            "type": "list",
+            "default": [
+              "2025"
+            ],
+            "description": "TIGER/Line vintage(s), 2011 or later, e.g. 2011,2018,2025"
+          }
+        }
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",

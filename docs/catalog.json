@@ -33,9 +33,50 @@
     "mode": "stream",
     "how": "Basin Plan beneficial uses MapServer and regional FeatureServers"
    },
+   "fetch": {
+    "default": "r4-lines",
+    "layers": {
+     "r4-lines": {
+      "title": "Los Angeles Region (4) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Los_Angeles_Basin_Plan_Beneficial_Uses/FeatureServer/1",
+      "version": "Region 4 Basin Plan service (current)"
+     },
+     "r4-polygons": {
+      "title": "Los Angeles Region (4) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Los_Angeles_Basin_Plan_Beneficial_Uses/FeatureServer/3",
+      "version": "Region 4 Basin Plan service (current)"
+     },
+     "r8-lines": {
+      "title": "Santa Ana Region (8) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_8S/FeatureServer/1",
+      "version": "Region 8 Basin Plan service (current)"
+     },
+     "r8-polygons": {
+      "title": "Santa Ana Region (8) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_8S/FeatureServer/3",
+      "version": "Region 8 Basin Plan service (current)"
+     },
+     "r9-lines": {
+      "title": "San Diego Region (9) Basin Plan waterbodies, lines (streams, rivers), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_9S/FeatureServer/1",
+      "version": "Region 9 Basin Plan service (current)"
+     },
+     "r9-polygons": {
+      "title": "San Diego Region (9) Basin Plan waterbodies, polygons (lakes, bays, estuaries, coastal waters), one feature per waterbody",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/BP_BeneficialUses_9S/FeatureServer/3",
+      "version": "Region 9 Basin Plan service (current)"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
-   "notes": "Region4L.gdb-style older files are not online; keep if needed.",
+   "notes": "Region4L.gdb-style older files are not online; keep if needed. The statewide MapServer answers queries without geometry, so fetch layers use the regional FeatureServers (Regions 4, 8 and 9; the other regions have matching services). Use designations are in each regional service's WB_BenUses table (join on wbf_id); fetched layers carry the waterbodies only.",
    "last_reviewed": "2026-09-29"
   },
   {
@@ -70,6 +111,30 @@
    "access": {
     "mode": "stream",
     "how": "CDT city boundaries FeatureServer"
+   },
+   "fetch": {
+    "default": "city-boundaries",
+    "layers": {
+     "city-boundaries": {
+      "title": "Incorporated city boundaries, land only (CDTFA / CDT)",
+      "handler": "arcgis-features",
+      "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2",
+      "where": "OFFSHORE IS NULL",
+      "version": "Current (CDT, updated monthly)"
+     },
+     "city-boundaries-with-water": {
+      "title": "Incorporated city boundaries including bay and ocean portions (CDT \"blue\" version)",
+      "handler": "arcgis-features",
+      "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2",
+      "version": "Current (CDT, updated monthly)"
+     },
+     "urban-areas-2020": {
+      "title": "Census 2020 urban areas",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/88",
+      "version": "2020 Census"
+     }
+    }
    },
    "packages": [],
    "other_access": [],
@@ -153,6 +218,25 @@
     "mode": "stream",
     "how": "CAL FIRE / CDT county FeatureServers"
    },
+   "fetch": {
+    "default": "counties",
+    "layers": {
+     "counties": {
+      "title": "California county boundaries (current, CA Dept. of Technology)",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer/0",
+      "version": "California Counties 26_2 (May 2026)"
+     },
+     "cnty24k09": {
+      "title": "CAL FIRE county boundaries cnty24k09 (1:24,000, 2009), polygons",
+      "handler": "download",
+      "url": "https://gisarchive.cnra.ca.gov/iso/Boundaries/Boundaries_%28project%29/CountyBoundaries2009/cnty24k09_1_shp.zip",
+      "kind": "vector",
+      "member": "cnty24k09_1_poly.shp",
+      "version": "cnty24k09_1 (2009)"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "",
@@ -231,6 +315,16 @@
    "access": {
     "mode": "stream",
     "how": "CEC Power_Plant FeatureServer"
+   },
+   "fetch": {
+    "layers": {
+     "plants": {
+      "title": "California power plants (points)",
+      "handler": "arcgis-features",
+      "url": "https://services3.arcgis.com/bWPjFyq029ChCGur/arcgis/rest/services/Power_Plant/FeatureServer/0",
+      "version": "Current (CEC)"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -320,6 +414,29 @@
     "mode": "stream",
     "how": "OEHHA FeatureServers (final 5.0, draft 5.0, 4.0)"
    },
+   "fetch": {
+    "default": "ces-5-0",
+    "layers": {
+     "ces-5-0": {
+      "title": "CalEnviroScreen 5.0 results by census tract (final)",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/calenviroscreen50results_F_070126_gdb/FeatureServer/2",
+      "version": "CES 5.0 final (2026-07-01)"
+     },
+     "ces-5-0-draft": {
+      "title": "Draft CalEnviroScreen 5.0 results by census tract (January 2026, superseded)",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/CES5_Draft/FeatureServer/0",
+      "version": "CES 5.0 draft (January 2026)"
+     },
+     "ces-4-0": {
+      "title": "CalEnviroScreen 4.0 results by census tract",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/CalEnviroScreen_4_0_Results_/FeatureServer/0",
+      "version": "CES 4.0 (October 2021)"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "Draft superseded; re-point analyses to the final 5.0.",
@@ -351,6 +468,35 @@
    "access": {
     "mode": "stream",
     "how": "CDFW FeatureServer (calw_poly_wm)"
+   },
+   "fetch": {
+    "default": "planning-watersheds",
+    "layers": {
+     "planning-watersheds": {
+      "title": "CalWater 2.2.1 planning watersheds, with all hydrologic region, unit, area and sub-area codes and names (CDFW)",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/calw_poly_wm/FeatureServer/0",
+      "version": "CalWater 2.2.1 (2004)"
+     },
+     "hydrologic-units": {
+      "title": "CalWater 2.2.1 hydrologic units (dissolved, State Water Board)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/1",
+      "version": "CalWater 2.2.1 (2004)"
+     },
+     "hydrologic-areas": {
+      "title": "CalWater 2.2.1 hydrologic areas (dissolved, State Water Board)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/3",
+      "version": "CalWater 2.2.1 (2004)"
+     },
+     "hydrologic-subareas": {
+      "title": "CalWater 2.2.1 hydrologic sub-areas (dissolved, State Water Board)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/CalWater/FeatureServer/2",
+      "version": "CalWater 2.2.1 (2004)"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -390,6 +536,23 @@
    "access": {
     "mode": "stream",
     "how": "CARI v3.3 FeatureServers (CDFW BIOS)"
+   },
+   "fetch": {
+    "default": "wetlands",
+    "layers": {
+     "wetlands": {
+      "title": "CARI v3.3 wetlands and open water (polygons)",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2835_fpu/FeatureServer/0",
+      "version": "CARI v3.3 (Feb 2026)"
+     },
+     "streams": {
+      "title": "CARI v3.3 streams (lines)",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2836_fnu/FeatureServer/0",
+      "version": "CARI v3.3 (Feb 2026)"
+     }
+    }
    },
    "packages": [],
    "other_access": [],
@@ -705,6 +868,47 @@
     "mode": "stream",
     "how": "EPA ecoregions MapServer; small zips on S3"
    },
+   "fetch": {
+    "default": "level4-ca",
+    "layers": {
+     "level4-ca": {
+      "title": "Level IV ecoregions of California (polygons)",
+      "handler": "download",
+      "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l4.zip",
+      "kind": "vector",
+      "member": "ca_eco_l4.shp",
+      "version": "California 2012 publication"
+     },
+     "level3-ca": {
+      "title": "Level III ecoregions of California (polygons)",
+      "handler": "download",
+      "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l3.zip",
+      "kind": "vector",
+      "member": "ca_eco_l3.shp",
+      "version": "California 2012 publication"
+     },
+     "level4-us": {
+      "title": "Level IV ecoregions, conterminous US (EPA map service)",
+      "handler": "arcgis-features",
+      "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer/7",
+      "version": "EPA map service (December 2011 Level IV)"
+     },
+     "level3-us": {
+      "title": "Level III ecoregions, conterminous US (EPA map service)",
+      "handler": "arcgis-features",
+      "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer/11",
+      "version": "EPA map service (December 2011 Level III)"
+     },
+     "cec-level3": {
+      "title": "CEC North American Level III ecoregions",
+      "handler": "download",
+      "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/cec_na/NA_CEC_Eco_Level3.zip",
+      "kind": "vector",
+      "member": "NA_CEC_Eco_Level3.shp",
+      "version": "CEC North America Level III"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "Old gaftp paths dead.",
@@ -741,12 +945,57 @@
     }
    ],
    "access": {
-    "mode": "download-on-demand",
-    "how": "ScienceBase state subset; LANDFIRE LFPS API clips by area"
+    "mode": "stream",
+    "how": "LANDFIRE ImageServers (EVT, EVC, EVH), clipped by area; GAP NTE 2011 from ScienceBase state subsets"
+   },
+   "fetch": {
+    "default": "evt",
+    "layers": {
+     "evt": {
+      "title": "LANDFIRE Existing Vegetation Type, LF2025 (30 m class codes; successor to GAP land cover)",
+      "handler": "arcgis-image",
+      "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVT_CONUS/ImageServer",
+      "version": "LANDFIRE LF2025",
+      "resolution": 30,
+      "pixel_type": "S16",
+      "nodata": -9999,
+      "resampling": "nearest"
+     },
+     "evc": {
+      "title": "LANDFIRE Existing Vegetation Cover, LF2025 (30 m class codes)",
+      "handler": "arcgis-image",
+      "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVC_CONUS/ImageServer",
+      "version": "LANDFIRE LF2025",
+      "resolution": 30,
+      "pixel_type": "S16",
+      "nodata": -9999,
+      "resampling": "nearest"
+     },
+     "evh": {
+      "title": "LANDFIRE Existing Vegetation Height, LF2025 (30 m class codes)",
+      "handler": "arcgis-image",
+      "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2025/LF2025_EVH_CONUS/ImageServer",
+      "version": "LANDFIRE LF2025",
+      "resolution": 30,
+      "pixel_type": "S16",
+      "nodata": -9999,
+      "resampling": "nearest"
+     },
+     "evt-2016": {
+      "title": "LANDFIRE Existing Vegetation Type, LF2016 Remap (30 m; nearest in time to GAP 2011)",
+      "handler": "arcgis-image",
+      "url": "https://lfps.usgs.gov/arcgis/rest/services/Landfire_LF2016/LF2016_EVT_CONUS/ImageServer",
+      "version": "LANDFIRE LF2016 Remap",
+      "resolution": 30,
+      "pixel_type": "S16",
+      "nodata": -9999,
+      "resampling": "nearest"
+     }
+    }
    },
    "packages": [],
    "other_access": [],
-   "notes": "",
+   "notes": "The tools get LANDFIRE, which replaces GAP: 2025 existing vegetation type, cover and height, and the 2016 type (closest to GAP 2011). Results are class codes; read them with the LANDFIRE attribute tables. The GAP 2011 services were unreliable in testing (HTTP 502/503), so GAP itself is download only.",
    "last_reviewed": "2026-09-29"
   },
   {
@@ -819,6 +1068,25 @@
    "access": {
     "mode": "keep-local",
     "how": "SCCWRP rectified products; raw scans stream from USGS topoView / TNM"
+   },
+   "fetch": {
+    "default": "tsheet-habitats",
+    "layers": {
+     "tsheet-habitats": {
+      "title": "Historical coastal habitats mapped from NOAA T-sheets (South Coast, 1850s-1880s)",
+      "handler": "local",
+      "holding": "historical-topo-tsheets/tsheet-habitats",
+      "kind": "vector",
+      "version": "SCCWRP / SFEI South Coast T-sheet analysis (2009)"
+     },
+     "tsheet-index": {
+      "title": "Southern California T-sheet footprints and digitizing status",
+      "handler": "local",
+      "holding": "historical-topo-tsheets/tsheet-index",
+      "kind": "vector",
+      "version": "SCCWRP T-sheet index (2012)"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -942,6 +1210,32 @@
     "mode": "keep-local",
     "how": "Legacy SDSU site may disappear; small, keep local"
    },
+   "fetch": {
+    "default": "tijuana-watershed",
+    "layers": {
+     "tijuana-watershed": {
+      "title": "Tijuana River watershed boundary (US and Mexico)",
+      "handler": "local",
+      "holding": "mexico-tijuana/tijuana-watershed",
+      "kind": "vector",
+      "version": "SDSU Tijuana River watershed GIS (legacy)"
+     },
+     "mexico-states": {
+      "title": "Mexican states (with 1990 census attributes)",
+      "handler": "local",
+      "holding": "mexico-tijuana/mexico-states",
+      "kind": "vector",
+      "version": "Legacy SCCWRP copy (1990s)"
+     },
+     "shoreline": {
+      "title": "Mexico and Central America land and islands (World Vector Shoreline)",
+      "handler": "local",
+      "holding": "mexico-tijuana/shoreline",
+      "kind": "vector",
+      "version": "World Vector Shoreline (legacy copy)"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "Small; keep local copy since the SDSU site is unmaintained.",
@@ -983,6 +1277,39 @@
    "access": {
     "mode": "stream",
     "how": "NCEI multibeam and NOS hydro MapServers; BAGs per survey"
+   },
+   "fetch": {
+    "default": "bag-bathymetry",
+    "layers": {
+     "bag-bathymetry": {
+      "title": "NOS hydrographic survey BAGs mosaicked by NCEI (elevation in metres, positive up, mostly MLLW); default 4 m cells",
+      "handler": "arcgis-image",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/bag_bathymetry/ImageServer",
+      "version": "NCEI BAG mosaic (live; surveys added continuously)",
+      "resolution": 4,
+      "max_size": 4000,
+      "pixel_type": "F32",
+      "nodata": -9999,
+      "resampling": "bilinear",
+      "rendering_rule": {
+       "rasterFunction": "None"
+      }
+     },
+     "multibeam-mosaic": {
+      "title": "NCEI multibeam bathymetry mosaic, 3 arc-second (about 90 m), elevation in metres, positive up",
+      "handler": "arcgis-image",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/multibeam_mosaic/ImageServer",
+      "version": "NCEI multibeam mosaic (live)",
+      "resolution": 90,
+      "max_size": 4000,
+      "pixel_type": "F32",
+      "nodata": -9999,
+      "resampling": "bilinear",
+      "rendering_rule": {
+       "rasterFunction": "None"
+      }
+     }
+    }
    },
    "packages": [],
    "other_access": [],
@@ -1027,6 +1354,24 @@
     "mode": "download-on-demand",
     "how": "2009 county mosaics from the CNRA archive; 2010+ stream from USGS NAIPPlus ImageServer or Planetary Computer"
    },
+   "fetch": {
+    "layers": {
+     "naip-latest": {
+      "title": "Latest NAIP served by USGS (2022 in California, 0.6 m, 4-band RGB + near-infrared); not the 2009 imagery",
+      "handler": "arcgis-image",
+      "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer",
+      "version": "NAIP 2022 (California), as served by USGS NAIP Plus",
+      "resolution": 1,
+      "max_size": 4000,
+      "pixel_type": "U8",
+      "nodata": 0,
+      "resampling": "bilinear",
+      "rendering_rule": {
+       "rasterFunction": "None"
+      }
+     }
+    }
+   },
    "packages": [],
    "other_access": [
     "GEE USDA/NAIP/DOQQ"
@@ -1065,6 +1410,18 @@
    "access": {
     "mode": "download-on-demand",
     "how": "Frozen small-scale files from ScienceBase / TNM"
+   },
+   "fetch": {
+    "layers": {
+     "states-2m": {
+      "title": "State boundaries, 1:2,000,000 (National Atlas statesp020)",
+      "handler": "download",
+      "url": "https://pubs.usgs.gov/of/2009/1151/data/basemap/statesp020.zip",
+      "kind": "vector",
+      "member": "statesp020.shp",
+      "version": "National Atlas statesp020 (frozen)"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -1109,6 +1466,62 @@
    "access": {
     "mode": "stream",
     "how": "Current NHD / 3DHP services; frozen NHD archive for old vintages"
+   },
+   "fetch": {
+    "default": "flowlines",
+    "layers": {
+     "flowlines": {
+      "title": "NHD high-resolution flowlines (from the USGS HU4 geodatabase; one output per HU4)",
+      "handler": "download-template",
+      "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+      "iterate": "hu4",
+      "kind": "vector",
+      "member": "NHD_H_*_HU4_GDB.gdb",
+      "layer_name": "NHDFlowline",
+      "version": "Final static NHD (Dec 2023)",
+      "params": {
+       "hu4": {
+        "type": "list",
+        "default": "1807",
+        "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+       }
+      }
+     },
+     "waterbodies": {
+      "title": "NHD waterbodies (from the USGS HU4 geodatabase; one output per HU4)",
+      "handler": "download-template",
+      "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+      "iterate": "hu4",
+      "kind": "vector",
+      "member": "NHD_H_*_HU4_GDB.gdb",
+      "layer_name": "NHDWaterbody",
+      "version": "Final static NHD (Dec 2023)",
+      "params": {
+       "hu4": {
+        "type": "list",
+        "default": "1807",
+        "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+       }
+      }
+     },
+     "areas": {
+      "title": "NHD areas: wide rivers, canals, bays, etc. (from the USGS HU4 geodatabase; one output per HU4)",
+      "handler": "download-template",
+      "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/HU4/GDB/NHD_H_{hu4}_HU4_GDB.zip",
+      "iterate": "hu4",
+      "kind": "vector",
+      "member": "NHD_H_*_HU4_GDB.gdb",
+      "layer_name": "NHDArea",
+      "version": "Final static NHD (Dec 2023)",
+      "params": {
+       "hu4": {
+        "type": "list",
+        "default": "1807",
+        "description": "4-digit HUC(s) covering the area, comma-separated (1807 = Southern California coastal; 1806 = Central California coastal; about 120 MB each, downloaded once)"
+       }
+      }
+     }
+    }
    },
    "packages": [],
    "other_access": [],
@@ -1407,6 +1820,209 @@
     "mode": "download-on-demand",
     "how": "Clip what you need from ScienceBase editions or the MRLC viewer; legacy WMS for viewing only"
    },
+   "fetch": {
+    "default": "land-cover-2021",
+    "layers": {
+     "land-cover-2001": {
+      "title": "NLCD 2001 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2001_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2001 edition"
+     },
+     "land-cover-2004": {
+      "title": "NLCD 2004 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2004_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2004 edition"
+     },
+     "land-cover-2006": {
+      "title": "NLCD 2006 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2006_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2006 edition"
+     },
+     "land-cover-2008": {
+      "title": "NLCD 2008 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2008_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2008 edition"
+     },
+     "land-cover-2011": {
+      "title": "NLCD 2011 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2011_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2011 edition"
+     },
+     "land-cover-2013": {
+      "title": "NLCD 2013 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2013_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2013 edition"
+     },
+     "land-cover-2016": {
+      "title": "NLCD 2016 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2016_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2016 edition"
+     },
+     "land-cover-2019": {
+      "title": "NLCD 2019 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2019_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2019 edition"
+     },
+     "land-cover-2021": {
+      "title": "NLCD 2021 land cover, 30 m (2021 release)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_download/wcs",
+      "coverage": "mrlc_download:NLCD_2021_Land_Cover_L48",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2021 edition"
+     },
+     "impervious-2001": {
+      "title": "NLCD 2001 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2001_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2001 edition"
+     },
+     "impervious-2004": {
+      "title": "NLCD 2004 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2004_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2004 edition"
+     },
+     "impervious-2006": {
+      "title": "NLCD 2006 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2006_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2006 edition"
+     },
+     "impervious-2008": {
+      "title": "NLCD 2008 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2008_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2008 edition"
+     },
+     "impervious-2011": {
+      "title": "NLCD 2011 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2011_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2011 edition"
+     },
+     "impervious-2013": {
+      "title": "NLCD 2013 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2013_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2013 edition"
+     },
+     "impervious-2016": {
+      "title": "NLCD 2016 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2016_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2016 edition"
+     },
+     "impervious-2019": {
+      "title": "NLCD 2019 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2019_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2019 edition"
+     },
+     "impervious-2021": {
+      "title": "NLCD 2021 percent developed imperviousness (2021 release; MRLC Web Mercator copy, 30 m map units)",
+      "handler": "wcs",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wcs",
+      "coverage": "mrlc_display:NLCD_2021_Impervious_L48",
+      "native_crs": "EPSG:3857",
+      "resolution": 30,
+      "max_size": 2000,
+      "resampling": "nearest",
+      "version": "NLCD 2021 release, 2021 edition"
+     }
+    }
+   },
    "packages": [],
    "other_access": [
     "GEE USGS/NLCD_RELEASES/*"
@@ -1574,6 +2190,31 @@
     "mode": "stream",
     "how": "EPA ECHO services and weekly outfall layer zip"
    },
+   "fetch": {
+    "default": "npdes-individual-permits",
+    "layers": {
+     "npdes-individual-permits": {
+      "title": "NPDES individual-permit facilities (ECHO CWA facilities with an individual permit)",
+      "handler": "arcgis-features",
+      "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+      "where": "CWP_PERMIT_TYPE_DESC = 'NPDES Individual Permit'",
+      "version": "ECHO, updated weekly"
+     },
+     "potws": {
+      "title": "Publicly owned treatment works (ECHO CWA facilities flagged POTW)",
+      "handler": "arcgis-features",
+      "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+      "where": "CWP_FACILITY_TYPE_INDICATOR = 'POTW'",
+      "version": "ECHO, updated weekly"
+     },
+     "cwa-facilities": {
+      "title": "All ECHO Clean Water Act facilities (includes general-permit and stormwater sites)",
+      "handler": "arcgis-features",
+      "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO/Facilities/MapServer/2",
+      "version": "ECHO, updated weekly"
+     }
+    }
+   },
    "packages": [],
    "other_access": [
     "ECHO REST web services"
@@ -1614,6 +2255,32 @@
    "access": {
     "mode": "stream",
     "how": "Soil Data Access (SQL, WMS, WFS) and soilDB; gSSURGO state geodatabase only for heavy raster work"
+   },
+   "fetch": {
+    "layers": {
+     "ssurgo": {
+      "title": "SSURGO soil map unit polygons with map unit attributes (Soil Data Access)",
+      "handler": "sda",
+      "url": "https://sdmdataaccess.nrcs.usda.gov/Tabular/post.rest",
+      "columns": {
+       "mapunit": [
+        "musym",
+        "muname",
+        "mukind"
+       ],
+       "muaggatt": [
+        "hydgrpdcd",
+        "drclassdcd",
+        "flodfreqdcd",
+        "slopegradwta",
+        "aws0150wta",
+        "brockdepmin",
+        "wtdepannmin",
+        "hydclprs"
+       ]
+      }
+     }
+    }
    },
    "packages": [
     {
@@ -1659,6 +2326,29 @@
     "mode": "stream",
     "how": "USGS 3DEP ImageServer and py3dep (1 m where available)"
    },
+   "fetch": {
+    "default": "dem-1m",
+    "layers": {
+     "dem-1m": {
+      "title": "3DEP best available DEM at 1 m (in Orange County mostly the 2023 CA_CaliforniaGaps_B23 lidar, with 2018 SoCal Wildfires lidar where that is missing); the current successor to the 2011-based county DEM",
+      "handler": "arcgis-image",
+      "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+      "version": "3DEP 1 m best available (CA_CaliforniaGaps_B23, 2023)",
+      "resolution": 1,
+      "max_size": 8000,
+      "pixel_type": "F32",
+      "nodata": -9999,
+      "resampling": "bilinear"
+     },
+     "points-2011": {
+      "title": "2011 Orange County lidar point cloud (USGS Entwine copy of CA_OrangeCo_2011, the source of the 1 m county DEM)",
+      "handler": "ept",
+      "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/CA_OrangeCo_2011/ept.json",
+      "version": "CA_OrangeCo_2011",
+      "max_points": 300000000
+     }
+    }
+   },
    "packages": [
     {
      "language": "Python",
@@ -1703,6 +2393,16 @@
     "mode": "stream",
     "how": "Predicted conductivity FeatureServer by COMID; predictor table is a small download"
    },
+   "fetch": {
+    "layers": {
+     "predicted-ec": {
+      "title": "Predicted background conductivity (EC) by NHDPlus V2 flowline",
+      "handler": "arcgis-features",
+      "url": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/PredECHydroline/FeatureServer/0",
+      "version": "2019 model; predictions 2020"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "",
@@ -1729,6 +2429,43 @@
    "access": {
     "mode": "keep-local",
     "how": "Request only; keep local"
+   },
+   "fetch": {
+    "default": "ca-fishing-blocks",
+    "layers": {
+     "ca-fishing-blocks": {
+      "title": "California fishing blocks (CDFW catch reporting grid)",
+      "handler": "local",
+      "holding": "pacific-coast-fisheries/ca-fishing-blocks",
+      "kind": "vector",
+      "layer_name": "CA_Blks",
+      "version": "Fisheries Database 2015"
+     },
+     "trawl-blocks": {
+      "title": "California trawl blocks",
+      "handler": "local",
+      "holding": "pacific-coast-fisheries/trawl-blocks",
+      "kind": "vector",
+      "layer_name": "caltrawl",
+      "version": "Fisheries Database 2015"
+     },
+     "reefs": {
+      "title": "Reefs (fishing locations)",
+      "handler": "local",
+      "holding": "pacific-coast-fisheries/reefs",
+      "kind": "vector",
+      "layer_name": "Reefs",
+      "version": "Fisheries Database 2015"
+     },
+     "ports": {
+      "title": "Fishing ports (California, Oregon, Washington)",
+      "handler": "local",
+      "holding": "pacific-coast-fisheries/ports",
+      "kind": "vector",
+      "layer_name": "Ports_Final",
+      "version": "Fisheries Database 2015"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -1776,6 +2513,29 @@
     "mode": "stream",
     "how": "PAD-US MapServer and USGS feature services; ScienceBase downloads by version"
    },
+   "fetch": {
+    "default": "fee-4-1",
+    "layers": {
+     "fee-4-1": {
+      "title": "PAD-US 4.1 fee lands (ownership parcels)",
+      "handler": "arcgis-features",
+      "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_4_1/MapServer/0",
+      "version": "PAD-US 4.1"
+     },
+     "combined-4-1": {
+      "title": "PAD-US 4.1 combined (fee, easements, designations, proclamations and marine; overlapping)",
+      "handler": "arcgis-features",
+      "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_gaz_combined/MapServer/0",
+      "version": "PAD-US 4.1"
+     },
+     "fee-managers-4-0": {
+      "title": "PAD-US 4.0 fee lands by manager",
+      "handler": "arcgis-features",
+      "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US/MapServer/0",
+      "version": "PAD-US 4.0"
+     }
+    }
+   },
    "packages": [],
    "other_access": [],
    "notes": "",
@@ -1783,7 +2543,7 @@
   },
   {
    "id": "parcels",
-   "title": "Parcels (LA County 2014, San Diego, OC, Ventura)",
+   "title": "County parcels (Los Angeles, San Diego, Ventura)",
    "category": "Boundaries & reference",
    "provider": "LA County Assessor / SanGIS",
    "recommendation": "keep-local",
@@ -1818,6 +2578,36 @@
    "access": {
     "mode": "keep-local",
     "how": "Historical parcel geometry is not published; current parcels stream from county services"
+   },
+   "fetch": {
+    "default": "current-los-angeles",
+    "layers": {
+     "current-los-angeles": {
+      "title": "Los Angeles County parcels (current, Assessor)",
+      "handler": "arcgis-features",
+      "url": "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0",
+      "version": "LA County Assessor parcels (current)"
+     },
+     "current-san-diego": {
+      "title": "San Diego County parcels (current, SANDAG / SanGIS)",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Parcels/FeatureServer/0",
+      "version": "SANDAG / SanGIS parcels (current)"
+     },
+     "current-ventura": {
+      "title": "Ventura County parcels (current, County of Ventura)",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/XJ5Tb7dTYtAMoyYT/arcgis/rest/services/Parcels_Quarterly/FeatureServer/0",
+      "version": "Ventura County parcels (current)"
+     },
+     "ventura-2016": {
+      "title": "Ventura County parcels, March 2016",
+      "handler": "local",
+      "holding": "parcels/ventura-2016",
+      "kind": "vector",
+      "version": "Ventura County parcels, March 2016"
+     }
+    }
    },
    "packages": [],
    "other_access": [],
@@ -1925,6 +2715,23 @@
     "mode": "stream",
     "how": "Water Board Regional_Board_Boundary FeatureServer"
    },
+   "fetch": {
+    "default": "boundaries",
+    "layers": {
+     "boundaries": {
+      "title": "Regional Water Board boundaries (regions 1-9)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer/1",
+      "version": "Current (2026-03)"
+     },
+     "offices": {
+      "title": "Regional Water Board offices (points)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer/0",
+      "version": "Current (2026-03)"
+     }
+    }
+   },
    "packages": [],
    "other_access": [
     "Shapefile item on landing page"
@@ -1958,6 +2765,47 @@
    "access": {
     "mode": "stream",
     "how": "SANDAG / SanGIS hosted FeatureServers"
+   },
+   "fetch": {
+    "default": "municipal-boundaries",
+    "layers": {
+     "municipal-boundaries": {
+      "title": "Municipal (city) boundaries, San Diego County",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Municipal_Boundaries/FeatureServer/0",
+      "version": "Current (SanGIS/SANDAG)"
+     },
+     "military-facilities": {
+      "title": "Military-owned and leased lands",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Military_Facilities/FeatureServer/0",
+      "version": "Current (SanGIS/SANDAG)"
+     },
+     "zip-codes": {
+      "title": "ZIP Code areas (approximate, SanGIS)",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Zipcodes/FeatureServer/0",
+      "version": "Current (SanGIS/SANDAG)"
+     },
+     "hydrologic-basins": {
+      "title": "Hydrologic basins (Calwater 2.2.1 HU/HA/HSA)",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Hydrological_Basins/FeatureServer/0",
+      "version": "Calwater 2.2.1 (2004)"
+     },
+     "land-use-2025": {
+      "title": "Existing land use, 2025 inventory",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Land_Use_2025/FeatureServer/0",
+      "version": "SANDAG land use inventory 2025"
+     },
+     "storm-drains": {
+      "title": "Storm drain conveyances, City of San Diego",
+      "handler": "arcgis-features",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Drain_Conveyance/FeatureServer/0",
+      "version": "Current (City of San Diego Stormwater)"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -1997,6 +2845,96 @@
    "access": {
     "mode": "keep-local",
     "how": "2008 and earlier are not online; current years stream from SCAG services"
+   },
+   "fetch": {
+    "default": "current-la",
+    "layers": {
+     "current-la": {
+      "title": "Los Angeles County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_LA/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "current-orange": {
+      "title": "Orange County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_OR/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "current-riverside": {
+      "title": "Riverside County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_RV/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "current-san-bernardino": {
+      "title": "San Bernardino County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_SB/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "current-ventura": {
+      "title": "Ventura County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_VN/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "current-imperial": {
+      "title": "Imperial County existing land use 2024 (parcels, SCAG)",
+      "handler": "arcgis-features",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services/LDX/Existinglanduse_poly_IM/MapServer/0",
+      "version": "SCAG 2024 Existing Land Use"
+     },
+     "lu-2001": {
+      "title": "Land use 2001, six-county SCAG region (with 1990 and 1993 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2001",
+      "kind": "vector",
+      "version": "SCAG 2001 land use"
+     },
+     "lu-2008-la": {
+      "title": "Los Angeles County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-la",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     },
+     "lu-2008-orange": {
+      "title": "Orange County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-orange",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     },
+     "lu-2008-riverside": {
+      "title": "Riverside County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-riverside",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     },
+     "lu-2008-san-bernardino": {
+      "title": "San Bernardino County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-san-bernardino",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     },
+     "lu-2008-ventura": {
+      "title": "Ventura County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-ventura",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     },
+     "lu-2008-imperial": {
+      "title": "Imperial County land use 2008 (parcels, with 1990-2005 codes)",
+      "handler": "local",
+      "holding": "scag-land-use/lu-2008-imperial",
+      "kind": "vector",
+      "version": "SCAG 2008 land use"
+     }
+    }
    },
    "packages": [],
    "other_access": [
@@ -2272,6 +3210,53 @@
     "mode": "stream",
     "how": "TIGERweb vintage services, Census API, pygris / censusdis"
    },
+   "fetch": {
+    "default": "tracts",
+    "layers": {
+     "tracts": {
+      "title": "Census tracts",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/8",
+      "version": "TIGERweb Current (January 1, 2026 vintage)"
+     },
+     "block-groups": {
+      "title": "Census block groups",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/10",
+      "version": "TIGERweb Current (January 1, 2026 vintage)"
+     },
+     "blocks-2020": {
+      "title": "2020 Census blocks",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/12",
+      "version": "2020 Census"
+     },
+     "places": {
+      "title": "Incorporated places (cities)",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/28",
+      "version": "TIGERweb Current (January 1, 2026 vintage)"
+     },
+     "cdps": {
+      "title": "Census designated places (unincorporated communities)",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/30",
+      "version": "TIGERweb Current (January 1, 2026 vintage)"
+     },
+     "zctas": {
+      "title": "2020 ZIP Code Tabulation Areas (ZCTAs)",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/2",
+      "version": "2020 Census"
+     },
+     "counties": {
+      "title": "Counties",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/tigerWMS_Current/MapServer/82",
+      "version": "TIGERweb Current (January 1, 2026 vintage)"
+     }
+    }
+   },
    "packages": [
     {
      "language": "Python",
@@ -2317,6 +3302,53 @@
    "access": {
     "mode": "stream",
     "how": "TIGERweb services and pygris / tigris (any vintage via year=)"
+   },
+   "fetch": {
+    "default": "primary-roads",
+    "layers": {
+     "primary-roads": {
+      "title": "Primary roads (interstates and other limited-access highways), TIGERweb current",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/2",
+      "version": "TIGERweb, January 1, 2026"
+     },
+     "secondary-roads": {
+      "title": "Secondary roads (US, state and county highways), TIGERweb current",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/6",
+      "version": "TIGERweb, January 1, 2026"
+     },
+     "local-roads": {
+      "title": "Local roads (neighbourhood streets, rural roads, ramps and other minor roads), TIGERweb current",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/8",
+      "version": "TIGERweb, January 1, 2026"
+     },
+     "railroads": {
+      "title": "Railroads, TIGERweb current",
+      "handler": "arcgis-features",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer/9",
+      "version": "TIGERweb, January 1, 2026"
+     },
+     "prisec-roads-by-year": {
+      "title": "Primary and secondary roads for California, TIGER/Line shapefile of a chosen vintage",
+      "handler": "download-template",
+      "url_template": "https://www2.census.gov/geo/tiger/TIGER{year}/PRISECROADS/tl_{year}_06_prisecroads.zip",
+      "iterate": "year",
+      "kind": "vector",
+      "member": "tl_*_06_prisecroads.shp",
+      "version": "TIGER/Line (vintage from the year parameter)",
+      "params": {
+       "year": {
+        "type": "list",
+        "default": [
+         "2025"
+        ],
+        "description": "TIGER/Line vintage(s), 2011 or later, e.g. 2011,2018,2025"
+       }
+      }
+     }
+    }
    },
    "packages": [
     {

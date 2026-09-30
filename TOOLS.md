@@ -3,7 +3,7 @@
 Get a catalog dataset for an area (a county, a watershed, a Regional Board region, a layer in your map, or a shape you draw) straight from the provider, clipped and in the coordinate system you want. The ArcGIS Pro toolbox, the Python package and the command line all use the same engine (`sccwrp_data/`) and the same catalog (`catalog/`).
 
 Status (2026-09-30):
-- The engine, toolbox, command line and data view (a map-based web interface) work. They're tested with one dataset per access path, plus the fast tier (15 smoke cases below, a toolbox test and a browser test).
+- The engine, toolbox, command line and data view (a map-based web interface) work. They're tested with one dataset per access path, plus the fast tier (16 smoke cases below, a toolbox test and a browser test).
 - The fast tier holds NHDPlus V2.1, WBD and the marine layers.
 - The rest of the catalog gets a `fetch` block once the S-drive audit decisions say which datasets stay, move or are linked.
 
@@ -125,13 +125,14 @@ Each access path is one handler in `sccwrp_data/handlers/`. `tests/smoke.py` run
 | `opendap` | THREDDS OPeNDAP (DAP2), only the rows and columns needed | `noaa-tsunami-dems/san-diego` | drawn box | NetCDF grid |
 | `ept` | Entwine point cloud: only the octree nodes that overlap the area | `la-river-lidar-2016/points` | drawn box | point cloud |
 | `streamcat` | REST API keyed by catchment IDs, joined to catchments | `watershed-metric-resources/streamcat` | HUC10 | table + polygons |
+| `sda` | Soil Data Access SQL: map unit polygons plus attributes | `nrcs-soils/ssurgo` | HUC12 | polygons |
 | `download` | Zip fetched once, then clipped | `shorelines/shoreline-1998` | county with coastal waters | lines |
 | `download-template` | One download per parameter value (dates) | `prism-daily/daily` | Southern California | raster time series |
 | `local` | SCCWRP's own copy on the server | `cpad/units` | county | polygons |
 | `local` | Same, for a legacy ESRI grid | `ca-seafloor-mapping/la-jolla-bathymetry` | county with coastal waters | raster |
 
 ```
-python tests/smoke.py              # all 15 (about 2 minutes when providers are responsive)
+python tests/smoke.py              # all 16 (about 2 minutes when providers are responsive)
 python tests/smoke.py opendap      # cases whose name or dataset matches
 python tests/smoke.py --refresh    # ignore the cache
 python tests/toolbox_test.py       # runs the Pro toolbox tools through arcpy
@@ -165,6 +166,7 @@ Outputs go to `tests/output/`, which is not version-controlled.
    | `cog-tiles` | `url_template` with `{tile}`, `tile_scheme` (`usgs-1deg`), `crs` | `resampling` |
    | `ept` | `url` (ept.json) | `max_points` |
    | `streamcat` | `url`, `catchments` (`url`, `id_field`) | |
+   | `sda` | `url` (the `Tabular/post.rest` endpoint) | `columns` (map unit attributes joined by `mukey`, as `{table: [column, ...]}`) |
    | `download` | `url`, `kind` (`vector`/`raster`) | `member` (file name or pattern in the zip), `layer_name`, `resampling` |
    | `download-template` | `url_template`, `iterate`, `kind`, `member` | `min_interval_s` |
    | `local` | `holding` (key in the internal holdings file), `kind` | `layer_name`, `resampling` |
@@ -182,4 +184,14 @@ A new kind of service needs a new handler: a function decorated with `@handler('
 - **ArcGIS Pro's default Python has no remote access in its NetCDF library, and its PDAL remote reader times out.** So `opendap` speaks DAP2 itself and `ept` walks the Entwine index itself, both over the shared HTTP session.
 - **Esri's GDAL has no ESRI grid driver (AIG).** The `local` handler copies a grid to a temporary folder and converts it with arcpy. Grids and coverages on the share would be better converted to GeoTIFF / COG during the server move.
 - **Annual NLCD has a straight north–south seam** in the San Gabriel Mountains (HUC10 1807010501): shrub versus grass shares jump along a line in 2019 and 2024 but not in 2001. It's in MRLC's data, not our processing.
+- **Soil Data Access sends polygon outlines slowly** (about 1 MB, or 25,000 vertices, per 15 s per request). Finding the polygons takes a second, and `sda` then asks for their outlines four batches at a time: a HUC12 takes 5–20 seconds, Orange County (10,752 polygons) about 3 minutes. Areas with 100,000 polygons or more are refused; use the gSSURGO state geodatabase for those.
+- **The USGS NHD map service is too slow for area queries**, like NHDPlus HR. Flowlines return 504 errors for a county, and waterbodies and areas take 2–5 minutes. `nhd-legacy` reads all three from the HU4 geodatabases on the USGS bucket instead (about 115 MB each, downloaded once).
+- **The Water Board's statewide Basin Plan map service returns no geometry.** Queries answer with attributes only, so the regional hosted feature services are used. The beneficial-use codes are in each regional service's `WB_BenUses` table (join on `wbf_id`), not in the fetched layers.
+- **TIGERweb repeats each layer at several scales** (for example Transportation layers 1/2, 4–6 and 7/8 return the same roads). County and tract clips pick up slivers of neighbouring units along the edge; use `method=intersects` or filter by GEOID for a clean set.
+- **The CDT city boundaries store bay and ocean portions as separate features** (`OFFSHORE` = bay or ocean). The default layer filters them out.
+- **MRLC GeoServer:** the full GetCapabilities times out; the workspace endpoints (`/geoserver/mrlc_download/ows`) answer in about a second. Legacy impervious in `mrlc_download` marks 0% as nodata, so `nlcd-legacy` uses the `mrlc_display` copy, which is stored in Web Mercator (output cells about 24.7 m unless `resolution=30` is asked for).
+- **USGS NAIP Plus serves only the latest vintage per place** (2022 in California). NAIP 2009 exists only in the CNRA archive, as county MrSID mosaics or uncompressed quarter-quad tiles.
+- **The 3DEP ImageServer at 1 m in Orange County uses the 2023 and 2018 lidar**, not the 2011 county survey; `oc-dem-1m/points-2011` gets the 2011 point cloud.
+- **NCEI's bathymetry image services default to a coloured hillshade**, so their layers set `rendering_rule` to `None` to get depths. `bag_bathymetry` switches to overviews above about 16 m cells.
+- **Not fetchable yet:** NOAA's coastal lidar and IfSAR DEMs (one VRT per UTM zone on S3; would need a single-file mode in `cog-tiles`), GMTED2010 (30° × 20° uncompressed tiles split at 120° W), USGS DOQQs (EarthExplorer login), National Atlas 1:1M layers (`.tar.gz` only) and ECHO's NPDES outfalls (a 368 MB CSV of coordinates).
 - **Point clouds are large.** Requests above 300 million points (per-dataset `max_points`) are refused within seconds, with a suggestion to thin the cloud or use a smaller area. All of Los Angeles County is more than 950 million points from the 2016 survey alone.

@@ -25,6 +25,47 @@
     "mode": "stream",
     "how": "SANDAG / SanGIS hosted FeatureServers"
   },
+  "fetch": {
+    "default": "municipal-boundaries",
+    "layers": {
+      "municipal-boundaries": {
+        "title": "Municipal (city) boundaries, San Diego County",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Municipal_Boundaries/FeatureServer/0",
+        "version": "Current (SanGIS/SANDAG)"
+      },
+      "military-facilities": {
+        "title": "Military-owned and leased lands",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Military_Facilities/FeatureServer/0",
+        "version": "Current (SanGIS/SANDAG)"
+      },
+      "zip-codes": {
+        "title": "ZIP Code areas (approximate, SanGIS)",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Zipcodes/FeatureServer/0",
+        "version": "Current (SanGIS/SANDAG)"
+      },
+      "hydrologic-basins": {
+        "title": "Hydrologic basins (Calwater 2.2.1 HU/HA/HSA)",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Hydrological_Basins/FeatureServer/0",
+        "version": "Calwater 2.2.1 (2004)"
+      },
+      "land-use-2025": {
+        "title": "Existing land use, 2025 inventory",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Land_Use_2025/FeatureServer/0",
+        "version": "SANDAG land use inventory 2025"
+      },
+      "storm-drains": {
+        "title": "Storm drain conveyances, City of San Diego",
+        "handler": "arcgis-features",
+        "url": "https://geo.sandag.org/server/rest/services/Hosted/Drain_Conveyance/FeatureServer/0",
+        "version": "Current (City of San Diego Stormwater)"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "SANDAG Data Warehouse app"

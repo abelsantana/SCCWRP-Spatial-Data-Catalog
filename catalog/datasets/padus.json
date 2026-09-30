@@ -37,6 +37,29 @@
     "mode": "stream",
     "how": "PAD-US MapServer and USGS feature services; ScienceBase downloads by version"
   },
+  "fetch": {
+    "default": "fee-4-1",
+    "layers": {
+      "fee-4-1": {
+        "title": "PAD-US 4.1 fee lands (ownership parcels)",
+        "handler": "arcgis-features",
+        "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_4_1/MapServer/0",
+        "version": "PAD-US 4.1"
+      },
+      "combined-4-1": {
+        "title": "PAD-US 4.1 combined (fee, easements, designations, proclamations and marine; overlapping)",
+        "handler": "arcgis-features",
+        "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_gaz_combined/MapServer/0",
+        "version": "PAD-US 4.1"
+      },
+      "fee-managers-4-0": {
+        "title": "PAD-US 4.0 fee lands by manager",
+        "handler": "arcgis-features",
+        "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US/MapServer/0",
+        "version": "PAD-US 4.0"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",
