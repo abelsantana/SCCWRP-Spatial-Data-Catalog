@@ -8,7 +8,6 @@ Add Live Layer  add a provider's live service to the map without downloading any
 Works in ArcGIS Pro's default Python environment (arcgispro-py3). The tools read the catalog in ../catalog and
 the engine in ../sccwrp_data, so keep this file inside the repository.
 """
-import importlib
 import sys
 from pathlib import Path
 
@@ -76,9 +75,14 @@ def _layer_items(dataset_id, kinds=None):
 
 
 def _reload():
-    """Pick up edits to the engine without restarting Pro."""
-    for name in sorted([m for m in sys.modules if m == 'sccwrp_data' or m.startswith('sccwrp_data.')], reverse=True):
-        importlib.reload(sys.modules[name])
+    """Pick up edits to the engine without restarting Pro: drop its modules so the next import reads them afresh.
+
+    Pro may run a tool with a different sys.path than it loaded the toolbox with, so the repo is put back first.
+    """
+    if str(REPO) not in sys.path:
+        sys.path.insert(0, str(REPO))
+    for name in [m for m in sys.modules if m == 'sccwrp_data' or m.startswith('sccwrp_data.')]:
+        del sys.modules[name]
 
 
 class Toolbox:
