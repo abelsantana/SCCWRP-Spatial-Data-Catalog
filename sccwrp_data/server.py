@@ -34,6 +34,7 @@ import shapely
 from . import __version__, config
 from . import clipareas
 from .clipareas import areas, choices, resolve
+from . import entries
 from .entries import CatalogError, catalog
 from .request import get
 from .stage import staged_list
@@ -106,6 +107,7 @@ def _area_arg(area):
 
 
 def _catalog_payload():
+    source = entries.reload()   # the page is opening: pick up anything pushed since the service started
     staged = {(m['dataset'], m['layer']): m for m in staged_list()}
     out = []
     for e in catalog(fetchable_only=True):
@@ -123,7 +125,8 @@ def _catalog_payload():
                     'recommendation': e['recommendation'], 'access': e['access'], 'versions': e['versions'],
                     'notes': e.get('notes', ''), 'default_layer': e['fetch'].get('default') or lays[0]['id'],
                     'landing': next((l['url'] for l in e['links'] if l['role'] == 'landing'), None), 'layers': lays})
-    return {'datasets': out, 'default_crs': config.DEFAULT_CRS, 'version': __version__}
+    return {'datasets': out, 'default_crs': config.DEFAULT_CRS, 'version': __version__,
+            'catalog_source': source}
 
 
 def _area_geojson(spec):

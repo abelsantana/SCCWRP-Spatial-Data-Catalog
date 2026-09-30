@@ -33,7 +33,7 @@ Where SCCWRP's own copies live on internal servers is **not** in this repository
    python scripts/check_links.py --only <id>
    python scripts/build_site.py
    ```
-4. Open a pull request. The CI workflow validates the catalog and rebuilds the page.
+4. Commit the rebuilt `docs/` with your change and open a pull request. CI validates the catalog and fails if `docs/` is out of date. Once merged, the tools pick up the change the next time they start.
 
 ## Repository layout
 
@@ -47,6 +47,7 @@ toolbox/                  ArcGIS Pro toolbox (SCCWRP Data.pyt)
 tests/                    smoke.py (one real request per access path), toolbox_test.py
 scripts/                  validate_catalog.py, check_links.py, build_site.py
 docs/index.html           generated catalog page (GitHub Pages source)
+docs/catalog.json         generated; the tools download it on start-up
 .github/workflows/        CI and the weekly link check
 ```
 

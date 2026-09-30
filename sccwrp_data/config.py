@@ -63,6 +63,25 @@ def max_age_days():
     return float(_setting('SCCWRP_DATA_MAX_AGE_DAYS', 'max_age_days', 60))
 
 
+CATALOG_URL = ('https://raw.githubusercontent.com/abelsantana/SCCWRP-Spatial-Data-Catalog/main/docs/catalog.json')
+
+
+def catalog_source():
+    """Where dataset entries come from: 'local' (the catalog/ folder next to this code) or a URL.
+
+    Defaults to the published catalog on GitHub, so a pushed fix reaches everyone without reinstalling. A git checkout
+    defaults to 'local', so the entries being edited are the ones used.
+    """
+    default = 'local' if (REPO / '.git').exists() else CATALOG_URL
+    s = _setting('SCCWRP_DATA_CATALOG', 'catalog', default)
+    return CATALOG_URL if s == 'github' else s
+
+
+def catalog_copy():
+    """Last catalog downloaded from GitHub, used when GitHub cannot be reached."""
+    return Path(os.environ.get('LOCALAPPDATA', Path.home() / '.cache')) / 'sccwrp-data' / 'catalog.json'
+
+
 def holdings_file():
     """Internal file that maps keep-local layers to server paths. Not part of this public repo.
 

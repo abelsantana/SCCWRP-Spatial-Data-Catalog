@@ -25,7 +25,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898299+github-actions[bot]@users.noreply.github.com"
-          git add catalog/link_status.json docs/index.html
+          git add catalog/link_status.json docs/index.html docs/catalog.json
           git diff --cached --quiet || git commit -m "Weekly link check $(date -u +%F)"
           git push
       - name: Open an issue for broken links

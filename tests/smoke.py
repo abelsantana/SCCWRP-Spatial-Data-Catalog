@@ -18,6 +18,7 @@ from shapely.geometry import box
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import sccwrp_data as sd  # noqa: E402
+from sccwrp_data import entries  # noqa: E402
 from sccwrp_data.entries import layer_spec  # noqa: E402
 from sccwrp_data.handlers.base import HANDLERS  # noqa: E402
 
@@ -79,6 +80,8 @@ def check(result, want):
 
 
 def main():
+    missing = (set(HANDLERS) - {'staged'}) ^ entries.KNOWN_HANDLERS   # staged: fast tier only, never in entries
+    assert not missing, f'entries.KNOWN_HANDLERS out of step with the handlers: {sorted(missing)}'
     ap = argparse.ArgumentParser()
     ap.add_argument('only', nargs='*')
     ap.add_argument('--refresh', action='store_true')

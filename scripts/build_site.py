@@ -1,4 +1,4 @@
-"""Build docs/index.html (GitHub Pages) from catalog/datasets/*.json and catalog/link_status.json.
+"""Build docs/index.html (GitHub Pages) and docs/catalog.json (read by the tools) from catalog/datasets/*.json and catalog/link_status.json.
 
 Standard library only. The page is self-contained: catalog data is embedded, no external scripts.
 """
@@ -10,6 +10,8 @@ REPO = Path(__file__).resolve().parents[1]
 DATASETS = REPO / 'catalog' / 'datasets'
 STATUS = REPO / 'catalog' / 'link_status.json'
 OUT = REPO / 'docs' / 'index.html'
+FEED = REPO / 'docs' / 'catalog.json'   # what the tools download on start-up (see sccwrp_data/entries.py)
+SCHEMA = 1                              # bump with entries.SCHEMA when the format changes
 
 
 def load():
@@ -222,7 +224,9 @@ def main():
             .replace('__CHECKED__', html.escape(status.get('checked') or 'not yet')))
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(page, encoding='utf-8')
-    print(f'Wrote {OUT} ({len(datasets)} datasets)')
+    feed = {'schema': SCHEMA, 'datasets': sorted(datasets, key=lambda d: d['id'])}
+    FEED.write_text(json.dumps(feed, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+    print(f'Wrote {OUT} and {FEED.name} ({len(datasets)} datasets)')
 
 
 if __name__ == '__main__':

@@ -76,8 +76,13 @@ A repeat request is answered from the cache without contacting the provider. Tha
 | Cache folder (AppData for development; must move to a shared folder on the new server before beta) | `SCCWRP_DATA_CACHE` | `%LOCALAPPDATA%\sccwrp-data\cache` |
 | Days before a cached result is fetched again | `SCCWRP_DATA_MAX_AGE_DAYS` | 60 |
 | Internal holdings file (server paths of SCCWRP's own copies) | `SCCWRP_DATA_HOLDINGS` | `..\SDriveInventory\sdrive_holdings.json` |
+| Where dataset entries come from: `github`, `local`, or a URL | `SCCWRP_DATA_CATALOG` | `github`; `local` in a git checkout |
 
-The same keys (`cache`, `max_age_days`, `holdings`) can go in `%APPDATA%\sccwrp-data\config.json`.
+The same keys (`cache`, `max_age_days`, `holdings`, `catalog`) can go in `%APPDATA%\sccwrp-data\config.json`.
+
+### Catalog updates
+
+The tools read the published catalog (`docs/catalog.json` on GitHub) when they start, so a dataset added or fixed on `main` reaches everyone without reinstalling. The data view checks again each time the page opens. The last download is kept in `%LOCALAPPDATA%\sccwrp-data\catalog.json`. If GitHub can't be reached, the tools use that copy, and without one, the entries installed with the tools. An entry that needs a handler this install doesn't have keeps its installed version until the tools are updated. `sccwrp_data.entries.source_status()` reports which case applies. A git checkout uses its own `catalog/datasets/` unless `SCCWRP_DATA_CATALOG` says otherwise.
 
 ## Fast tier
 

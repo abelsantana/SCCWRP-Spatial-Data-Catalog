@@ -15,8 +15,10 @@ jobs:
           python-version: "3.12"
       - name: Validate catalog entries
         run: python scripts/validate_catalog.py
-      - name: Check page builds
-        run: python scripts/build_site.py
+      - name: Check page and catalog.json are up to date
+        run: |
+          python scripts/build_site.py
+          git diff --exit-code -- docs/ || { echo "Run python scripts/build_site.py and commit docs/"; exit 1; }
       - name: Check links of changed datasets
         if: github.event_name == 'pull_request'
         run: |

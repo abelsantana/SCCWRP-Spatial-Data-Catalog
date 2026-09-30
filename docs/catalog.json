@@ -1,0 +1,2611 @@
+{
+ "schema": 1,
+ "datasets": [
+  {
+   "id": "basin-plan-beneficial-uses",
+   "title": "Basin Plan beneficial uses (regions 1-9)",
+   "category": "Water quality",
+   "provider": "State Water Board",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2020-21 FGDBs; services updated to 2026",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "BP_BeneficialUses_* yes (2020 release); Region*.gdb no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.waterboards.ca.gov/resources/data_databases/basin_plan_portal.html"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://gispublic.waterboards.ca.gov/portal/home/group.html?id=2de374bd11d9468d8e8919bdaf060016"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Basin_Plan/California_Basin_Plan_Beneficial_Uses/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Basin Plan beneficial uses MapServer and regional FeatureServers"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Region4L.gdb-style older files are not online; keep if needed.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-cities",
+   "title": "California city boundaries / urban areas",
+   "category": "Boundaries & reference",
+   "provider": "CDTFA-CDT / CAL FIRE / SCAG / Census",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Updated monthly",
+    "older_versions_online": "No (Census 2000 UA yes)",
+    "sccwrp_version_online": "Partial (current only)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://gis.data.ca.gov/datasets/California::california-city-boundaries-and-identifiers"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://www2.census.gov/geo/tiger/PREVGENZ/ua/ua00shp/ua99_d00_shp.zip",
+     "label": "2000 UA"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CDT city boundaries FeatureServer"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-coastal-lidar-2009-2011",
+   "title": "CA coastal lidar / topobathy DEM 2009-2011",
+   "category": "Elevation",
+   "provider": "NOAA OCM / CA Coastal Conservancy / OPC",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2009-2011 merge (still latest statewide)",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes, same content (now COG)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.fisheries.noaa.gov/inport/item/49417"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_2011_2616/index.html"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_Interp_8684/index.html",
+     "label": "gap-filled version (ID 8684)"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=1124"
+    }
+   ],
+   "access": {
+    "mode": "read-in-place",
+    "how": "NOAA COG tiles and VRTs on public S3; ArcGIS Pro cloud storage connection or GDAL /vsicurl/"
+   },
+   "packages": [],
+   "other_access": [
+    "STAC catalog and VRTs in each bucket folder"
+   ],
+   "notes": "Confirm whether 2616 or 8684 matches (check a tile name like 11SMS860000 in the tile index).",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-counties",
+   "title": "California county boundaries (CAL FIRE cnty24k09/97)",
+   "category": "Boundaries & reference",
+   "provider": "CAL FIRE FRAP / CA Dept. of Technology",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "California Counties 26_2 (May 2026)",
+    "older_versions_online": "Yes (cnty24k97, cnty24k09 on CNRA archive)",
+    "sccwrp_version_online": "Yes (CNRA archive)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://gis.data.ca.gov/datasets/California::california-county-boundaries-and-identifiers"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://gisarchive.cnra.ca.gov/iso/Boundaries/Boundaries_%28project%29/CountyBoundaries2009/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CAL FIRE / CDT county FeatureServers"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-integrated-report",
+   "title": "CA Integrated Report / 303(d) (State Water Board)",
+   "category": "Water quality",
+   "provider": "State Water Board",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2024 IR (2026 in progress)",
+    "older_versions_online": "Yes: 2014/16, 2018, 2020-22",
+    "sccwrp_version_online": "2014/16 and later yes; pre-2014 GIS unconfirmed"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/docs/Final_2020-22_IR.gdb.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/2024_Integrated_Report_Polygons/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Water Board Integrated Report FeatureServers by cycle"
+   },
+   "fetch": {
+    "layers": {
+     "polygons": {
+      "title": "2024 Integrated Report assessed waterbodies (lakes, bays, estuaries; polygons)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/2024_Integrated_Report_Polygons/FeatureServer/0",
+      "version": "2024 Integrated Report"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-power-plants",
+   "title": "California power plants",
+   "category": "Facilities",
+   "provider": "California Energy Commission",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Current (2026-09-29)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "No (subsets must be re-filtered)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.ca.gov/dataset/california-power-plants"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services3.arcgis.com/bWPjFyq029ChCGur/arcgis/rest/services/Power_Plant/FeatureServer/0"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CEC Power_Plant FeatureServer"
+   },
+   "packages": [],
+   "other_access": [
+    "Hub download (CSV/SHP/GPKG)"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "ca-seafloor-mapping",
+   "title": "California Seafloor Mapping Program (CSUMB habitat/geology)",
+   "category": "Coastal & marine",
+   "provider": "USGS PCMSC / CSUMB SFML",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "USGS DS 781 (rev. 2025-08-22)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "USGS blocks yes; SFML products request-only"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://pubs.usgs.gov/ds/781/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://cmgds.marine.usgs.gov/data/csmp/"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://cmgds.marine.usgs.gov/data/csmp/webservices_help.html"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "CSUMB SFML products are request-only; USGS blocks download from CMGDS"
+   },
+   "fetch": {
+    "layers": {
+     "la-jolla-bathymetry": {
+      "title": "La Jolla 2 m multibeam bathymetry (CSUMB SFML)",
+      "handler": "local",
+      "holding": "ca-seafloor-mapping/la-jolla-bathymetry",
+      "kind": "raster",
+      "resampling": "bilinear"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "SFML archive offline (cbretz@csumb.edu). Keep SoCal SFML products; link USGS blocks.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "calenviroscreen",
+   "title": "CalEnviroScreen (draft 5.0)",
+   "category": "Environmental justice",
+   "provider": "OEHHA",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "CES 5.0 final (2026-07-01)",
+    "older_versions_online": "Yes: draft 5.0, 4.0, 3.0, 2.0",
+    "sccwrp_version_online": "Yes (draft still posted)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.ca.gov/dataset/calenviroscreen-5-0"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://data.ca.gov/dataset/draft-calenviroscreen-5-0",
+     "label": "our draft"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/calenviroscreen50results_F_070126_gdb/FeatureServer/2"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "OEHHA FeatureServers (final 5.0, draft 5.0, 4.0)"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Draft superseded; re-point analyses to the final 5.0.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "calwater-221",
+   "title": "CalWater 2.2.1",
+   "category": "Hydrography",
+   "provider": "CA Interagency Watershed Mapping Committee (hosted by CDFW)",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2.2.1 (2004, final)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Yes, as service/export only (Web Mercator)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data-cdfw.opendata.arcgis.com/datasets/CDFW::california-interagency-watershed-map-of-1999-calwater"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/calw_poly_wm/FeatureServer/0"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CDFW FeatureServer (calw_poly_wm)"
+   },
+   "packages": [],
+   "other_access": [
+    "Hub export (shapefile/FGDB) from landing page"
+   ],
+   "notes": "No agency offers a static file.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "cari",
+   "title": "CARI (California Aquatic Resource Inventory) v0.2 + wetlands",
+   "category": "Hydrography",
+   "provider": "SFEI",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "CARI v3.3 (Feb 2026)",
+    "older_versions_online": "No (Data Basin has a SoCal v0.2 clip)",
+    "sccwrp_version_online": "No (v0.2 superseded)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.sfei.org/data/california-aquatic-resource-inventory-cari-gis-data"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://filecloud.sfei.org/index.php/s/8kAp3ZqNBEepj56"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2835_fpu/FeatureServer/0"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CARI v3.3 FeatureServers (CDFW BIOS)"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "v0.2 is badly outdated.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "cdfw-marine",
+   "title": "CDFW Fish & Game bathymetry (2002) and MPAs",
+   "category": "Coastal & marine",
+   "provider": "CDFW (bathymetry archived at Stanford)",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "MPAs as of 2019-01-01",
+    "older_versions_online": "Dated MPA services 2016, 2018, 2019",
+    "sccwrp_version_online": "Yes (MPAs current; bathymetry via Stanford)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://wildlife.ca.gov/Conservation/Marine/GIS"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/500_599/ds582.zip"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://purl.stanford.edu/ns150wp8904"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/ArcGIS/rest/services/biosds582_fpu/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "CDFW MPA FeatureServers"
+   },
+   "fetch": {
+    "default": "mpas",
+    "layers": {
+     "mpas": {
+      "title": "Marine Protected Areas",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds582_fpu/FeatureServer/0",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "bathymetry-200m": {
+      "title": "Statewide bathymetry, 200 m (CDFW 2002)",
+      "handler": "local",
+      "holding": "cdfw-marine/bathymetry-200m",
+      "kind": "raster",
+      "resampling": "bilinear",
+      "version": "CDFW bd200m_v2 (2002)",
+      "stage": {
+       "source": "local",
+       "holding": "cdfw-marine/bathymetry-200m",
+       "extent": "ocean"
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "coastal-marine-boundaries",
+   "title": "Coastal zone, EEZ, submerged lands, offshore platforms",
+   "category": "Coastal & marine",
+   "provider": "CA Coastal Commission / NOAA OCS / BOEM / CDFW OSPR",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Current (2026)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (current versions only)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.coastal.ca.gov/open-data/"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesSHP.zip"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/300_399/ds357.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services9.arcgis.com/wwVnNW92ZHUIr0V0/arcgis/rest/services/Coastal_Zone_Boundary/FeatureServer"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gis.boem.gov/arcgis/rest/services/BOEM_BSEE/POC_Layers/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Coastal Commission, NOAA maritime limits and BOEM services"
+   },
+   "fetch": {
+    "default": "marine-regions",
+    "layers": {
+     "marine-regions": {
+      "title": "MLPA study regions",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds3178_fpu/FeatureServer/0",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "state-waters-line": {
+      "title": "Three nautical mile state maritime limit",
+      "handler": "arcgis-features",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds3158_fnu/FeatureServer/0",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "asbs": {
+      "title": "Areas of Special Biological Significance (State Water Board)",
+      "handler": "arcgis-features",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/AreasofSpecialBioSignificance/FeatureServer/0",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "coastal-zone": {
+      "title": "Coastal Zone boundary (Coastal Commission)",
+      "handler": "arcgis-features",
+      "url": "https://services9.arcgis.com/wwVnNW92ZHUIr0V0/arcgis/rest/services/Coastal_Zone_Boundary/FeatureServer/0",
+      "stage": {
+       "source": "provider",
+       "extent": "coast"
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "ds357 = CDFW BIOS \"Oil Platforms - OSPR\".",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "cpad",
+   "title": "CPAD 2023a (California Protected Areas Database)",
+   "category": "Protected areas",
+   "provider": "GreenInfo Network / CNRA",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "CPAD 2026a",
+    "older_versions_online": "CNRA archive 2008-2017a only",
+    "sccwrp_version_online": "No (2023a not public)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.ca.gov/dataset/california-protected-areas-database"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://data.cnra.ca.gov/dataset/0ae3cd9f-0612-4572-8862-9e9a1c41e659/resource/cadf9163-aa38-44ae-851a-86b35d4c6c0c/download/cpad_2026a_release.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gis.cnra.ca.gov/arcgis/rest/services/Boundaries/CPAD_AgencyLevel/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "2023a not public; current CPAD streams from the CNRA MapServer"
+   },
+   "fetch": {
+    "layers": {
+     "units": {
+      "title": "CPAD units",
+      "handler": "local",
+      "holding": "cpad/units",
+      "kind": "vector",
+      "version": "CPAD 2023a"
+     },
+     "holdings": {
+      "title": "CPAD holdings",
+      "handler": "local",
+      "holding": "cpad/holdings",
+      "kind": "vector",
+      "version": "CPAD 2023a"
+     },
+     "superunits": {
+      "title": "CPAD super units",
+      "handler": "local",
+      "holding": "cpad/superunits",
+      "kind": "vector",
+      "version": "CPAD 2023a"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Keep 2023a if reproducibility matters (small); link 2026a for new work.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "epa-attains",
+   "title": "EPA ATTAINS assessments (CA/AZ/NM/NV 20250117)",
+   "category": "Water quality",
+   "provider": "US EPA",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2026-09-03 extract",
+    "older_versions_online": "Yes, dated extracts since 2022",
+    "sccwrp_version_online": "Yes, exact files"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.epa.gov/waterdata/waters-geospatial-data-downloads"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://dmap-data-commons-ow.s3.amazonaws.com/data/attains/geospatial/fgdb/CA/ATTAINS_Assessment_CA_20250117_fgdb.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "ATTAINS_Assessment MapServer; dated extracts on S3 for reproducibility"
+   },
+   "fetch": {
+    "layers": {
+     "lines": {
+      "title": "ATTAINS assessment units, lines (streams, rivers)",
+      "handler": "arcgis-features",
+      "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/1"
+     },
+     "areas": {
+      "title": "ATTAINS assessment units, areas (lakes, bays, estuaries)",
+      "handler": "arcgis-features",
+      "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/2"
+     },
+     "points": {
+      "title": "ATTAINS assessment units, points",
+      "handler": "arcgis-features",
+      "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/0"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [
+    "ATTAINS REST API (api.data.gov key)"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "epa-ecoregions",
+   "title": "EPA Level III/IV ecoregions, CEC North America",
+   "category": "Ecoregions",
+   "provider": "US EPA ORD",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "CA 2012 publication; US 2013",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "CEC yes; CA Dec2010 pre-release no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.epa.gov/eco-research/level-iii-and-iv-ecoregions-state"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l4.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "EPA ecoregions MapServer; small zips on S3"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Old gaftp paths dead.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "gap-landfire",
+   "title": "USGS GAP/LANDFIRE land cover",
+   "category": "Land cover",
+   "provider": "USGS GAP",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "NTE 2011 v3.0 (final); LANDFIRE EVT LF2025 replaces it",
+    "older_versions_online": "Partial (GAP v1.0 2001)",
+    "sccwrp_version_online": "Likely yes (NTE 2011 v3.0)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.sciencebase.gov/catalog/item/573cc51be4b0dae0d5e4b0c5"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/592f007de4b0e9bd0ea793c2",
+     "label": "state subsets incl. CA"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://lfps.usgs.gov/arcgis/rest/services",
+     "label": "LANDFIRE"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "ScienceBase state subset; LANDFIRE LFPS API clips by area"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "gmted2010",
+   "title": "GMTED2010",
+   "category": "Elevation",
+   "provider": "USGS EROS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Static 2010",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.usgs.gov/datacatalog/data/USGS:EROS5e83a1f36d8572da"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://earthexplorer.usgs.gov/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://topotools.cr.usgs.gov/gmted_viewer/index.html"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "Small tiles from EarthExplorer or Earth Engine"
+   },
+   "packages": [],
+   "other_access": [
+    "GEE USGS/GMTED2010_FULL"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "historical-topo-tsheets",
+   "title": "Historical topo maps and T-sheets (rectified)",
+   "category": "Historical maps",
+   "provider": "USGS HTMC / NOAA / SFEI-SCCWRP",
+   "recommendation": "keep-local-restricted",
+   "versions": {
+    "latest": "Static",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Raw scans yes; our rectified versions no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://ngmdb.usgs.gov/topoview/"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.caltsheets.org/"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "SCCWRP rectified products; raw scans stream from USGS topoView / TNM"
+   },
+   "packages": [],
+   "other_access": [
+    "TNM Access API (datasets=Historical Topographic Maps)"
+   ],
+   "notes": "Keep \"Rectify*\" SCCWRP products; unmodified scans can be linked. DRG_quads not individually checked.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "la-river-lidar-2016",
+   "title": "LA River lidar point cloud (LARIAC4, 2015-16)",
+   "category": "Elevation",
+   "provider": "LA County / USGS 3DEP / NOAA Digital Coast (ID 8651)",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "CA_LosAngeles_B23; CA_2025LosAngelesPostWildfire_C25",
+    "older_versions_online": "Yes",
+    "sccwrp_version_online": "Yes, same tile IDs (as LAZ/COPC, half the size)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.fisheries.noaa.gov/inport/item/55233"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/laz/geoid18/8651/index.html"
+    },
+    {
+     "role": "access",
+     "type": "entwine-pointcloud",
+     "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/USGS_LPC_CA_LosAngeles_2016_LAS_2018/ept.json",
+     "label": "Entwine/PDAL"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=8651"
+    }
+   ],
+   "access": {
+    "mode": "read-in-place",
+    "how": "Read point clouds in place: Entwine (EPT) with PDAL or NOAA COPC tiles on public S3; clip by area"
+   },
+   "fetch": {
+    "layers": {
+     "points": {
+      "title": "Classified lidar points (USGS Entwine copy of LARIAC4)",
+      "handler": "ept",
+      "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/USGS_LPC_CA_LosAngeles_2016_LAS_2018/ept.json",
+      "max_points": 300000000
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "lariac2-2008-ortho",
+   "title": "2008 LA County 1-ft orthoimagery (LARIAC2)",
+   "category": "Imagery",
+   "provider": "LA County eGIS / LARIAC (EagleView)",
+   "recommendation": "keep-local-restricted",
+   "versions": {
+    "latest": "LARIAC7 (2023)",
+    "older_versions_online": "View-only cached services 2002, 2006, 2011, 2014 (no 2008)",
+    "sccwrp_version_online": "No (licensed to LARIAC members)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://lariac-lacounty.hub.arcgis.com"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://cache.gis.lacounty.gov/cache/rest/services/LACounty_Cache",
+     "label": "view only"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "Licensed to LARIAC members; not publicly served"
+   },
+   "packages": [],
+   "other_access": [
+    "None public"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "mexico-tijuana",
+   "title": "Mexico/Baja and Tijuana River watershed",
+   "category": "Boundaries & reference",
+   "provider": "INEGI / SDSU",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "INEGI MG 2024 (unverified)",
+    "older_versions_online": "INEGI keeps editions",
+    "sccwrp_version_online": "Yes (SDSU legacy site), not guaranteed"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.inegi.org.mx/temas/mg/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://trw.sdsu.edu/English/Data/Data/TRW/trwdata.html"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "Legacy SDSU site may disappear; small, keep local"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Small; keep local copy since the SDSU site is unmaintained.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "multibeam-nos-surveys",
+   "title": "Multibeam / NOS hydrographic surveys",
+   "category": "Coastal & marine",
+   "provider": "NOAA NCEI",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Continuously ingested",
+    "older_versions_online": "Archive via NEXT",
+    "sccwrp_version_online": "Footprints yes (live); derived rugosity no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.ncei.noaa.gov/products/seafloor-mapping"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.ngdc.noaa.gov/next-web/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/multibeam_dynamic/MapServer"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/nos_hydro_dynamic/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "NCEI multibeam and NOS hydro MapServers; BAGs per survey"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "naip-2009",
+   "title": "NAIP 2009 California (county MrSID + DOQQs)",
+   "category": "Imagery",
+   "provider": "USDA FPAC-BC (mirrored by CNRA)",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "NAIP 2024",
+    "older_versions_online": "CNRA: 2005, 2009, 2010, 2012, 2014, 2016; cloud 2010-2023",
+    "sccwrp_version_online": "Yes, exact files (CNRA archive)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/naip2009/"
+    },
+    {
+     "role": "access",
+     "type": "stac",
+     "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip",
+     "label": "2010-2023"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-imageserver",
+     "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "2009 county mosaics from the CNRA archive; 2010+ stream from USGS NAIPPlus ImageServer or Planetary Computer"
+   },
+   "packages": [],
+   "other_access": [
+    "GEE USDA/NAIP/DOQQ"
+   ],
+   "notes": "11SMS*.tif tiles look like USGS HRO, not NAIP; check metadata.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "national-atlas",
+   "title": "National Atlas small-scale data",
+   "category": "Boundaries & reference",
+   "provider": "USGS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Frozen 2014 releases",
+    "older_versions_online": "EarthExplorer National Atlas archive",
+    "sccwrp_version_online": "Partial (010 series and statesp020 yes)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.sciencebase.gov/catalog/item/532c5b23e4b0cd7393d07783"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://pubs.usgs.gov/of/2009/1151/data/basemap/statesp020.zip"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://earthexplorer.usgs.gov/"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "Frozen small-scale files from ScienceBase / TNM"
+   },
+   "packages": [],
+   "other_access": [
+    "TNM Access API (Small-scale Datasets)"
+   ],
+   "notes": "National Highway System now from USDOT BTS.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nhd-legacy",
+   "title": "NHD (legacy high/medium res, NHDH1807, NHD v1 CA)",
+   "category": "Hydrography",
+   "provider": "USGS (CA steward DWR)",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Final static NHD (Dec 2023); successor 3DHP FY26",
+    "older_versions_online": "CA DWR state snapshots 2018-2023",
+    "sccwrp_version_online": "No (old packaging retired)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.cnra.ca.gov/dataset/nhd-archive"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/State/GDB/NHD_H_California_State_GDB.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Current NHD / 3DHP services; frozen NHD archive for old vintages"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "NHD retired Oct 1, 2023.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nhdplus-hr",
+   "title": "NHDPlus High Resolution (HU4 1503-1810)",
+   "category": "Hydrography",
+   "provider": "USGS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "HU4 2019-2022 (beta); National Release 2 (2025)",
+    "older_versions_online": "Partial (Beta, VPU/Archive, Release 1)",
+    "sccwrp_version_online": "Yes, exact files (sizes match)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://apps.nationalmap.gov/downloader/"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Hydrography/NHDPlusHR/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "NHDPlus_HR MapServer; HU4 geodatabases on S3 if a full copy is needed"
+   },
+   "fetch": {
+    "layers": {
+     "flowlines": {
+      "title": "Network flowlines",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/3"
+     },
+     "waterbodies": {
+      "title": "Waterbodies",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/9"
+     },
+     "catchments": {
+      "title": "Catchments",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/10"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [
+    "TNM Access API"
+   ],
+   "notes": "USGS stopped maintaining it; successor is 3DHP.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nhdplus-v21",
+   "title": "NHDPlus V2.1 (national seamless, VPU 15/16/17/18 snapshots, catchments)",
+   "category": "Hydrography",
+   "provider": "US EPA / USGS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "V2.1 (frozen)",
+    "older_versions_online": "Only final component versions",
+    "sccwrp_version_online": "Yes, exact files"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://dmap-data-commons-ow.s3.amazonaws.com/NHDPlusV21/Data/"
+    },
+    {
+     "role": "access",
+     "type": "api",
+     "url": "https://api.water.usgs.gov/nldi/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "EPA WATERS / USGS NLDI services and nhdplusTools / pynhd; S3 7z files for full offline copies"
+   },
+   "fetch": {
+    "default": "flowlines",
+    "layers": {
+     "flowlines": {
+      "title": "Network flowlines",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/2",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "NHDFlowline_Network"
+      }
+     },
+     "flowlines-nonnetwork": {
+      "title": "Non-network flowlines",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/3",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "NHDFlowline_NonNetwork"
+      }
+     },
+     "waterbodies": {
+      "title": "Waterbodies",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/4",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "NHDWaterbody"
+      }
+     },
+     "areas": {
+      "title": "NHD areas (wide rivers, estuaries)",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/5",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "NHDArea"
+      }
+     },
+     "catchments": {
+      "title": "Catchments",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/6",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "Catchment"
+      }
+     },
+     "huc12": {
+      "title": "HUC12 (NHDPlus copy)",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/7",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "HUC12"
+      }
+     },
+     "gages": {
+      "title": "Stream gages",
+      "handler": "arcgis-features",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/0",
+      "version": "NHDPlus V2.1",
+      "stage": {
+       "source": "local",
+       "holding": "nhdplus-v21/national-gdb",
+       "layer_name": "Gage"
+      }
+     }
+    }
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "pynhd"
+    },
+    {
+     "language": "R",
+     "name": "nhdplusTools"
+    }
+   ],
+   "other_access": [],
+   "notes": "Backbone for StreamCat/NLDI/CSCI; keep using COMIDs.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nlcd-annual",
+   "title": "Annual NLCD (C1V0/C1V1, 1997-2024 annual folders, NLCD2023)",
+   "category": "Land cover",
+   "provider": "USGS / MRLC",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Annual NLCD C1.2 (June 2026)",
+    "older_versions_online": "Yes (C1.0, C1.1)",
+    "sccwrp_version_online": "Yes (C1.0 and C1.1 items kept)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://doi.org/10.5066/P94UXNTS"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/6810c1a4d4be022940554075",
+     "label": "C1.1 land cover"
+    },
+    {
+     "role": "access",
+     "type": "wms",
+     "url": "https://dmsdata.cr.usgs.gov/geoserver/mrlc_Land-Cover-Native_conus_year_data/wms?service=WMS&request=GetCapabilities"
+    },
+    {
+     "role": "access",
+     "type": "s3",
+     "url": "s3://usgs-landcover/annual-nlcd/",
+     "label": "requester pays"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "MRLC WCS (data) and WMS (view); S3 COGs (requester pays) for bulk"
+   },
+   "fetch": {
+    "layers": {
+     "land-cover": {
+      "title": "Annual NLCD land cover, 30 m",
+      "handler": "wcs",
+      "url": "https://dmsdata.cr.usgs.gov/geoserver/mrlc_Land-Cover-Native_conus_year_data/wcs",
+      "coverage": "mrlc_Land-Cover-Native_conus_year_data:Land-Cover-Native_conus_year_data",
+      "native_crs": "EPSG:5070",
+      "resolution": 30,
+      "max_size": 2000,
+      "time": "{year}-01-01T00:00:00.000Z",
+      "resampling": "nearest",
+      "params": {
+       "year": {
+        "type": "int",
+        "min": 1985,
+        "max": 2024,
+        "default": 2024,
+        "description": "Land cover year"
+       }
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nlcd-legacy",
+   "title": "NLCD legacy editions (2001, 2006, 2011, 2016 CONUS)",
+   "category": "Land cover",
+   "provider": "USGS / MRLC",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Legacy ended with 2021 release; Annual NLCD C1.2 (1985-2025)",
+    "older_versions_online": "Yes, every edition on ScienceBase",
+    "sccwrp_version_online": "Yes (identify edition from file date)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.sciencebase.gov/catalog/item/6345b637d34e342aee0863aa"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/6345bfffd34e342aee0863d7",
+     "label": "previous versions"
+    },
+    {
+     "role": "access",
+     "type": "wms",
+     "url": "https://www.mrlc.gov/geoserver/mrlc_display/wms?service=WMS&request=GetCapabilities"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "Clip what you need from ScienceBase editions or the MRLC viewer; legacy WMS for viewing only"
+   },
+   "packages": [],
+   "other_access": [
+    "GEE USGS/NLCD_RELEASES/*"
+   ],
+   "notes": "Old s3-us-west-2 mrlc links are dead.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "noaa-crm-cudem",
+   "title": "NOAA Coastal Relief Model (SoCal v1, central CA) and CUDEM",
+   "category": "Coastal & marine",
+   "provider": "NOAA NCEI",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "SoCal CRM v2 (2013); CUDEM 1/9 arc-sec",
+    "older_versions_online": "Legacy CRM Vol 1-10 posted",
+    "sccwrp_version_online": "SoCal v1 no (v2 replaces); tsunami DEMs yes"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.ncei.noaa.gov/products/coastal-relief-model"
+    },
+    {
+     "role": "download",
+     "type": "thredds",
+     "url": "https://www.ngdc.noaa.gov/thredds/catalog/crm/catalog.html"
+    },
+    {
+     "role": "download",
+     "type": "thredds",
+     "url": "https://www.ngdc.noaa.gov/thredds/catalog/regional/catalog.html"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-imageserver",
+     "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_all/ImageServer"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://www.ncei.noaa.gov/maps/grid-extract/"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "NCEI DEM ImageServer, THREDDS OPeNDAP / WCS, Grid Extract"
+   },
+   "fetch": {
+    "default": "best-dem",
+    "layers": {
+     "best-dem": {
+      "title": "Best available coastal DEM (NCEI mosaic: CUDEM, CRM, tsunami DEMs), default 30 m",
+      "handler": "arcgis-image",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_all/ImageServer",
+      "resolution": 30,
+      "max_size": 4000,
+      "pixel_type": "F32",
+      "nodata": -9999,
+      "resampling": "bilinear"
+     },
+     "bight-bathymetry": {
+      "title": "Southern California Bight bathymetry (SCCWRP grid from NOAA sources)",
+      "handler": "local",
+      "holding": "noaa-crm-cudem/bight-bathy",
+      "kind": "raster",
+      "resampling": "bilinear",
+      "stage": {
+       "source": "local",
+       "holding": "noaa-crm-cudem/bight-bathy",
+       "extent": "ocean"
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [
+    "THREDDS OPeNDAP/WCS"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "noaa-tsunami-dems",
+   "title": "NOAA tsunami inundation DEMs (San Diego, Santa Monica, Santa Barbara)",
+   "category": "Coastal & marine",
+   "provider": "NOAA NCEI",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Single releases 2008-2012",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes (as NetCDF); sd_1_3_110805 pre-release partial"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.ncei.noaa.gov/products/coastal-elevation-models"
+    },
+    {
+     "role": "download",
+     "type": "thredds",
+     "url": "https://www.ngdc.noaa.gov/thredds/catalog/regional/catalog.html"
+    },
+    {
+     "role": "access",
+     "type": "wcs",
+     "url": "https://www.ngdc.noaa.gov/thredds/wcs/regional/san_diego_13_mhw_2012.nc"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "NCEI THREDDS OPeNDAP / WCS per DEM"
+   },
+   "fetch": {
+    "layers": {
+     "san-diego": {
+      "title": "San Diego 1/3 arc-second DEM, mean high water (2012)",
+      "handler": "opendap",
+      "url": "https://www.ngdc.noaa.gov/thredds/dodsC/regional/san_diego_13_mhw_2012.nc",
+      "variable": "Band1",
+      "x": "lon",
+      "y": "lat",
+      "crs": "EPSG:4326",
+      "nodata": -9999.0,
+      "resampling": "bilinear"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "npdes-outfalls",
+   "title": "EPA NPDES outfalls and POTWs",
+   "category": "Facilities",
+   "provider": "US EPA ECHO / State Water Board",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Weekly (2026-09-27)",
+    "older_versions_online": "No snapshots",
+    "sccwrp_version_online": "No (extracts must be re-filtered)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://echo.epa.gov/tools/data-downloads"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "EPA ECHO services and weekly outfall layer zip"
+   },
+   "packages": [],
+   "other_access": [
+    "ECHO REST web services"
+   ],
+   "notes": "SCCWRP-curated ocean outfall coordinates (LACSD, Monitoring) should stay local.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "nrcs-soils",
+   "title": "NRCS soils (gSSURGO CA, SSURGO, STATSGO2, MLRA, CRA)",
+   "category": "Soils",
+   "provider": "USDA NRCS",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "FY2026 soils refresh (2025-10-01)",
+    "older_versions_online": "Partial (all-SSURGO 2023, 2024 on Box)",
+    "sccwrp_version_online": "STATSGO2/MLRA/CRA yes; gSSURGO CA vintage no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://nrcs.app.box.com/v/soils"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://nrcs.app.box.com/v/soils/folder/233398887779",
+     "label": "gSSURGO by state"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://sdmdataaccess.nrcs.usda.gov/",
+     "label": "Soil Data Access SQL/REST, WMS/WFS"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Soil Data Access (SQL, WMS, WFS) and soilDB; gSSURGO state geodatabase only for heavy raster work"
+   },
+   "packages": [
+    {
+     "language": "R",
+     "name": "soilDB"
+    }
+   ],
+   "other_access": [
+    "Planetary Computer gnatsgo-rasters"
+   ],
+   "notes": "Record the refresh year when citing.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "oc-dem-1m",
+   "title": "Orange County 1-m DEM (oc_dem_1m1116)",
+   "category": "Elevation",
+   "provider": "OC Public Works / OC Survey (from 2011 USGS lidar)",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "3DEP 1 m CA_CaliforniaGaps_B23 (2025)",
+    "older_versions_online": "2011 source lidar (NOAA ID 4793)",
+    "sccwrp_version_online": "Partial / unknown"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://pwadmin.oc.gov/sites/ocpwocs/files/2023-07/OCPW%20Geospatial%20Data%20Details.pdf"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CaliforniaGaps_B23/"
+    },
+    {
+     "role": "access",
+     "type": "entwine-pointcloud",
+     "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/CA_OrangeCo_2011/ept.json"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "USGS 3DEP ImageServer and py3dep (1 m where available)"
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "py3dep"
+    }
+   ],
+   "other_access": [
+    "TNM Access API"
+   ],
+   "notes": "Check file CRS/metadata to confirm origin.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "olson-cormier-conductivity",
+   "title": "Olson & Cormier nationwide conductivity (EC) model",
+   "category": "Watershed metrics",
+   "provider": "US EPA ORD",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "2019 model; predictions 2020",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (tables and predictions public, rasters not)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://doi.org/10.23719/1500945"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://pasteur.epa.gov/uploads/10.23719/1500945/RefModelData_508.xlsx"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/PredECHydroline/FeatureServer/0"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Predicted conductivity FeatureServer by COMID; predictor table is a small download"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "pacific-coast-fisheries",
+   "title": "Pacific Coast Fisheries GIS Resource Database",
+   "category": "Coastal & marine",
+   "provider": "USGS WERC / BOEM",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "2015 (static)",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Request only"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://tethys.pnnl.gov/publications/pacific-coast-fisheries-gis-resource-database"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "Request only; keep local"
+   },
+   "packages": [],
+   "other_access": [
+    "Request from sdelacruz@usgs.gov / josh_adams@usgs.gov"
+   ],
+   "notes": "Keep local.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "padus",
+   "title": "PAD-US 2.0 and 4.0",
+   "category": "Protected areas",
+   "provider": "USGS GAP",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "PAD-US 4.1 (2025)",
+    "older_versions_online": "Yes: 1.4, 2.0, 2.1, 3.0, 4.0",
+    "sccwrp_version_online": "Yes, both"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.sciencebase.gov/catalog/item/65294599d34e44db0e2ed7cf"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/652d4f80d34e44db0e2ee45c",
+     "label": "4.0 state"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/5b030c7ae4b0da30c1c1d6de",
+     "label": "2.0"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_4_1/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "PAD-US MapServer and USGS feature services; ScienceBase downloads by version"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "parcels",
+   "title": "Parcels (LA County 2014, San Diego, OC, Ventura)",
+   "category": "Boundaries & reference",
+   "provider": "LA County Assessor / SanGIS",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "Current parcels (monthly)",
+    "older_versions_online": "LA: attribute rolls 2006-2025 only",
+    "sccwrp_version_online": "No (historical polygons not published)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://egis-lacounty.hub.arcgis.com/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://geo.sandag.org/portal/apps/experiencebuilder/experience/?id=fad9e9c038c84f799b5378e4cc3ed068",
+     "label": "SD"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://geo.sandag.org/server/rest/services/Hosted/Parcels/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "Historical parcel geometry is not published; current parcels stream from county services"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "prism-daily",
+   "title": "PRISM daily climate (2013 daily PPT)",
+   "category": "Climate",
+   "provider": "PRISM Climate Group, Oregon State",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Current AN series (COG since 2025-10-01)",
+    "older_versions_online": "Partial (pre-2015 D1 series)",
+    "sccwrp_version_online": "Partial (same dates re-released Dec 2024; values may differ)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://prism.oregonstate.edu/downloads/"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://data.prism.oregonstate.edu/time_series/us/an/4km/ppt/daily/2013/"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://services.nacse.org/prism/data/get/us/4km/ppt/YYYYMMDD?format=bil"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "PRISM web service returns one grid per request (COG or BIL); fetch the dates you need"
+   },
+   "fetch": {
+    "layers": {
+     "daily": {
+      "title": "PRISM daily 4 km grids (one file per date)",
+      "handler": "download-template",
+      "url_template": "https://services.nacse.org/prism/data/get/us/4km/{element}/{date:%Y%m%d}",
+      "iterate": "date",
+      "kind": "raster",
+      "member": "*.tif",
+      "min_interval_s": 2,
+      "resampling": "bilinear",
+      "params": {
+       "date": {
+        "type": "dates",
+        "min": "1981-01-01",
+        "required": true,
+        "max_count": 31,
+        "description": "YYYY-MM-DD, or start/end for a range (up to 31 days)"
+       },
+       "element": {
+        "type": "choice",
+        "choices": [
+         "ppt",
+         "tmin",
+         "tmax",
+         "tmean",
+         "tdmean",
+         "vpdmin",
+         "vpdmax"
+        ],
+        "default": "ppt",
+        "description": "Climate variable"
+       }
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "Old daily/ BIL paths and web service URLs retired 2025-09-30; update any scripts.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "rwqcb-boundaries",
+   "title": "Regional Water Board boundaries",
+   "category": "Water quality",
+   "provider": "State Water Board",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Current (2026-03)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (current boundary only)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://gispublic.waterboards.ca.gov/portal/home/item.html?id=14496125f1764a82a6ba7c27ce9921fc"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "Water Board Regional_Board_Boundary FeatureServer"
+   },
+   "packages": [],
+   "other_access": [
+    "Shapefile item on landing page"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "sandag-regional",
+   "title": "SANDAG regional GIS (military, municipal, zip codes)",
+   "category": "Boundaries & reference",
+   "provider": "SanGIS / SANDAG",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Monthly",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Current only"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://sdgis-sandag.opendata.arcgis.com/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://geo.sandag.org/server/rest/services"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "SANDAG / SanGIS hosted FeatureServers"
+   },
+   "packages": [],
+   "other_access": [
+    "SANDAG Data Warehouse app"
+   ],
+   "notes": "Our copies have invalid 1601/1901 timestamps.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "scag-land-use",
+   "title": "SCAG land use (2000, 2005, 2008)",
+   "category": "Land use",
+   "provider": "SCAG",
+   "recommendation": "keep-local",
+   "versions": {
+    "latest": "2024 Existing Land Use (July 2025)",
+    "older_versions_online": "Online: 2016, 2019, 2020 only",
+    "sccwrp_version_online": "No (2008 and earlier not online)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://hub.scag.ca.gov/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://maps.scag.ca.gov/scaggis/rest/services"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://rdp.scag.ca.gov/mapping/rest/services"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "2008 and earlier are not online; current years stream from SCAG services"
+   },
+   "packages": [],
+   "other_access": [
+    "Hub item downloads"
+   ],
+   "notes": "Keep local, or request from SCAG Data Services. Link current years for new work.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "sccwrp-bight",
+   "title": "SCCWRP Bight regional monitoring (stations, strata)",
+   "category": "Coastal & marine",
+   "provider": "SCCWRP",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Bight '23 (publishing)",
+    "older_versions_online": "Yes, every cycle",
+    "sccwrp_version_online": "Yes (all cycles 1994-2023 on Bight Hub)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://bight.sccwrp.org/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-featureserver",
+     "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "SCCWRP Bight Hub FeatureServers (AllBight_Strata, station occupation)"
+   },
+   "fetch": {
+    "default": "strata-2023",
+    "layers": {
+     "strata-2023": {
+      "title": "Bight 2023 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/5",
+      "version": "Bight 2023",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-2018": {
+      "title": "Bight 2018 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/4",
+      "version": "Bight 2018",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-2013": {
+      "title": "Bight 2013 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/3",
+      "version": "Bight 2013",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-2008": {
+      "title": "Bight 2008 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/2",
+      "version": "Bight 2008",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-2003": {
+      "title": "Bight 2003 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/1",
+      "version": "Bight 2003",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-1998": {
+      "title": "Bight 1998 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/0",
+      "version": "Bight 1998",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     },
+     "strata-1994": {
+      "title": "Bight 1994 survey strata",
+      "handler": "arcgis-features",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/6",
+      "version": "Bight 1994",
+      "stage": {
+       "source": "provider",
+       "extent": "ocean"
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [
+    "Hub item downloads"
+   ],
+   "notes": "Internal working copies may differ from published layers.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "shorelines",
+   "title": "Shorelines (USGS shoreline change SoCal, NOAA CUSP/medium res)",
+   "category": "Coastal & marine",
+   "provider": "USGS / NOAA NGS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "USGS 2024 update (DOI 10.5066/P94J0K7Z); CUSP current",
+    "older_versions_online": "USGS 2006 and 2024 both online",
+    "sccwrp_version_online": "USGS OFR 2006-1251 yes (exact); CUSP Aug 2011 no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://pubs.usgs.gov/of/2006/1251/"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://nsde.ngs.noaa.gov/"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://www.sciencebase.gov/catalog/item/619668d0d34eb622f69155a7"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "Small USGS zips; current CUSP from NOAA NSDE"
+   },
+   "fetch": {
+    "default": "shoreline-1998",
+    "layers": {
+     "shoreline-1998": {
+      "title": "Lidar shoreline, 1998",
+      "handler": "download",
+      "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+      "kind": "vector",
+      "member": "Socal_1998.shp",
+      "version": "USGS OFR 2006-1251"
+     },
+     "shoreline-1971-1976": {
+      "title": "Shoreline 1971-1976",
+      "handler": "download",
+      "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+      "kind": "vector",
+      "member": "Socal1971_1976.shp",
+      "version": "USGS OFR 2006-1251"
+     },
+     "shoreline-1920-1934": {
+      "title": "Shoreline 1920-1934",
+      "handler": "download",
+      "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+      "kind": "vector",
+      "member": "SoCal1920_1934.shp",
+      "version": "USGS OFR 2006-1251"
+     },
+     "shoreline-1852-1889": {
+      "title": "Shoreline 1852-1889",
+      "handler": "download",
+      "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+      "kind": "vector",
+      "member": "SoCal1852_1889.shp",
+      "version": "USGS OFR 2006-1251"
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "socal-ifsar-2002",
+   "title": "SoCal IfSAR DEMs 2002-03 (NOAA CSC-SCCWRP collaboration)",
+   "category": "Elevation",
+   "provider": "NOAA OCM (Digital Coast ID 244)",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "One-time collection",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes (NAVD88, now GeoTIFF)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://chs.coast.noaa.gov/htdata/raster2/elevation/California_IfSAR_DEM_2002_244/socal_ifsar_dem_navd88.html"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_IfSAR_DEM_2002_244/index.html"
+    },
+    {
+     "role": "access",
+     "type": "web",
+     "url": "https://coast.noaa.gov/dataviewer/#/raster/search/where:ID=244"
+    }
+   ],
+   "access": {
+    "mode": "read-in-place",
+    "how": "NOAA GeoTIFF tiles and VRT on public S3"
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "First-surface DSM.",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "tiger-census-boundaries",
+   "title": "Census TIGER boundaries, ACS ZCTA, 2000/2010 census",
+   "category": "Boundaries & reference",
+   "provider": "US Census Bureau",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "TIGER 2025 / CB 2025",
+    "older_versions_online": "Yes, full archive",
+    "sccwrp_version_online": "Yes (2000 ESRI conversions partial)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www2.census.gov/geo/tiger/"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://www2.census.gov/geo/tiger/TIGER_DP/2014ACS/ACS_2014_5YR_ZCTA.gdb.zip"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-directory",
+     "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb"
+    },
+    {
+     "role": "access",
+     "type": "api",
+     "url": "https://api.census.gov/data.html"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "TIGERweb vintage services, Census API, pygris / censusdis"
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "censusdis"
+    },
+    {
+     "language": "Python",
+     "name": "pygris"
+    }
+   ],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "tiger-roads",
+   "title": "Census TIGER/Line roads (2011, 2018, 2025)",
+   "category": "Boundaries & reference",
+   "provider": "US Census Bureau",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "TIGER 2025 shp / 2026 gdb",
+    "older_versions_online": "Yes, all vintages since 1992",
+    "sccwrp_version_online": "Yes, exact files"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://www2.census.gov/geo/tiger/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "TIGERweb services and pygris / tigris (any vintage via year=)"
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "pygris"
+    },
+    {
+     "language": "R",
+     "name": "tigris"
+    }
+   ],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "usgs-3dep-ned",
+   "title": "USGS NED 1/3 arc-second (now 3DEP)",
+   "category": "Elevation",
+   "provider": "USGS 3DEP",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Continuously updated (2025-26 tiles)",
+    "older_versions_online": "Yes (historical/ folder)",
+    "sccwrp_version_online": "Yes (dated historical tiles as GeoTIFF)"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://apps.nationalmap.gov/downloader/"
+    },
+    {
+     "role": "download",
+     "type": "cloud-bucket",
+     "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-imageserver",
+     "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "3DEPElevation ImageServer, py3dep, Planetary Computer 3dep-seamless"
+   },
+   "fetch": {
+    "layers": {
+     "dem": {
+      "title": "3DEP seamless DEM, best available source resampled to the requested cell size (default 10 m)",
+      "handler": "arcgis-image",
+      "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+      "resolution": 10,
+      "max_size": 8000,
+      "pixel_type": "F32",
+      "nodata": -9999,
+      "resampling": "bilinear"
+     },
+     "dem-13-tiles": {
+      "title": "1/3 arc-second DEM at native cells, read in place from the USGS bucket",
+      "handler": "cog-tiles",
+      "tile_scheme": "usgs-1deg",
+      "crs": "EPSG:4269",
+      "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/{tile}/USGS_13_{tile}.tif",
+      "resampling": "bilinear"
+     }
+    }
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "py3dep"
+    }
+   ],
+   "other_access": [
+    "Planetary Computer 3dep-seamless"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "usgs-doqq",
+   "title": "USGS DOQQs (San Diego area)",
+   "category": "Imagery",
+   "provider": "USGS EROS",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "Program ended 2004",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Likely yes"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://catalog.data.gov/dataset/usgs-digital-orthophoto-quadrangles"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://earthexplorer.usgs.gov/",
+     "label": "DOQ dataset, free login"
+    }
+   ],
+   "access": {
+    "mode": "download-on-demand",
+    "how": "EarthExplorer by quad (login required)"
+   },
+   "packages": [],
+   "other_access": [
+    "USGS M2M API (account needed)"
+   ],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "watershed-metric-resources",
+   "title": "Watershed Metric Resources v5 gdb (CSCI / Reference Screening toolbox)",
+   "category": "Watershed metrics",
+   "provider": "CSU Chico GIC for SWRCB/SCCWRP",
+   "recommendation": "link-out",
+   "versions": {
+    "latest": "v5 (toolbox Pro v0.3.3 / ArcMap v4.8, 2023)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "v5 yes; v4.x and 2018 copies no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://csuchico.box.com/v/CSCI-Data-Tools"
+    },
+    {
+     "role": "access",
+     "type": "api",
+     "url": "https://api.epa.gov/StreamCat/streams/metrics",
+     "label": "EPA StreamCat API for COMID-based metrics"
+    }
+   ],
+   "access": {
+    "mode": "keep-local",
+    "how": "Toolbox runs against the geodatabase itself: keep one shared local copy (v5 from CSU Chico Box)"
+   },
+   "fetch": {
+    "layers": {
+     "streamcat": {
+      "title": "EPA StreamCat metrics per NHDPlus V2 catchment (API alternative to the local geodatabase)",
+      "handler": "streamcat",
+      "url": "https://api.epa.gov/StreamCat/streams/metrics",
+      "catchments": {
+       "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/6",
+       "id_field": "featureid"
+      },
+      "params": {
+       "metrics": {
+        "type": "list",
+        "default": "pcturbmd2019,pctimp2019",
+        "description": "StreamCat metric names, comma-separated, without the ws/cat suffix (list: https://api.epa.gov/StreamCat/streams/metrics)"
+       },
+       "aoi": {
+        "type": "choice",
+        "choices": [
+         "ws",
+         "cat"
+        ],
+        "default": "ws",
+        "description": "ws = whole upstream watershed, cat = local catchment only"
+       }
+      }
+     }
+    }
+   },
+   "packages": [],
+   "other_access": [],
+   "notes": "",
+   "last_reviewed": "2026-09-29"
+  },
+  {
+   "id": "wbd",
+   "title": "Watershed Boundary Dataset (HUC 8/10/12, HU2 16-18)",
+   "category": "Hydrography",
+   "provider": "USGS / NRCS",
+   "recommendation": "link-out-current",
+   "versions": {
+    "latest": "Final static WBD (Jan 2025)",
+    "older_versions_online": "NRCS Box FY2024-FY2026 snapshots",
+    "sccwrp_version_online": "HU2 files yes (final version); CA 2008 certification and NRCS state clips no"
+   },
+   "links": [
+    {
+     "role": "landing",
+     "type": "landing",
+     "url": "https://data.cnra.ca.gov/dataset/watershed-boundary-dataset-wbd"
+    },
+    {
+     "role": "download",
+     "type": "download",
+     "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/HU2/GDB/WBD_18_HU2_GDB.zip"
+    },
+    {
+     "role": "download",
+     "type": "web",
+     "url": "https://nrcs.app.box.com/v/huc"
+    },
+    {
+     "role": "access",
+     "type": "arcgis-mapserver",
+     "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer"
+    }
+   ],
+   "access": {
+    "mode": "stream",
+    "how": "WBD MapServer and USGS WFS; national geodatabase on S3"
+   },
+   "fetch": {
+    "default": "huc12",
+    "layers": {
+     "huc2": {
+      "title": "HUC2 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/1",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU2"
+      }
+     },
+     "huc4": {
+      "title": "HUC4 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/2",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU4"
+      }
+     },
+     "huc6": {
+      "title": "HUC6 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/3",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU6"
+      }
+     },
+     "huc8": {
+      "title": "HUC8 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU8"
+      }
+     },
+     "huc10": {
+      "title": "HUC10 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/5",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU10"
+      }
+     },
+     "huc12": {
+      "title": "HUC12 watersheds",
+      "handler": "arcgis-features",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/6",
+      "stage": {
+       "source": "local",
+       "holding": "wbd/national-gdb",
+       "layer_name": "WBDHU12"
+      }
+     }
+    }
+   },
+   "packages": [
+    {
+     "language": "Python",
+     "name": "pynhd"
+    }
+   ],
+   "other_access": [],
+   "notes": "NRCS Geospatial Data Gateway went offline 2026-03-31. Keep the CA WBD 2008 certification copy if still needed.",
+   "last_reviewed": "2026-09-29"
+  }
+ ]
+}
