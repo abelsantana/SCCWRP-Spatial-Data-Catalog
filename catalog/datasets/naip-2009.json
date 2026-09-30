@@ -1,0 +1,45 @@
+{
+  "id": "naip-2009",
+  "title": "NAIP 2009 California (county MrSID + DOQQs)",
+  "category": "Imagery",
+  "provider": "USDA FPAC-BC (mirrored by CNRA)",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "NAIP 2024",
+    "older_versions_online": "CNRA: 2005, 2009, 2010, 2012, 2014, 2016; cloud 2010-2023",
+    "sccwrp_version_online": "Yes, exact files (CNRA archive)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/naip2009/"
+    },
+    {
+      "role": "access",
+      "type": "stac",
+      "url": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip",
+      "label": "2010-2023"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-imageserver",
+      "url": "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "2009 county mosaics from the CNRA archive; 2010+ stream from USGS NAIPPlus ImageServer or Planetary Computer"
+  },
+  "packages": [],
+  "other_access": [
+    "GEE USDA/NAIP/DOQQ"
+  ],
+  "notes": "11SMS*.tif tiles look like USGS HRO, not NAIP; check metadata.",
+  "last_reviewed": "2026-09-29"
+}

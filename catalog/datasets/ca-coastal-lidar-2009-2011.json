@@ -1,0 +1,45 @@
+{
+  "id": "ca-coastal-lidar-2009-2011",
+  "title": "CA coastal lidar / topobathy DEM 2009-2011 (LIDAR\\SoCal, CALidar)",
+  "category": "Elevation",
+  "provider": "NOAA OCM / CA Coastal Conservancy / OPC",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2009-2011 merge (still latest statewide)",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes, same content (now COG)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.fisheries.noaa.gov/inport/item/49417"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_2011_2616/index.html"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_Interp_8684/index.html",
+      "label": "gap-filled version (ID 8684)"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=1124"
+    }
+  ],
+  "access": {
+    "mode": "read-in-place",
+    "how": "NOAA COG tiles and VRTs on public S3; ArcGIS Pro cloud storage connection or GDAL /vsicurl/"
+  },
+  "packages": [],
+  "other_access": [
+    "STAC catalog and VRTs in each bucket folder"
+  ],
+  "notes": "Confirm whether 2616 or 8684 matches (check a tile name like 11SMS860000 in the tile index).",
+  "last_reviewed": "2026-09-29"
+}

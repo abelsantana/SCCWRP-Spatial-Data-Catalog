@@ -1,0 +1,34 @@
+{
+  "id": "rwqcb-boundaries",
+  "title": "Regional Water Board boundaries",
+  "category": "Water quality",
+  "provider": "State Water Board",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Current (2026-03)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (current boundary only)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://gispublic.waterboards.ca.gov/portal/home/item.html?id=14496125f1764a82a6ba7c27ce9921fc"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Water Board Regional_Board_Boundary FeatureServer"
+  },
+  "packages": [],
+  "other_access": [
+    "Shapefile item on landing page"
+  ],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

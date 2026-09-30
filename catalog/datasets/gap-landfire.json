@@ -1,0 +1,39 @@
+{
+  "id": "gap-landfire",
+  "title": "USGS GAP/LANDFIRE land cover",
+  "category": "Land cover",
+  "provider": "USGS GAP",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "NTE 2011 v3.0 (final); LANDFIRE EVT LF2025 replaces it",
+    "older_versions_online": "Partial (GAP v1.0 2001)",
+    "sccwrp_version_online": "Likely yes (NTE 2011 v3.0)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.sciencebase.gov/catalog/item/573cc51be4b0dae0d5e4b0c5"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/592f007de4b0e9bd0ea793c2",
+      "label": "state subsets incl. CA"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-directory",
+      "url": "https://lfps.usgs.gov/arcgis/rest/services",
+      "label": "LANDFIRE"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "ScienceBase state subset; LANDFIRE LFPS API clips by area"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

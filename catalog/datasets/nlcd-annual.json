@@ -1,0 +1,44 @@
+{
+  "id": "nlcd-annual",
+  "title": "Annual NLCD (C1V0/C1V1, 1997-2024 annual folders, NLCD2023)",
+  "category": "Land cover",
+  "provider": "USGS / MRLC",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Annual NLCD C1.2 (June 2026)",
+    "older_versions_online": "Yes (C1.0, C1.1)",
+    "sccwrp_version_online": "Yes (C1.0 and C1.1 items kept)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://doi.org/10.5066/P94UXNTS"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/6810c1a4d4be022940554075",
+      "label": "C1.1 land cover"
+    },
+    {
+      "role": "access",
+      "type": "wms",
+      "url": "https://dmsdata.cr.usgs.gov/geoserver/mrlc_Land-Cover-Native_conus_year_data/wms?service=WMS&request=GetCapabilities"
+    },
+    {
+      "role": "access",
+      "type": "s3",
+      "url": "s3://usgs-landcover/annual-nlcd/",
+      "label": "requester pays"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "MRLC WCS (data) and WMS (view); S3 COGs (requester pays) for bulk"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "national-atlas",
+  "title": "National Atlas small-scale data",
+  "category": "Boundaries & reference",
+  "provider": "USGS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Frozen 2014 releases",
+    "older_versions_online": "EarthExplorer National Atlas archive",
+    "sccwrp_version_online": "Partial (010 series and statesp020 yes)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.sciencebase.gov/catalog/item/532c5b23e4b0cd7393d07783"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://pubs.usgs.gov/of/2009/1151/data/basemap/statesp020.zip"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://earthexplorer.usgs.gov/"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "Frozen small-scale files from ScienceBase / TNM"
+  },
+  "packages": [],
+  "other_access": [
+    "TNM Access API (Small-scale Datasets)"
+  ],
+  "notes": "National Highway System now from USDOT BTS.",
+  "last_reviewed": "2026-09-29"
+}

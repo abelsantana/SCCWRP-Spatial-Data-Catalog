@@ -1,0 +1,46 @@
+{
+  "id": "nrcs-soils",
+  "title": "NRCS soils (gSSURGO CA, SSURGO, STATSGO2, MLRA, CRA)",
+  "category": "Soils",
+  "provider": "USDA NRCS",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "FY2026 soils refresh (2025-10-01)",
+    "older_versions_online": "Partial (all-SSURGO 2023, 2024 on Box)",
+    "sccwrp_version_online": "STATSGO2/MLRA/CRA yes; gSSURGO CA vintage no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://nrcs.app.box.com/v/soils"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://nrcs.app.box.com/v/soils/folder/233398887779",
+      "label": "gSSURGO by state"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://sdmdataaccess.nrcs.usda.gov/",
+      "label": "Soil Data Access SQL/REST, WMS/WFS"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Soil Data Access (SQL, WMS, WFS) and soilDB; gSSURGO state geodatabase only for heavy raster work"
+  },
+  "packages": [
+    {
+      "language": "R",
+      "name": "soilDB"
+    }
+  ],
+  "other_access": [
+    "Planetary Computer gnatsgo-rasters"
+  ],
+  "notes": "Record the refresh year when citing.",
+  "last_reviewed": "2026-09-29"
+}

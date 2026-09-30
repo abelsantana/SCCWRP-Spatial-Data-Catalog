@@ -1,0 +1,43 @@
+{
+  "id": "parcels",
+  "title": "Parcels (LA County 2014, San Diego, OC, Ventura)",
+  "category": "Boundaries & reference",
+  "provider": "LA County Assessor / SanGIS",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "Current parcels (monthly)",
+    "older_versions_online": "LA: attribute rolls 2006-2025 only",
+    "sccwrp_version_online": "No (historical polygons not published)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://egis-lacounty.hub.arcgis.com/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://geo.sandag.org/portal/apps/experiencebuilder/experience/?id=fad9e9c038c84f799b5378e4cc3ed068",
+      "label": "SD"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://geo.sandag.org/server/rest/services/Hosted/Parcels/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "Historical parcel geometry is not published; current parcels stream from county services"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Keep 2014 LA parcels locally; link current parcels for new work.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "cpad",
+  "title": "CPAD 2023a (California Protected Areas Database)",
+  "category": "Protected areas",
+  "provider": "GreenInfo Network / CNRA",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "CPAD 2026a",
+    "older_versions_online": "CNRA archive 2008-2017a only",
+    "sccwrp_version_online": "No (2023a not public)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data.ca.gov/dataset/california-protected-areas-database"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://data.cnra.ca.gov/dataset/0ae3cd9f-0612-4572-8862-9e9a1c41e659/resource/cadf9163-aa38-44ae-851a-86b35d4c6c0c/download/cpad_2026a_release.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gis.cnra.ca.gov/arcgis/rest/services/Boundaries/CPAD_AgencyLevel/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "2023a not public; current CPAD streams from the CNRA MapServer"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Keep 2023a if reproducibility matters (small); link 2026a for new work.",
+  "last_reviewed": "2026-09-29"
+}

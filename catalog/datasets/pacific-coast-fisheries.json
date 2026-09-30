@@ -1,0 +1,29 @@
+{
+  "id": "pacific-coast-fisheries",
+  "title": "Pacific Coast Fisheries GIS Resource Database",
+  "category": "Coastal & marine",
+  "provider": "USGS WERC / BOEM",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "2015 (static)",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Request only"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://tethys.pnnl.gov/publications/pacific-coast-fisheries-gis-resource-database"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "Request only; keep local"
+  },
+  "packages": [],
+  "other_access": [
+    "Request from sdelacruz@usgs.gov / josh_adams@usgs.gov"
+  ],
+  "notes": "Keep local.",
+  "last_reviewed": "2026-09-29"
+}

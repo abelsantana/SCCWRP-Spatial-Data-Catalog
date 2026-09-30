@@ -1,0 +1,58 @@
+# SCCWRP Data Catalog
+
+Where to get the public GIS datasets SCCWRP uses, straight from the agencies that publish them, so they don't need to be stored and maintained on our own servers.
+
+- **Browse:** the catalog page (GitHub Pages, built from `docs/index.html`). Search, filter by category, copy links, and get ready-to-paste snippets for ArcGIS Pro, Python and R.
+- **Source of truth:** one JSON file per dataset in [`catalog/datasets/`](catalog/datasets/). Every other interface is generated from these files.
+- **Link health:** a weekly GitHub Action checks every link and records the result in `catalog/link_status.json`; the page shows it as a coloured dot next to each link.
+
+## What the recommendations mean
+
+| Value | Meaning |
+|---|---|
+| `link-out` | The provider publishes the same data SCCWRP holds. Use the provider's copy. |
+| `link-out-current` | Our copy is superseded or no longer offered; use the provider's current version. Keep an old copy only if a past analysis must be reproduced. |
+| `keep-local` | Not publicly available (e.g. old vintages no provider keeps). SCCWRP keeps its own copy. |
+| `keep-local-restricted` | Licensed data or SCCWRP-derived products. SCCWRP keeps its own copy; do not redistribute. |
+
+Where SCCWRP's own copies live on internal servers is **not** in this repository. That mapping (dataset id to server paths) is kept on the internal network so this repo can stay public and server moves only change one internal file.
+
+## Adding or updating a dataset
+
+1. Copy [`catalog/template.json`](catalog/template.json) to `catalog/datasets/<id>.json`. The `id` is lowercase words joined by hyphens and must match the file name.
+2. Fill in the fields. Each link has a `role` (`landing`, `download` or `access`) and a `type`. The type drives the snippets on the page:
+   - `arcgis-featureserver`, `arcgis-mapserver` and `arcgis-imageserver` get "Add Data From Path" instructions, plus a GeoPandas and `sf` example for feature services.
+   - `download` gets Python and R download lines.
+   - `cloud-bucket` and `s3` get AWS CLI commands (`--no-sign-request`).
+   - `wms` gets ArcGIS Pro connection steps, and `entwine-pointcloud` gets a PDAL example.
+   - `landing`, `web`, `api`, `stac`, `thredds` and `wcs` are listed as links.
+3. Run the checks locally (standard-library Python 3.9+, nothing to install):
+   ```
+   python scripts/validate_catalog.py
+   python scripts/check_links.py --only <id>
+   python scripts/build_site.py
+   ```
+4. Open a pull request. The CI workflow validates the catalog and rebuilds the page.
+
+## Repository layout
+
+```
+catalog/datasets/*.json   one entry per dataset (edit these)
+catalog/template.json     blank entry
+catalog/link_status.json  written by the link checker
+scripts/                  validate_catalog.py, check_links.py, build_site.py
+docs/index.html           generated catalog page (GitHub Pages source)
+.github/workflows/        CI and the weekly link check
+```
+
+## Roadmap
+
+See [DESIGN.md](DESIGN.md) for the tool design.
+
+1. ~~Catalog, page, link checker~~ (this repo)
+2. Clipping engine shared by all tools, using the clip areas in [`catalog/clip_areas.json`](catalog/clip_areas.json): California border, California by watersheds, county, Southern / Central / Northern California, SMC region and SMC watersheds, HUC watersheds (levels 2 to 12), Regional Board regions, with optional buffer and custom areas
+3. ArcGIS Pro Python toolbox: browse the catalog, add live services to the map, or get data clipped to an area
+4. Python and R helper packages: `catalog()`, `info(id)`, `areas()`, `get(id, area="county:Los Angeles")`
+5. Optional: generate ArcGIS Online / Portal items from the catalog
+
+Initial entries were researched on 2026-09-29 as part of the S-drive inventory; `last_reviewed` records when each was last checked by a person.

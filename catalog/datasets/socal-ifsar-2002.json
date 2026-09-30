@@ -1,0 +1,37 @@
+{
+  "id": "socal-ifsar-2002",
+  "title": "SoCal IfSAR DEMs 2002-03 (NOAA CSC-SCCWRP collaboration)",
+  "category": "Elevation",
+  "provider": "NOAA OCM (Digital Coast ID 244)",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "One-time collection",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes (NAVD88, now GeoTIFF)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://chs.coast.noaa.gov/htdata/raster2/elevation/California_IfSAR_DEM_2002_244/socal_ifsar_dem_navd88.html"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_IfSAR_DEM_2002_244/index.html"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://coast.noaa.gov/dataviewer/#/raster/search/where:ID=244"
+    }
+  ],
+  "access": {
+    "mode": "read-in-place",
+    "how": "NOAA GeoTIFF tiles and VRT on public S3"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "First-surface DSM.",
+  "last_reviewed": "2026-09-29"
+}

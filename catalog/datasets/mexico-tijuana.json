@@ -1,0 +1,32 @@
+{
+  "id": "mexico-tijuana",
+  "title": "Mexico/Baja and Tijuana River watershed",
+  "category": "Boundaries & reference",
+  "provider": "INEGI / SDSU",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "INEGI MG 2024 (unverified)",
+    "older_versions_online": "INEGI keeps editions",
+    "sccwrp_version_online": "Yes (SDSU legacy site), not guaranteed"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.inegi.org.mx/temas/mg/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://trw.sdsu.edu/English/Data/Data/TRW/trwdata.html"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "Legacy SDSU site may disappear; small, keep local"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Small; keep local copy since the SDSU site is unmaintained.",
+  "last_reviewed": "2026-09-29"
+}

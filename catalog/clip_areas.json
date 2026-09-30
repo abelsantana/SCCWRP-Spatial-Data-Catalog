@@ -1,0 +1,125 @@
+{
+  "_about": "Areas users can clip data to before receiving it. Shared by the ArcGIS Pro toolbox and the Python/R helpers. Boundaries come from the listed services; 'fallback' is a copy shipped with this repo or kept on the internal network for offline use.",
+  "default_output_crs": "EPSG:3310",
+  "areas": [
+    {
+      "id": "ca-border",
+      "label": "California (state border)",
+      "selection": "fixed",
+      "source": {"type": "arcgis-featureserver",
+                 "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/0",
+                 "layer_note": "layer 0 = States (checked 2026-09-30)",
+                 "where": "STUSAB = 'CA'"},
+      "fallback": "https://www2.census.gov/geo/tiger/GENZ2018/shp/cb_2018_us_state_500k.zip",
+      "notes": "Land boundary only; coastal waters are outside it. Offer the 'buffer' option for coastal and marine work."
+    },
+    {
+      "id": "ca-watersheds",
+      "label": "California by watersheds (state plus every HUC12 that crosses into it)",
+      "selection": "fixed",
+      "source": {"type": "derived",
+                 "method": "Union of California and all WBD HUC12 polygons that intersect it (see SDriveInventory/CaliforniaAOI.py)"},
+      "fallback": "clip_areas/california_watersheds.gpkg",
+      "notes": "439,570 km2; 4,472 HUC12s in 140 HUC8s; 57 HUC8s reach into NV, OR, AZ, Mexico or offshore. Default area for national datasets."
+    },
+    {
+      "id": "county",
+      "label": "County",
+      "selection": "pick-many",
+      "source": {"type": "arcgis-featureserver",
+                 "provider": "California Department of Technology (CDT), 'California County Boundaries and Identifiers': the state's authoritative county layer (CAL FIRE's is derived from it)",
+                 "url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_County_Boundaries_and_Identifiers_Blue_Version_view/FeatureServer/1",
+                 "name_field": "CDTFA_COUNTY", "code_field": "CENSUS_GEOID"},
+      "variants": {
+        "with_coastal_buffers": {"url": "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_County_Boundaries_and_Identifiers_with_Coastal_Buffers/FeatureServer/1",
+                                 "notes": "81 features: counties extended over coastal water (OFFSHORE field). Good default for coastal and marine data."}
+      },
+      "alternatives": [
+        {"provider": "US Census TIGERweb (federal, matches Census geography)", "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/1", "where": "STATE = '06'"},
+        {"provider": "CAL FIRE FRAP (derived from CDT)", "url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer/0", "name_field": "COUNTY_NAME"}
+      ],
+      "notes": "58 counties, edited 2026-09 (checked 2026-09-30). CDT also publishes city boundaries and overlapping city/county layers with the same identifiers."
+    },
+    {
+      "id": "socal",
+      "label": "Southern California",
+      "selection": "fixed",
+      "source": {"type": "county-group", "of": "county"},
+      "counties": ["Imperial", "Kern", "Los Angeles", "Orange", "Riverside", "San Bernardino", "San Diego",
+                   "San Luis Obispo", "Santa Barbara", "Ventura"],
+      "status": "proposed; team to confirm",
+      "notes": "Common 10-county definition. SCCWRP may prefer a coastal-watershed definition (e.g. the SMC region, Ventura to San Diego); see open questions in DESIGN.md."
+    },
+    {
+      "id": "central-ca",
+      "label": "Central California",
+      "selection": "fixed",
+      "source": {"type": "county-group", "of": "county"},
+      "counties": ["Alpine", "Amador", "Calaveras", "Fresno", "Inyo", "Kings", "Madera", "Mariposa", "Merced", "Mono",
+                   "Monterey", "San Benito", "San Joaquin", "Santa Cruz", "Stanislaus", "Tulare", "Tuolumne"],
+      "status": "proposed; team to confirm"
+    },
+    {
+      "id": "norcal",
+      "label": "Northern California",
+      "selection": "fixed",
+      "source": {"type": "county-group", "of": "county"},
+      "counties": ["Alameda", "Butte", "Colusa", "Contra Costa", "Del Norte", "El Dorado", "Glenn", "Humboldt", "Lake",
+                   "Lassen", "Marin", "Mendocino", "Modoc", "Napa", "Nevada", "Placer", "Plumas", "Sacramento",
+                   "San Francisco", "San Mateo", "Santa Clara", "Shasta", "Sierra", "Siskiyou", "Solano", "Sonoma",
+                   "Sutter", "Tehama", "Trinity", "Yolo", "Yuba"],
+      "status": "proposed; team to confirm",
+      "notes": "Southern + Central + Northern = all 58 counties, each exactly once."
+    },
+    {
+      "id": "huc",
+      "label": "HUC watershed (choose level 2 to 12, then one or more units)",
+      "levels_in_california": {"2": 4, "4": 16, "6": 24, "8": 140, "10": 1039, "12": 4472, "14": "partial (114 units in the USGS service, none in our 2025 national WBD copy)", "16": 0},
+      "offered_levels": [2, 4, 6, 8, 10, 12],
+      "selection": "pick-many",
+      "source": {"type": "arcgis-mapserver",
+                 "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer",
+                 "layers": {"2": 1, "4": 2, "6": 3, "8": 4, "10": 5, "12": 6},
+                 "code_field": "huc{level}", "name_field": "name"},
+      "limit_to": "ca-watersheds",
+      "notes": "Layer ids checked 2026-09-30 (1 = HU2 ... 6 = HU12). Pick lists only show units inside the California-by-watersheds area. USGS froze WBD in January 2025 (3DHP is the successor)."
+    },
+    {
+      "id": "smc-region",
+      "label": "SMC region (Southern California Stormwater Monitoring Coalition)",
+      "selection": "fixed",
+      "source": {"type": "internal",
+                 "method": "Dissolve of the 19 SMC watersheds (SMC watershed set, May 2026)",
+                 "internal_ref": "smc-watersheds-2026 (location kept in the internal holdings file, not in this repo)"},
+      "status": "SCCWRP boundary; decide whether to publish it as a public SCCWRP feature service or keep it internal",
+      "notes": "Santa Barbara Coast and the Channel Islands through Southern San Diego. An older single-polygon SMCRegion.shp (2018) also exists; compare before choosing."
+    },
+    {
+      "id": "smc-watershed",
+      "label": "SMC watershed (one or more of 19)",
+      "selection": "pick-many",
+      "source": {"type": "internal",
+                 "internal_ref": "smc-watersheds-2026 (location kept in the internal holdings file, not in this repo)",
+                 "name_field": "SMC_Name", "code_field": "abbv"},
+      "choices": ["Santa Barbara Coast", "North Channel Islands", "South Channel Islands", "Ventura", "Calleguas",
+                  "Santa Clara", "Santa Monica Bay", "Los Angeles", "Dominguez Channel", "San Gabriel",
+                  "Upper Santa Ana", "Middle Santa Ana", "Lower Santa Ana", "San Jacinto", "San Juan",
+                  "Northern San Diego", "Central San Diego", "Mission Bay and San Diego River", "Southern San Diego"],
+      "notes": "A Region 9 variant split by watershed management area also exists (SMC_Sheds_WMA_R9_v2.shp, 25 features)."
+    },
+    {
+      "id": "regional-board",
+      "label": "Regional Water Quality Control Board region",
+      "selection": "pick-many",
+      "source": {"type": "arcgis-featureserver",
+                 "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer/1",
+                 "code_field": "rb", "name_field": "rb_name"},
+      "notes": "Polygon layer 1 (layer 0 is office points). Regions 1 to 9; Regions 5 and 6 have sub-offices, decide whether to expose those."
+    }
+  ],
+  "options": {
+    "method": ["exact clip to the boundary (default)", "keep whole features that touch the area", "bounding box of the area"],
+    "buffer_km": "optional distance added around the area (useful for coastal and cross-boundary work)",
+    "output_format": ["file geodatabase", "GeoPackage", "GeoTIFF / Cloud-Optimized GeoTIFF", "LAZ (point clouds)"]
+  }
+}

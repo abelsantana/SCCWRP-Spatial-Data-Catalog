@@ -1,0 +1,35 @@
+{
+  "id": "lariac2-2008-ortho",
+  "title": "2008 LA County 1-ft orthoimagery (LARIAC2)",
+  "category": "Imagery",
+  "provider": "LA County eGIS / LARIAC (EagleView)",
+  "recommendation": "keep-local-restricted",
+  "versions": {
+    "latest": "LARIAC7 (2023)",
+    "older_versions_online": "View-only cached services 2002, 2006, 2011, 2014 (no 2008)",
+    "sccwrp_version_online": "No (licensed to LARIAC members)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://lariac-lacounty.hub.arcgis.com"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://cache.gis.lacounty.gov/cache/rest/services/LACounty_Cache",
+      "label": "view only"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "Licensed to LARIAC members; not publicly served"
+  },
+  "packages": [],
+  "other_access": [
+    "None public"
+  ],
+  "notes": "Check our LARIAC license before removing. ~349 GB, no real use since cutoff.",
+  "last_reviewed": "2026-09-29"
+}

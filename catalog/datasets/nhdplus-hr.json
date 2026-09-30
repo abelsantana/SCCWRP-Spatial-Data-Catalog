@@ -1,0 +1,39 @@
+{
+  "id": "nhdplus-hr",
+  "title": "NHDPlus High Resolution (HU4 1503-1810)",
+  "category": "Hydrography",
+  "provider": "USGS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "HU4 2019-2022 (beta); National Release 2 (2025)",
+    "older_versions_online": "Partial (Beta, VPU/Archive, Release 1)",
+    "sccwrp_version_online": "Yes, exact files (sizes match)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://apps.nationalmap.gov/downloader/"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Hydrography/NHDPlusHR/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "NHDPlus_HR MapServer; HU4 geodatabases on S3 if a full copy is needed"
+  },
+  "packages": [],
+  "other_access": [
+    "TNM Access API"
+  ],
+  "notes": "USGS stopped maintaining it; successor is 3DHP.",
+  "last_reviewed": "2026-09-29"
+}

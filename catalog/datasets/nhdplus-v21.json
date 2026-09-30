@@ -1,0 +1,51 @@
+{
+  "id": "nhdplus-v21",
+  "title": "NHDPlus V2.1 (national seamless, VPU 15/16/17/18 snapshots, catchments)",
+  "category": "Hydrography",
+  "provider": "US EPA / USGS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "V2.1 (frozen)",
+    "older_versions_online": "Only final component versions",
+    "sccwrp_version_online": "Yes, exact files"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://dmap-data-commons-ow.s3.amazonaws.com/NHDPlusV21/Data/"
+    },
+    {
+      "role": "access",
+      "type": "api",
+      "url": "https://api.water.usgs.gov/nldi/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "EPA WATERS / USGS NLDI services and nhdplusTools / pynhd; S3 7z files for full offline copies"
+  },
+  "packages": [
+    {
+      "language": "Python",
+      "name": "pynhd"
+    },
+    {
+      "language": "R",
+      "name": "nhdplusTools"
+    }
+  ],
+  "other_access": [],
+  "notes": "Backbone for StreamCat/NLDI/CSCI; keep using COMIDs.",
+  "last_reviewed": "2026-09-29"
+}

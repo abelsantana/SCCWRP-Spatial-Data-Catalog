@@ -1,0 +1,37 @@
+{
+  "id": "cari",
+  "title": "CARI (California Aquatic Resource Inventory) v0.2 + wetlands",
+  "category": "Hydrography",
+  "provider": "SFEI",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "CARI v3.3 (Feb 2026)",
+    "older_versions_online": "No (Data Basin has a SoCal v0.2 clip)",
+    "sccwrp_version_online": "No (v0.2 superseded)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.sfei.org/data/california-aquatic-resource-inventory-cari-gis-data"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://filecloud.sfei.org/index.php/s/8kAp3ZqNBEepj56"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2835_fpu/FeatureServer/0"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "CARI v3.3 FeatureServers (CDFW BIOS)"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "v0.2 is badly outdated.",
+  "last_reviewed": "2026-09-29"
+}

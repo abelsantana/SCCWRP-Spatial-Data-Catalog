@@ -1,0 +1,37 @@
+{
+  "id": "epa-ecoregions",
+  "title": "EPA Level III/IV ecoregions, CEC North America",
+  "category": "Ecoregions",
+  "provider": "US EPA ORD",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "CA 2012 publication; US 2013",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "CEC yes; CA Dec2010 pre-release no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.epa.gov/eco-research/level-iii-and-iv-ecoregions-state"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l4.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "EPA ecoregions MapServer; small zips on S3"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Old gaftp paths dead.",
+  "last_reviewed": "2026-09-29"
+}

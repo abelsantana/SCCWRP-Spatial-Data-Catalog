@@ -1,0 +1,47 @@
+{
+  "id": "coastal-marine-boundaries",
+  "title": "Coastal zone, EEZ, submerged lands, offshore platforms",
+  "category": "Coastal & marine",
+  "provider": "CA Coastal Commission / NOAA OCS / BOEM / CDFW OSPR",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Current (2026)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (current versions only)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.coastal.ca.gov/open-data/"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesSHP.zip"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/300_399/ds357.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services9.arcgis.com/wwVnNW92ZHUIr0V0/arcgis/rest/services/Coastal_Zone_Boundary/FeatureServer"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gis.boem.gov/arcgis/rest/services/BOEM_BSEE/POC_Layers/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Coastal Commission, NOAA maritime limits and BOEM services"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "ds357 = CDFW BIOS \"Oil Platforms - OSPR\".",
+  "last_reviewed": "2026-09-29"
+}

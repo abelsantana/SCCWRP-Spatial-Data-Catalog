@@ -1,0 +1,46 @@
+{
+  "id": "tiger-roads",
+  "title": "Census TIGER/Line roads (2011, 2018, 2025)",
+  "category": "Boundaries & reference",
+  "provider": "US Census Bureau",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "TIGER 2025 shp / 2026 gdb",
+    "older_versions_online": "Yes, all vintages since 1992",
+    "sccwrp_version_online": "Yes, exact files"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www2.census.gov/geo/tiger/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "TIGERweb services and pygris / tigris (any vintage via year=)"
+  },
+  "packages": [
+    {
+      "language": "Python",
+      "name": "pygris"
+    },
+    {
+      "language": "R",
+      "name": "tigris"
+    }
+  ],
+  "other_access": [],
+  "notes": "CA_MajorRoads also holds SCCWRP-made merges (socal_Roads etc.).",
+  "last_reviewed": "2026-09-29"
+}

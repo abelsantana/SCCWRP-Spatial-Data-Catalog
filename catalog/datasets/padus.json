@@ -1,0 +1,44 @@
+{
+  "id": "padus",
+  "title": "PAD-US 2.0 and 4.0",
+  "category": "Protected areas",
+  "provider": "USGS GAP",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "PAD-US 4.1 (2025)",
+    "older_versions_online": "Yes: 1.4, 2.0, 2.1, 3.0, 4.0",
+    "sccwrp_version_online": "Yes, both"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.sciencebase.gov/catalog/item/65294599d34e44db0e2ed7cf"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/652d4f80d34e44db0e2ee45c",
+      "label": "4.0 state"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/5b030c7ae4b0da30c1c1d6de",
+      "label": "2.0"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_4_1/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "PAD-US MapServer and USGS feature services; ScienceBase downloads by version"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,34 @@
+{
+  "id": "sccwrp-bight",
+  "title": "SCCWRP Bight regional monitoring (stations, strata)",
+  "category": "Coastal & marine",
+  "provider": "SCCWRP",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Bight '23 (publishing)",
+    "older_versions_online": "Yes, every cycle",
+    "sccwrp_version_online": "Yes (all cycles 1994-2023 on Bight Hub)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://bight.sccwrp.org/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "SCCWRP Bight Hub FeatureServers (AllBight_Strata, station occupation)"
+  },
+  "packages": [],
+  "other_access": [
+    "Hub item downloads"
+  ],
+  "notes": "Internal working copies may differ from published layers.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,27 @@
+{
+  "id": "short-dataset-id",
+  "title": "Dataset name as users know it",
+  "category": "Hydrography",
+  "provider": "Publishing agency",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Newest version the provider offers",
+    "older_versions_online": "Which older versions the provider still offers, or No",
+    "sccwrp_version_online": "Is the version SCCWRP uses still online? Yes / No / Partial"
+  },
+  "links": [
+    {"role": "landing", "type": "landing", "url": "https://provider.gov/dataset-page"},
+    {"role": "download", "type": "download", "url": "https://provider.gov/files/dataset.zip", "label": "optional short note"},
+    {"role": "access", "type": "arcgis-featureserver", "url": "https://services.arcgis.com/.../FeatureServer/0"}
+  ],
+  "access": {
+    "mode": "stream | read-in-place | download-on-demand | keep-local",
+    "how": "One line: which service/API/bucket to use, or why a local copy is needed"
+  },
+  "packages": [
+    {"language": "Python", "name": "package-name"}
+  ],
+  "other_access": ["Ways to get it that are not a single URL, e.g. 'Request from data@agency.gov'"],
+  "notes": "Caveats users should know.",
+  "last_reviewed": "YYYY-MM-DD"
+}

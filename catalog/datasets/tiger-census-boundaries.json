@@ -1,0 +1,56 @@
+{
+  "id": "tiger-census-boundaries",
+  "title": "Census TIGER boundaries, ACS ZCTA, 2000/2010 census",
+  "category": "Boundaries & reference",
+  "provider": "US Census Bureau",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "TIGER 2025 / CB 2025",
+    "older_versions_online": "Yes, full archive",
+    "sccwrp_version_online": "Yes (2000 ESRI conversions partial)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www2.census.gov/geo/tiger/"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://www2.census.gov/geo/tiger/TIGER_DP/2014ACS/ACS_2014_5YR_ZCTA.gdb.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-directory",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb"
+    },
+    {
+      "role": "access",
+      "type": "api",
+      "url": "https://api.census.gov/data.html"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "TIGERweb vintage services, Census API, pygris / censusdis"
+  },
+  "packages": [
+    {
+      "language": "Python",
+      "name": "censusdis"
+    },
+    {
+      "language": "Python",
+      "name": "pygris"
+    }
+  ],
+  "other_access": [],
+  "notes": "Some demographic joins (LAPopulation, CA_Census_Popdata) are SCCWRP-made.",
+  "last_reviewed": "2026-09-29"
+}

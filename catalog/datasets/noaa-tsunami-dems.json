@@ -1,0 +1,37 @@
+{
+  "id": "noaa-tsunami-dems",
+  "title": "NOAA tsunami inundation DEMs (San Diego, Santa Monica, Santa Barbara)",
+  "category": "Coastal & marine",
+  "provider": "NOAA NCEI",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Single releases 2008-2012",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes (as NetCDF); sd_1_3_110805 pre-release partial"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.ncei.noaa.gov/products/coastal-elevation-models"
+    },
+    {
+      "role": "download",
+      "type": "thredds",
+      "url": "https://www.ngdc.noaa.gov/thredds/catalog/regional/catalog.html"
+    },
+    {
+      "role": "access",
+      "type": "wcs",
+      "url": "https://www.ngdc.noaa.gov/thredds/wcs/regional/san_diego_13_mhw_2012.nc"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "NCEI THREDDS OPeNDAP / WCS per DEM"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Duplicates files in Bathymetry\\NOAA.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "olson-cormier-conductivity",
+  "title": "Olson & Cormier nationwide conductivity (EC) model",
+  "category": "Watershed metrics",
+  "provider": "US EPA ORD",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2019 model; predictions 2020",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Partial (tables and predictions public, rasters not)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://doi.org/10.23719/1500945"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://pasteur.epa.gov/uploads/10.23719/1500945/RefModelData_508.xlsx"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/PredECHydroline/FeatureServer/0"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Predicted conductivity FeatureServer by COMID; predictor table is a small download"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Check whether our 14 GB holds original predictor rasters before removing.",
+  "last_reviewed": "2026-09-29"
+}

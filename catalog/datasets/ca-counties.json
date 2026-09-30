@@ -1,0 +1,37 @@
+{
+  "id": "ca-counties",
+  "title": "California county boundaries (CAL FIRE cnty24k09/97)",
+  "category": "Boundaries & reference",
+  "provider": "CAL FIRE FRAP / CA Dept. of Technology",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "California Counties 26_2 (May 2026)",
+    "older_versions_online": "Yes (cnty24k97, cnty24k09 on CNRA archive)",
+    "sccwrp_version_online": "Yes (CNRA archive)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://gis.data.ca.gov/datasets/California::california-county-boundaries-and-identifiers"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://gisarchive.cnra.ca.gov/iso/Boundaries/Boundaries_%28project%29/CountyBoundaries2009/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "CAL FIRE / CDT county FeatureServers"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Heavily used, tiny.",
+  "last_reviewed": "2026-09-29"
+}

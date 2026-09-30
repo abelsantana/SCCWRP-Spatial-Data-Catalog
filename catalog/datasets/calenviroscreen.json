@@ -1,0 +1,38 @@
+{
+  "id": "calenviroscreen",
+  "title": "CalEnviroScreen (draft 5.0)",
+  "category": "Environmental justice",
+  "provider": "OEHHA",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "CES 5.0 final (2026-07-01)",
+    "older_versions_online": "Yes: draft 5.0, 4.0, 3.0, 2.0",
+    "sccwrp_version_online": "Yes (draft still posted)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data.ca.gov/dataset/calenviroscreen-5-0"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://data.ca.gov/dataset/draft-calenviroscreen-5-0",
+      "label": "our draft"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/calenviroscreen50results_F_070126_gdb/FeatureServer/2"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "OEHHA FeatureServers (final 5.0, draft 5.0, 4.0)"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Draft superseded; re-point analyses to the final 5.0.",
+  "last_reviewed": "2026-09-29"
+}

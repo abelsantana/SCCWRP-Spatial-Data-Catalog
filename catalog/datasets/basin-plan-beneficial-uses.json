@@ -1,0 +1,37 @@
+{
+  "id": "basin-plan-beneficial-uses",
+  "title": "Basin Plan beneficial uses (regions 1-9)",
+  "category": "Water quality",
+  "provider": "State Water Board",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2020-21 FGDBs; services updated to 2026",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "BP_BeneficialUses_* yes (2020 release); Region*.gdb no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.waterboards.ca.gov/resources/data_databases/basin_plan_portal.html"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://gispublic.waterboards.ca.gov/portal/home/group.html?id=2de374bd11d9468d8e8919bdaf060016"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Basin_Plan/California_Basin_Plan_Beneficial_Uses/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Basin Plan beneficial uses MapServer and regional FeatureServers"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Region4L.gdb-style older files are not online; keep if needed.",
+  "last_reviewed": "2026-09-29"
+}

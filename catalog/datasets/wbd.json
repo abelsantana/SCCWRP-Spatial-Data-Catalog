@@ -1,0 +1,47 @@
+{
+  "id": "wbd",
+  "title": "Watershed Boundary Dataset (HUC 8/10/12, HU2 16-18)",
+  "category": "Hydrography",
+  "provider": "USGS / NRCS",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Final static WBD (Jan 2025)",
+    "older_versions_online": "NRCS Box FY2024-FY2026 snapshots",
+    "sccwrp_version_online": "HU2 files yes (final version); CA 2008 certification and NRCS state clips no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data.cnra.ca.gov/dataset/watershed-boundary-dataset-wbd"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/HU2/GDB/WBD_18_HU2_GDB.zip"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://nrcs.app.box.com/v/huc"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "WBD MapServer and USGS WFS; national geodatabase on S3"
+  },
+  "packages": [
+    {
+      "language": "Python",
+      "name": "pynhd"
+    }
+  ],
+  "other_access": [],
+  "notes": "NRCS Geospatial Data Gateway went offline 2026-03-31. Keep the CA WBD 2008 certification copy if still needed.",
+  "last_reviewed": "2026-09-29"
+}

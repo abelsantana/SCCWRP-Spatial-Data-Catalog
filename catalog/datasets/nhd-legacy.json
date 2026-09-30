@@ -1,0 +1,42 @@
+{
+  "id": "nhd-legacy",
+  "title": "NHD (legacy high/medium res, NHDH1807, NHD v1 CA)",
+  "category": "Hydrography",
+  "provider": "USGS (CA steward DWR)",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Final static NHD (Dec 2023); successor 3DHP FY26",
+    "older_versions_online": "CA DWR state snapshots 2018-2023",
+    "sccwrp_version_online": "No (old packaging retired)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data.cnra.ca.gov/dataset/nhd-archive"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/State/GDB/NHD_H_California_State_GDB.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Current NHD / 3DHP services; frozen NHD archive for old vintages"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "NHD retired Oct 1, 2023.",
+  "last_reviewed": "2026-09-29"
+}

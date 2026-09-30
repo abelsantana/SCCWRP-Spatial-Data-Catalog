@@ -1,0 +1,37 @@
+{
+  "id": "prism-daily",
+  "title": "PRISM daily climate (2013 daily PPT)",
+  "category": "Climate",
+  "provider": "PRISM Climate Group, Oregon State",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Current AN series (COG since 2025-10-01)",
+    "older_versions_online": "Partial (pre-2015 D1 series)",
+    "sccwrp_version_online": "Partial (same dates re-released Dec 2024; values may differ)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://prism.oregonstate.edu/downloads/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://data.prism.oregonstate.edu/time_series/us/an/4km/ppt/daily/2013/"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://services.nacse.org/prism/data/get/us/4km/ppt/YYYYMMDD?format=bil"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "PRISM web service returns one grid per request (COG or BIL); fetch the dates you need"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Old daily/ BIL paths and web service URLs retired 2025-09-30; update any scripts.",
+  "last_reviewed": "2026-09-29"
+}

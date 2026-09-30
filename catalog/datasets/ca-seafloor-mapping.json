@@ -1,0 +1,37 @@
+{
+  "id": "ca-seafloor-mapping",
+  "title": "California Seafloor Mapping Program (CSUMB habitat/geology)",
+  "category": "Coastal & marine",
+  "provider": "USGS PCMSC / CSUMB SFML",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "USGS DS 781 (rev. 2025-08-22)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "USGS blocks yes; SFML products request-only"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://pubs.usgs.gov/ds/781/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://cmgds.marine.usgs.gov/data/csmp/"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://cmgds.marine.usgs.gov/data/csmp/webservices_help.html"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "CSUMB SFML products are request-only; USGS blocks download from CMGDS"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "SFML archive offline (cbretz@csumb.edu). Keep SoCal SFML products; link USGS blocks.",
+  "last_reviewed": "2026-09-29"
+}

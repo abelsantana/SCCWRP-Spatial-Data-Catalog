@@ -1,0 +1,39 @@
+{
+  "id": "gmted2010",
+  "title": "GMTED2010",
+  "category": "Elevation",
+  "provider": "USGS EROS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Static 2010",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Yes"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data.usgs.gov/datacatalog/data/USGS:EROS5e83a1f36d8572da"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://earthexplorer.usgs.gov/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://topotools.cr.usgs.gov/gmted_viewer/index.html"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "Small tiles from EarthExplorer or Earth Engine"
+  },
+  "packages": [],
+  "other_access": [
+    "GEE USGS/GMTED2010_FULL"
+  ],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

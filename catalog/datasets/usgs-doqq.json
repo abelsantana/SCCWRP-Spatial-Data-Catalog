@@ -1,0 +1,35 @@
+{
+  "id": "usgs-doqq",
+  "title": "USGS DOQQs (San Diego area)",
+  "category": "Imagery",
+  "provider": "USGS EROS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Program ended 2004",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Likely yes"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://catalog.data.gov/dataset/usgs-digital-orthophoto-quadrangles"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://earthexplorer.usgs.gov/",
+      "label": "DOQ dataset, free login"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "EarthExplorer by quad (login required)"
+  },
+  "packages": [],
+  "other_access": [
+    "USGS M2M API (account needed)"
+  ],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

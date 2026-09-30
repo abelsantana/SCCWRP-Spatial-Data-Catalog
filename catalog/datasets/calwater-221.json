@@ -1,0 +1,34 @@
+{
+  "id": "calwater-221",
+  "title": "CalWater 2.2.1",
+  "category": "Hydrography",
+  "provider": "CA Interagency Watershed Mapping Committee (hosted by CDFW)",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2.2.1 (2004, final)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "Yes, as service/export only (Web Mercator)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://data-cdfw.opendata.arcgis.com/datasets/CDFW::california-interagency-watershed-map-of-1999-calwater"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/calw_poly_wm/FeatureServer/0"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "CDFW FeatureServer (calw_poly_wm)"
+  },
+  "packages": [],
+  "other_access": [
+    "Hub export (shapefile/FGDB) from landing page"
+  ],
+  "notes": "No agency offers a static file. Heavily used and tiny (0.3 GB): reasonable to keep a copy too.",
+  "last_reviewed": "2026-09-29"
+}

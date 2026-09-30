@@ -1,0 +1,42 @@
+{
+  "id": "cdfw-marine",
+  "title": "CDFW Fish & Game bathymetry (2002) and MPAs",
+  "category": "Coastal & marine",
+  "provider": "CDFW (bathymetry archived at Stanford)",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "MPAs as of 2019-01-01",
+    "older_versions_online": "Dated MPA services 2016, 2018, 2019",
+    "sccwrp_version_online": "Yes (MPAs current; bathymetry via Stanford)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://wildlife.ca.gov/Conservation/Marine/GIS"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/500_599/ds582.zip"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://purl.stanford.edu/ns150wp8904"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/ArcGIS/rest/services/biosds582_fpu/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "CDFW MPA FeatureServers"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,37 @@
+{
+  "id": "ca-integrated-report",
+  "title": "CA Integrated Report / 303(d) (State Water Board)",
+  "category": "Water quality",
+  "provider": "State Water Board",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2024 IR (2026 in progress)",
+    "older_versions_online": "Yes: 2014/16, 2018, 2020-22",
+    "sccwrp_version_online": "2014/16 and later yes; pre-2014 GIS unconfirmed"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/docs/Final_2020-22_IR.gdb.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-featureserver",
+      "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/2024_Integrated_Report_Polygons/FeatureServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "Water Board Integrated Report FeatureServers by cycle"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Folder contents not individually checked.",
+  "last_reviewed": "2026-09-29"
+}

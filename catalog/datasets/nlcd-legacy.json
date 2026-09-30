@@ -1,0 +1,40 @@
+{
+  "id": "nlcd-legacy",
+  "title": "NLCD legacy editions (2001, 2006, 2011, 2016 CONUS)",
+  "category": "Land cover",
+  "provider": "USGS / MRLC",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Legacy ended with 2021 release; Annual NLCD C1.2 (1985-2025)",
+    "older_versions_online": "Yes, every edition on ScienceBase",
+    "sccwrp_version_online": "Yes (identify edition from file date)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.sciencebase.gov/catalog/item/6345b637d34e342aee0863aa"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/6345bfffd34e342aee0863d7",
+      "label": "previous versions"
+    },
+    {
+      "role": "access",
+      "type": "wms",
+      "url": "https://www.mrlc.gov/geoserver/mrlc_display/wms?service=WMS&request=GetCapabilities"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "Clip what you need from ScienceBase editions or the MRLC viewer; legacy WMS for viewing only"
+  },
+  "packages": [],
+  "other_access": [
+    "GEE USGS/NLCD_RELEASES/*"
+  ],
+  "notes": "Old s3-us-west-2 mrlc links are dead. ~162 GB locally.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,25 @@
+{
+ "checked": "2026-09-29",
+ "links": {
+  "https://api.water.usgs.gov/nldi/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-09-29"
+  },
+  "https://dmap-data-commons-ow.s3.amazonaws.com/NHDPlusV21/Data/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-09-29"
+  },
+  "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-09-29"
+  },
+  "https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-09-29"
+  }
+ }
+}

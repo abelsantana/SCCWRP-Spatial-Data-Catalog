@@ -1,0 +1,43 @@
+{
+  "id": "la-river-lidar-2016",
+  "title": "LA River lidar point cloud (LARIAC4, 2015-16)",
+  "category": "Elevation",
+  "provider": "LA County / USGS 3DEP / NOAA Digital Coast (ID 8651)",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "CA_LosAngeles_B23; CA_2025LosAngelesPostWildfire_C25",
+    "older_versions_online": "Yes",
+    "sccwrp_version_online": "Yes, same tile IDs (as LAZ/COPC, half the size)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.fisheries.noaa.gov/inport/item/55233"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/laz/geoid18/8651/index.html"
+    },
+    {
+      "role": "access",
+      "type": "entwine-pointcloud",
+      "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/USGS_LPC_CA_LosAngeles_2016_LAS_2018/ept.json",
+      "label": "Entwine/PDAL"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=8651"
+    }
+  ],
+  "access": {
+    "mode": "read-in-place",
+    "how": "Read point clouds in place: Entwine (EPT) with PDAL or NOAA COPC tiles on public S3; clip by area"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "~673 GB, largest single holding; no real use since cutoff.",
+  "last_reviewed": "2026-09-29"
+}

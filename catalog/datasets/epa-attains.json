@@ -1,0 +1,39 @@
+{
+  "id": "epa-attains",
+  "title": "EPA ATTAINS assessments (CA/AZ/NM/NV 20250117)",
+  "category": "Water quality",
+  "provider": "US EPA",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "2026-09-03 extract",
+    "older_versions_online": "Yes, dated extracts since 2022",
+    "sccwrp_version_online": "Yes, exact files"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.epa.gov/waterdata/waters-geospatial-data-downloads"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://dmap-data-commons-ow.s3.amazonaws.com/data/attains/geospatial/fgdb/CA/ATTAINS_Assessment_CA_20250117_fgdb.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "ATTAINS_Assessment MapServer; dated extracts on S3 for reproducibility"
+  },
+  "packages": [],
+  "other_access": [
+    "ATTAINS REST API (api.data.gov key)"
+  ],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

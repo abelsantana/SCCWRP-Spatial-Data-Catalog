@@ -1,0 +1,42 @@
+{
+  "id": "shorelines",
+  "title": "Shorelines (USGS shoreline change SoCal, NOAA CUSP/medium res)",
+  "category": "Coastal & marine",
+  "provider": "USGS / NOAA NGS",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "USGS 2024 update (DOI 10.5066/P94J0K7Z); CUSP current",
+    "older_versions_online": "USGS 2006 and 2024 both online",
+    "sccwrp_version_online": "USGS OFR 2006-1251 yes (exact); CUSP Aug 2011 no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://pubs.usgs.gov/of/2006/1251/"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://nsde.ngs.noaa.gov/"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://www.sciencebase.gov/catalog/item/619668d0d34eb622f69155a7"
+    }
+  ],
+  "access": {
+    "mode": "download-on-demand",
+    "how": "Small USGS zips; current CUSP from NOAA NSDE"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Heavily used, tiny.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,26 @@
+name: Validate catalog
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate catalog entries
+        run: python scripts/validate_catalog.py
+      - name: Check page builds
+        run: python scripts/build_site.py
+      - name: Check links of changed datasets
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          for f in $(git diff --name-only origin/${{ github.base_ref }} -- catalog/datasets/); do
+            [ -f "$f" ] && python scripts/check_links.py --only "$(basename "$f" .json)"
+          done

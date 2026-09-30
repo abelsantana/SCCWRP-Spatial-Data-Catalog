@@ -1,0 +1,33 @@
+{
+  "id": "watershed-metric-resources",
+  "title": "Watershed Metric Resources v5 gdb (CSCI / Reference Screening toolbox)",
+  "category": "Watershed metrics",
+  "provider": "CSU Chico GIC for SWRCB/SCCWRP",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "v5 (toolbox Pro v0.3.3 / ArcMap v4.8, 2023)",
+    "older_versions_online": "No",
+    "sccwrp_version_online": "v5 yes; v4.x and 2018 copies no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://csuchico.box.com/v/CSCI-Data-Tools"
+    },
+    {
+      "role": "access",
+      "type": "api",
+      "url": "https://api.epa.gov/StreamCat/streams/metrics",
+      "label": "EPA StreamCat API for COMID-based metrics"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "Toolbox runs against the geodatabase itself: keep one shared local copy (v5 from CSU Chico Box)"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "Stored at least twice on S (Watershed_Metric_Tools and CSCI and Ref Screen Toolbox, ~23.5 GB each).",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,49 @@
+{
+  "id": "noaa-crm-cudem",
+  "title": "NOAA Coastal Relief Model (SoCal v1, central CA) and CUDEM",
+  "category": "Coastal & marine",
+  "provider": "NOAA NCEI",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "SoCal CRM v2 (2013); CUDEM 1/9 arc-sec",
+    "older_versions_online": "Legacy CRM Vol 1-10 posted",
+    "sccwrp_version_online": "SoCal v1 no (v2 replaces); tsunami DEMs yes"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.ncei.noaa.gov/products/coastal-relief-model"
+    },
+    {
+      "role": "download",
+      "type": "thredds",
+      "url": "https://www.ngdc.noaa.gov/thredds/catalog/crm/catalog.html"
+    },
+    {
+      "role": "download",
+      "type": "thredds",
+      "url": "https://www.ngdc.noaa.gov/thredds/catalog/regional/catalog.html"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-imageserver",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_all/ImageServer"
+    },
+    {
+      "role": "access",
+      "type": "web",
+      "url": "https://www.ncei.noaa.gov/maps/grid-extract/"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "NCEI DEM ImageServer, THREDDS OPeNDAP / WCS, Grid Extract"
+  },
+  "packages": [],
+  "other_access": [
+    "THREDDS OPeNDAP/WCS"
+  ],
+  "notes": "Bight clips/contours in these folders are SCCWRP-derived; keep those. ~57 GB.",
+  "last_reviewed": "2026-09-29"
+}

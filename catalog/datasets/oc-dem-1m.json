@@ -1,0 +1,44 @@
+{
+  "id": "oc-dem-1m",
+  "title": "Orange County 1-m DEM (oc_dem_1m1116)",
+  "category": "Elevation",
+  "provider": "OC Public Works / OC Survey (from 2011 USGS lidar)",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "3DEP 1 m CA_CaliforniaGaps_B23 (2025)",
+    "older_versions_online": "2011 source lidar (NOAA ID 4793)",
+    "sccwrp_version_online": "Partial / unknown"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://pwadmin.oc.gov/sites/ocpwocs/files/2023-07/OCPW%20Geospatial%20Data%20Details.pdf"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CaliforniaGaps_B23/"
+    },
+    {
+      "role": "access",
+      "type": "entwine-pointcloud",
+      "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/CA_OrangeCo_2011/ept.json"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "USGS 3DEP ImageServer and py3dep (1 m where available)"
+  },
+  "packages": [
+    {
+      "language": "Python",
+      "name": "py3dep"
+    }
+  ],
+  "other_access": [
+    "TNM Access API"
+  ],
+  "notes": "Check file CRS/metadata to confirm origin.",
+  "last_reviewed": "2026-09-29"
+}

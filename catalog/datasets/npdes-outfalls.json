@@ -1,0 +1,39 @@
+{
+  "id": "npdes-outfalls",
+  "title": "EPA NPDES outfalls and POTWs",
+  "category": "Facilities",
+  "provider": "US EPA ECHO / State Water Board",
+  "recommendation": "link-out-current",
+  "versions": {
+    "latest": "Weekly (2026-09-27)",
+    "older_versions_online": "No snapshots",
+    "sccwrp_version_online": "No (extracts must be re-filtered)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://echo.epa.gov/tools/data-downloads"
+    },
+    {
+      "role": "download",
+      "type": "download",
+      "url": "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-directory",
+      "url": "https://echogeo.epa.gov/arcgis/rest/services/ECHO"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "EPA ECHO services and weekly outfall layer zip"
+  },
+  "packages": [],
+  "other_access": [
+    "ECHO REST web services"
+  ],
+  "notes": "SCCWRP-curated ocean outfall coordinates (LACSD, Monitoring) should stay local.",
+  "last_reviewed": "2026-09-29"
+}

@@ -1,0 +1,42 @@
+{
+  "id": "multibeam-nos-surveys",
+  "title": "Multibeam / NOS hydrographic surveys",
+  "category": "Coastal & marine",
+  "provider": "NOAA NCEI",
+  "recommendation": "link-out",
+  "versions": {
+    "latest": "Continuously ingested",
+    "older_versions_online": "Archive via NEXT",
+    "sccwrp_version_online": "Footprints yes (live); derived rugosity no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://www.ncei.noaa.gov/products/seafloor-mapping"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.ngdc.noaa.gov/next-web/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/multibeam_dynamic/MapServer"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-mapserver",
+      "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/nos_hydro_dynamic/MapServer"
+    }
+  ],
+  "access": {
+    "mode": "stream",
+    "how": "NCEI multibeam and NOS hydro MapServers; BAGs per survey"
+  },
+  "packages": [],
+  "other_access": [],
+  "notes": "",
+  "last_reviewed": "2026-09-29"
+}

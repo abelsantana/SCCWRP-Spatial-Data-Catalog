@@ -1,0 +1,39 @@
+{
+  "id": "historical-topo-tsheets",
+  "title": "Historical topo maps and T-sheets (rectified)",
+  "category": "Historical maps",
+  "provider": "USGS HTMC / NOAA / SFEI-SCCWRP",
+  "recommendation": "keep-local-restricted",
+  "versions": {
+    "latest": "Static",
+    "older_versions_online": "n/a",
+    "sccwrp_version_online": "Raw scans yes; our rectified versions no"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://ngmdb.usgs.gov/topoview/"
+    },
+    {
+      "role": "download",
+      "type": "cloud-bucket",
+      "url": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/"
+    },
+    {
+      "role": "download",
+      "type": "web",
+      "url": "https://www.caltsheets.org/"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "SCCWRP rectified products; raw scans stream from USGS topoView / TNM"
+  },
+  "packages": [],
+  "other_access": [
+    "TNM Access API (datasets=Historical Topographic Maps)"
+  ],
+  "notes": "Keep \"Rectify*\" SCCWRP products; unmodified scans can be linked. DRG_quads not individually checked.",
+  "last_reviewed": "2026-09-29"
+}

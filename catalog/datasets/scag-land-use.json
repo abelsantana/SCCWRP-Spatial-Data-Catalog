@@ -1,0 +1,39 @@
+{
+  "id": "scag-land-use",
+  "title": "SCAG land use (2000, 2005, 2008)",
+  "category": "Land use",
+  "provider": "SCAG",
+  "recommendation": "keep-local",
+  "versions": {
+    "latest": "2024 Existing Land Use (July 2025)",
+    "older_versions_online": "Online: 2016, 2019, 2020 only",
+    "sccwrp_version_online": "No (2008 and earlier not online)"
+  },
+  "links": [
+    {
+      "role": "landing",
+      "type": "landing",
+      "url": "https://hub.scag.ca.gov/"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-directory",
+      "url": "https://maps.scag.ca.gov/scaggis/rest/services"
+    },
+    {
+      "role": "access",
+      "type": "arcgis-directory",
+      "url": "https://rdp.scag.ca.gov/mapping/rest/services"
+    }
+  ],
+  "access": {
+    "mode": "keep-local",
+    "how": "2008 and earlier are not online; current years stream from SCAG services"
+  },
+  "packages": [],
+  "other_access": [
+    "Hub item downloads"
+  ],
+  "notes": "Keep local, or request from SCAG Data Services. Link current years for new work.",
+  "last_reviewed": "2026-09-29"
+}
