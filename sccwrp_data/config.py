@@ -67,13 +67,10 @@ CATALOG_URL = ('https://raw.githubusercontent.com/abelsantana/SCCWRP-Spatial-Dat
 
 
 def catalog_source():
-    """Where dataset entries come from: 'local' (the catalog/ folder next to this code) or a URL.
-
-    Defaults to the published catalog on GitHub, so a pushed fix reaches everyone without reinstalling. A git checkout
-    defaults to 'local', so the entries being edited are the ones used.
+    """Where dataset entries come from: the published catalog on GitHub (default), so a pushed fix reaches everyone
+    without reinstalling, or 'local' (the catalog/ folder next to this code) to try entries before pushing them.
     """
-    default = 'local' if (REPO / '.git').exists() else CATALOG_URL
-    s = _setting('SCCWRP_DATA_CATALOG', 'catalog', default)
+    s = _setting('SCCWRP_DATA_CATALOG', 'catalog', CATALOG_URL)
     return CATALOG_URL if s == 'github' else s
 
 
