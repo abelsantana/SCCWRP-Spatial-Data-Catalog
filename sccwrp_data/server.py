@@ -34,7 +34,7 @@ import shapely
 from . import __version__, config
 from . import clipareas
 from .clipareas import areas, choices, resolve
-from . import entries
+from . import entries, vectorio
 from .entries import CatalogError, catalog
 from .request import get
 from .stage import staged_list
@@ -227,7 +227,7 @@ def _preview(result):
             return _raster_preview(f, result.manifest['dataset'])
     for f in result.files:
         if f.suffix == '.gpkg':
-            g = gpd.read_file(f, use_arrow=True)
+            g = vectorio.read(f)
             n = len(g)
             if n > PREVIEW_MAX_FEATURES:
                 g = g.sample(PREVIEW_MAX_FEATURES, random_state=0)

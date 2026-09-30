@@ -18,7 +18,13 @@ REPO = Path(__file__).resolve().parents[1]
 if str(REPO) not in sys.path:
     sys.path.insert(0, str(REPO))
 
-from sccwrp_data import entries  # noqa: E402  (light: reads JSON only)
+import sccwrp_data  # noqa: E402  (light: reads JSON only; the GIS parts load when a tool runs)
+from sccwrp_data import entries  # noqa: E402
+
+MISSING = sccwrp_data.missing_packages()
+MISSING_MSG = (f"ArcGIS Pro's Python environment ({sys.prefix}) is missing {', '.join(MISSING)}. "
+               'In Pro: Settings > Package Manager > Environment Manager, clone arcgispro-py3 and activate the clone, '
+               'then add geopandas under Add Packages and restart Pro. See INSTALL.md.')
 
 CUSTOM = 'Custom area (feature layer, drawn shape or file)'
 METHODS = {'Clip to the area': 'clip', 'Keep whole features that touch the area': 'intersects',
@@ -190,6 +196,8 @@ class GetData:
 
     def updateMessages(self, p):
         dataset, layer, area_type, area_values, custom, *_ = p
+        if MISSING:
+            dataset.setErrorMessage(MISSING_MSG)
         kind_id = AREA_TYPES.get(area_type.valueAsText)
         if kind_id in PICK_MANY and not area_values.values:
             area_values.setErrorMessage('Choose one or more' + (' HUC codes, e.g. 18070105' if kind_id.startswith('huc')
@@ -210,6 +218,8 @@ class GetData:
                 layer.setErrorMessage(str(e))
 
     def execute(self, p, messages):
+        if MISSING:
+            raise RuntimeError(MISSING_MSG)
         _reload()
         import sccwrp_data as sd
         v = {x.name: x for x in p}

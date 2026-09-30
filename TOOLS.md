@@ -9,7 +9,7 @@ Status (2026-09-30):
 
 ## Using it
 
-Everything runs in ArcGIS Pro's own Python, the default `arcgispro-py3` environment. There's nothing to install.
+Everything runs in ArcGIS Pro's Python. Pro's default `arcgispro-py3` environment lacks geopandas, shapely and pyproj, so use a clone with **geopandas** added from Pro's Package Manager (see [INSTALL.md](INSTALL.md)). Either GeoPandas file engine works: pyogrio is faster, and fiona, which Pro's package manager installs with geopandas, is fine too. `sccwrp_data.missing_packages()` lists anything missing. Note that Pro ignores packages installed with `pip install --user`, even though command-line Python sees them.
 
 **ArcGIS Pro:** Catalog pane > Toolboxes > Add Toolbox > `toolbox/SCCWRP Data.pyt`.
 - **Get Data** asks for a dataset, layer, area, options and an output folder. It adds the result to the map.

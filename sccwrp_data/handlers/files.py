@@ -56,7 +56,7 @@ def _find(folder, pattern):
 
 
 def _read_vector(path, ctx, layer=None):
-    """Features of a local file that touch the area (pyogrio filters while reading, so big files stay fast)."""
+    """Features of a local file that touch the area (filtered while reading, so big files stay fast)."""
     mask = gpd.GeoSeries([ctx.area.geometry()], crs=ctx.area.gdf.crs)
     gdf = gpd.read_file(path, layer=layer, mask=mask)
     ctx.log(f'  {len(gdf):,} features touch the area')

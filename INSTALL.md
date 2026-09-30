@@ -4,18 +4,28 @@ The toolbox gets a dataset from the SCCWRP catalog for an area you choose, such 
 
 ## What you need
 
-- ArcGIS Pro 3.x with its default Python environment (`arcgispro-py3`). Tested on Pro 3.7.2. Nothing else to install.
+- ArcGIS Pro 3.x. Tested on Pro 3.7.2.
+- A Python environment in Pro that has **geopandas**. Pro's default environment doesn't have it, so you set up a copy once (step 1 below).
 - Internet access.
 - For layers marked **SCCWRP copy**: the SCCWRP network and the internal holdings file (see [SCCWRP copies](#sccwrp-copies)).
 
-## Install (about 2 minutes)
+## Install (about 10 minutes, once)
 
-1. Download the tools:
+1. **Set up Pro's Python environment.** Skip this if you already use a cloned environment that has geopandas.
+   1. In Pro, go to **Settings > Package Manager**, then click **Environment Manager**.
+   2. Clone `arcgispro-py3`. The clone gets a name like `arcgispro-py3-clone`, and this takes a few minutes.
+   3. Select the clone to make it active, then close the Environment Manager.
+   4. Under **Add Packages**, search for `geopandas` and install it.
+   5. Restart ArcGIS Pro.
+
+   If you skip this, the toolbox still opens, but **Get Data** shows an error listing what's missing.
+2. Download the tools:
    [SCCWRP-Spatial-Data-Catalog, main branch (ZIP)](https://github.com/abelsantana/SCCWRP-Spatial-Data-Catalog/archive/refs/heads/main.zip).
    Or, on the [repository page](https://github.com/abelsantana/SCCWRP-Spatial-Data-Catalog), click **Code > Download ZIP**.
-2. Unzip it somewhere permanent, for example `Documents\SCCWRP Data Tools`. Keep the folder together: the toolbox loads the code and catalog from the folder around it.
-3. In ArcGIS Pro, open the **Catalog** pane, right-click **Toolboxes** and choose **Add Toolbox**. Then browse to `toolbox\SCCWRP Data.pyt` in the unzipped folder.
-4. Optional: right-click the toolbox and choose **Add To Favorites**, then **Add To New Projects**, so it shows up in every project.
+3. **Unblock the ZIP before unzipping** (a precaution). Right-click the ZIP, choose **Properties**, tick **Unblock** and click **OK**. Windows marks files downloaded from the internet, and unblocking the ZIP first keeps the mark off the unzipped files.
+4. Unzip it somewhere permanent, for example `Documents\SCCWRP Data Tools`. Keep the folder together: the toolbox loads the code and catalog from the folder around it.
+5. In ArcGIS Pro, open the **Catalog** pane, right-click **Toolboxes** and choose **Add Toolbox**. Then browse to `toolbox\SCCWRP Data.pyt` in the unzipped folder.
+6. Optional: right-click the toolbox and choose **Add To Favorites**, then **Add To New Projects**, so it shows up in every project.
 
 You'll see two tools: **Get Data** and **Add Live Layer**.
 
@@ -81,6 +91,24 @@ Some layers come from SCCWRP's own copies on the server rather than from a provi
    - Or set the environment variable `SCCWRP_DATA_HOLDINGS` to that path.
 
 Without it, these layers stop with a message saying the internal holdings file is needed. Everything else works.
+
+## The toolbox shows a red !
+
+Pro couldn't load the toolbox. The tooltip says "Click to repair item", but repairing doesn't help unless the folder was moved. To see the real error, open **View > Python window** in Pro, paste these lines and press Enter twice:
+
+```python
+import sys, traceback, arcpy
+print(sys.prefix)
+try:
+    arcpy.ImportToolbox(r"C:\GISData\SCCWRP-Spatial-Data-Catalog-main\toolbox\SCCWRP Data.pyt"); print("loaded OK")
+except Exception:
+    traceback.print_exc()
+```
+
+Use your own folder in the path. Then:
+- **The folder was moved or renamed:** right-click the toolbox, choose **Remove**, and add it again from the new place.
+- **Files still carry the download mark:** close Pro, run `Get-ChildItem '<your folder>' -Recurse -File | Unblock-File` in PowerShell, and open Pro again.
+- **Anything else:** send what the Python window printed to the data team.
 
 ## Reporting a problem
 

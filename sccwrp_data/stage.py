@@ -24,11 +24,10 @@ import time
 from pathlib import Path
 
 import geopandas as gpd
-import pyogrio
 import shapely
 from osgeo import gdal
 
-from . import config, holdings
+from . import config, holdings, vectorio
 from .clipareas import resolve as resolve_area
 from .entries import CatalogError, info, layer_spec, layers
 from .handlers import HANDLERS, Context, Fetched, handler, resolve_params
@@ -85,7 +84,7 @@ def staged(ctx):
     if path.suffix == '.gpkg':
         mask = gpd.GeoSeries([ctx.area.geometry()], crs=ctx.area.gdf.crs)
         t = time.time()
-        gdf = gpd.read_file(path, layer=ctx.spec['staged_layer'], mask=mask, use_arrow=True)
+        gdf = vectorio.read(path, layer=ctx.spec['staged_layer'], mask=mask)
         ctx.log(f'  {len(gdf):,} features from the fast copy in {time.time() - t:.1f} s')
         return Fetched('vector', [(ctx.layer, gdf)], sources=[ctx.spec['staged_from']])
     return Fetched('raster', [(ctx.layer, path)], sources=[ctx.spec['staged_from']],
@@ -171,7 +170,7 @@ def _stage_vector(item, layer_name, area, name, log):
         # that touch the area (clipping happens per request, later)
         mask = gpd.GeoSeries([shape], crs=config.EQUAL_AREA)
         t = time.time()
-        gdf = gpd.read_file(item, layer=layer_name, mask=mask, use_arrow=True)
+        gdf = vectorio.read(item, layer=layer_name, mask=mask)
         log(f'  read {len(gdf):,} features from the source in {time.time() - t:.0f} s')
     else:
         gdf = item
@@ -179,7 +178,7 @@ def _stage_vector(item, layer_name, area, name, log):
     if gdf.geometry.has_z.any():
         gdf.geometry = gdf.geometry.force_2d()
     gdf = gdf[gdf.intersects(gpd.GeoSeries([shape], crs=config.EQUAL_AREA).to_crs(config.DEFAULT_CRS).iloc[0])]
-    if out.exists() and name in [n for n, _ in pyogrio.list_layers(out)]:
+    if out.exists() and name in vectorio.layer_names(out):
         ds = gdal.OpenEx(str(out), gdal.OF_VECTOR | gdal.OF_UPDATE)
         ds.DeleteLayer(name)
         ds = None
