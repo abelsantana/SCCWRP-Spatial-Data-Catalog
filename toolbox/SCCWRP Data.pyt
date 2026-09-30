@@ -45,6 +45,8 @@ def _area_types():
 
 AREA_TYPES = _area_types()
 PICK_MANY = {'county', 'county-coastal', 'regional-board', 'smc-watershed'} | {f'huc{lv}' for lv in HUC_LEVELS}
+TYPED = {'point': 'Type longitude,latitude, e.g. -117.85,33.65, and set a buffer',
+         'depth': 'Type shallow-deep in metres, e.g. 30-120'}   # one typed value instead of a pick list
 
 
 def _dataset_items(kinds=None):
@@ -173,7 +175,7 @@ class GetData:
         kind_id = AREA_TYPES.get(area_type.valueAsText)
         if area_type.altered and not area_type.hasBeenValidated:
             custom.enabled = kind_id == 'custom'
-            area_values.enabled = kind_id in PICK_MANY
+            area_values.enabled = kind_id in PICK_MANY or kind_id in TYPED
             if area_values.hasBeenValidated:     # left over from the previous area type, not entered with this one
                 area_values.value = None
             if kind_id in PICK_MANY and not kind_id.startswith('huc'):
@@ -192,6 +194,10 @@ class GetData:
         if kind_id in PICK_MANY and not area_values.values:
             area_values.setErrorMessage('Choose one or more' + (' HUC codes, e.g. 18070105' if kind_id.startswith('huc')
                                                                else ''))
+        if kind_id in TYPED and len(area_values.values or []) != 1:
+            area_values.setErrorMessage(TYPED[kind_id])
+        if kind_id == 'point' and not (p[5].value or 0) > 0:
+            p[5].setErrorMessage('A point needs a buffer, e.g. 0.5 km')
         if kind_id == 'custom' and not custom.value:
             custom.setErrorMessage('Pick a feature layer, draw a shape or browse to a file')
         ds, lay = _id(dataset.valueAsText), _id(layer.valueAsText)
@@ -216,6 +222,9 @@ class GetData:
         elif kind_id in PICK_MANY:
             vals = [x.split(' ', 1)[0] if kind_id == 'regional-board' else x for x in v['area_values'].values]
             area = f'{kind_id}:{",".join(vals)}'
+        elif kind_id in TYPED:
+            typed = str(v['area_values'].values[0]).strip()
+            area = typed if typed.startswith(f'{kind_id}:') else f'{kind_id}:{typed}'
         else:
             area = kind_id
         params = {n: val for n, val in (v['params'].values or []) if n and n != '(none)' and str(val).strip()}

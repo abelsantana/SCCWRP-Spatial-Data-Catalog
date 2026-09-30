@@ -5,7 +5,7 @@ Where to get the public GIS datasets SCCWRP uses, straight from the agencies tha
 - **Browse:** the catalog page (GitHub Pages, built from `docs/index.html`). Search, filter by category, copy links, and get ready-to-paste snippets for ArcGIS Pro, Python and R.
 - **Source of truth:** one JSON file per dataset in [`catalog/datasets/`](catalog/datasets/). Every other interface is generated from these files.
 - **Link health:** a weekly GitHub Action checks every link and records the result in `catalog/link_status.json`; the page shows it as a coloured dot next to each link.
-- **Tools:** an ArcGIS Pro toolbox, a Python package and a command line that get a dataset clipped to a county, watershed, region or your own area, straight from the provider. See [TOOLS.md](TOOLS.md).
+- **Tools:** an ArcGIS Pro toolbox, a Python package and a command line that get a dataset clipped to a county, watershed, region or your own area, straight from the provider. To install and try the toolbox, see [INSTALL.md](INSTALL.md); for everything else, [TOOLS.md](TOOLS.md).
 
 ## What the recommendations mean
 
