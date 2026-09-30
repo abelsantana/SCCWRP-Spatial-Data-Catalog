@@ -128,6 +128,15 @@ function snippets(d) {
   const wms = byType('wms'), dl = d.links.find(l => l.role === 'download' && l.type === 'download');
   const bucket = d.links.map(l => s3Path(l.url)).find(Boolean) || (byType('s3') || {}).url;
   const ept = byType('entwine-pointcloud');
+  if (d.fetch) {
+    const layers = Object.keys(d.fetch.layers), layer = d.fetch.default || layers[0];
+    const params = Object.entries(d.fetch.layers[layer].params || {})
+      .map(([k, p]) => `${JSON.stringify(k)}: ${JSON.stringify(p.default ?? (p.type === 'dates' ? '2020-01-01' : ''))}`);
+    out.push(['SCCWRP tools (Python; or Get Data in the SCCWRP Data toolbox for ArcGIS Pro)',
+      `import sccwrp_data as sd\nr = sd.get("${d.id}", "county:Orange", layer="${layer}"` +
+      (params.length ? `,\n           params={${params.join(', ')}}` : '') + `,\n           out_dir="C:/work")` +
+      (layers.length > 1 ? `\n# other layers: ${layers.filter(l => l !== layer).join(', ')}` : '')]);
+  }
   if (fs || ms) out.push(['ArcGIS Pro', `Map tab > Add Data > Data From Path, paste:\n${(fs || ms).url}`]);
   if (wms) out.push(['ArcGIS Pro (WMS)', `Insert tab > Connections > Server > New WMS Server, paste:\n${wms.url}`]);
   if (fs) {

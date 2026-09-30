@@ -37,6 +37,30 @@
     "mode": "stream",
     "how": "MRLC WCS (data) and WMS (view); S3 COGs (requester pays) for bulk"
   },
+  "fetch": {
+    "layers": {
+      "land-cover": {
+        "title": "Annual NLCD land cover, 30 m",
+        "handler": "wcs",
+        "url": "https://dmsdata.cr.usgs.gov/geoserver/mrlc_Land-Cover-Native_conus_year_data/wcs",
+        "coverage": "mrlc_Land-Cover-Native_conus_year_data:Land-Cover-Native_conus_year_data",
+        "native_crs": "EPSG:5070",
+        "resolution": 30,
+        "max_size": 2000,
+        "time": "{year}-01-01T00:00:00.000Z",
+        "resampling": "nearest",
+        "params": {
+          "year": {
+            "type": "int",
+            "min": 1985,
+            "max": 2024,
+            "default": 2024,
+            "description": "Land cover year"
+          }
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

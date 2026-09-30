@@ -25,6 +25,81 @@
     "mode": "stream",
     "how": "SCCWRP Bight Hub FeatureServers (AllBight_Strata, station occupation)"
   },
+  "fetch": {
+    "default": "strata-2023",
+    "layers": {
+      "strata-2023": {
+        "title": "Bight 2023 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/5",
+        "version": "Bight 2023",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-2018": {
+        "title": "Bight 2018 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/4",
+        "version": "Bight 2018",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-2013": {
+        "title": "Bight 2013 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/3",
+        "version": "Bight 2013",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-2008": {
+        "title": "Bight 2008 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/2",
+        "version": "Bight 2008",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-2003": {
+        "title": "Bight 2003 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/1",
+        "version": "Bight 2003",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-1998": {
+        "title": "Bight 1998 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/0",
+        "version": "Bight 1998",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "strata-1994": {
+        "title": "Bight 1994 survey strata",
+        "handler": "arcgis-features",
+        "url": "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer/6",
+        "version": "Bight 1994",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "Hub item downloads"

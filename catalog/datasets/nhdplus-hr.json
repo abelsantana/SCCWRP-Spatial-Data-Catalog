@@ -30,6 +30,25 @@
     "mode": "stream",
     "how": "NHDPlus_HR MapServer; HU4 geodatabases on S3 if a full copy is needed"
   },
+  "fetch": {
+    "layers": {
+      "flowlines": {
+        "title": "Network flowlines",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/3"
+      },
+      "waterbodies": {
+        "title": "Waterbodies",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/9"
+      },
+      "catchments": {
+        "title": "Catchments",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer/10"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "TNM Access API"

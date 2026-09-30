@@ -5,6 +5,7 @@ Where to get the public GIS datasets SCCWRP uses, straight from the agencies tha
 - **Browse:** the catalog page (GitHub Pages, built from `docs/index.html`). Search, filter by category, copy links, and get ready-to-paste snippets for ArcGIS Pro, Python and R.
 - **Source of truth:** one JSON file per dataset in [`catalog/datasets/`](catalog/datasets/). Every other interface is generated from these files.
 - **Link health:** a weekly GitHub Action checks every link and records the result in `catalog/link_status.json`; the page shows it as a coloured dot next to each link.
+- **Tools:** an ArcGIS Pro toolbox, a Python package and a command line that get a dataset clipped to a county, watershed, region or your own area, straight from the provider. See [TOOLS.md](TOOLS.md).
 
 ## What the recommendations mean
 
@@ -37,9 +38,13 @@ Where SCCWRP's own copies live on internal servers is **not** in this repository
 ## Repository layout
 
 ```
-catalog/datasets/*.json   one entry per dataset (edit these)
+catalog/datasets/*.json   one entry per dataset (edit these); an optional "fetch" block makes it gettable by the tools
+catalog/clip_areas.json   areas users can clip to
 catalog/template.json     blank entry
 catalog/link_status.json  written by the link checker
+sccwrp_data/              the engine: areas, one handler per access path, clipping, cache (see TOOLS.md)
+toolbox/                  ArcGIS Pro toolbox (SCCWRP Data.pyt)
+tests/                    smoke.py (one real request per access path), toolbox_test.py
 scripts/                  validate_catalog.py, check_links.py, build_site.py
 docs/index.html           generated catalog page (GitHub Pages source)
 .github/workflows/        CI and the weekly link check
@@ -50,9 +55,9 @@ docs/index.html           generated catalog page (GitHub Pages source)
 See [DESIGN.md](DESIGN.md) for the tool design.
 
 1. ~~Catalog, page, link checker~~ (this repo)
-2. Clipping engine shared by all tools, using the clip areas in [`catalog/clip_areas.json`](catalog/clip_areas.json): California border, California by watersheds, county, Southern / Central / Northern California, SMC region and SMC watersheds, HUC watersheds (levels 2 to 12), Regional Board regions, with optional buffer and custom areas
-3. ArcGIS Pro Python toolbox: browse the catalog, add live services to the map, or get data clipped to an area
-4. Python and R helper packages: `catalog()`, `info(id)`, `areas()`, `get(id, area="county:Los Angeles")`
+2. ~~Clipping engine shared by all tools~~ (built and tested with one dataset per access path; `fetch` blocks for the rest wait on the S-drive audit decisions), using the clip areas in [`catalog/clip_areas.json`](catalog/clip_areas.json): California border, California by watersheds, county, Southern / Central / Northern California, SMC region and SMC watersheds, HUC watersheds (levels 2 to 12), Regional Board regions, with optional buffer and custom areas
+3. ~~ArcGIS Pro Python toolbox: add live services to the map, or get data clipped to an area~~ (`toolbox/SCCWRP Data.pyt`)
+4. Python package ~~`catalog()`, `info(id)`, `areas()`, `get(id, area="county:Los Angeles")`~~ (`sccwrp_data`); R wrapper still to do
 5. Optional: generate ArcGIS Online / Portal items from the catalog
 
 Initial entries were researched on 2026-09-29 as part of the S-drive inventory; `last_reviewed` records when each was last checked by a person.

@@ -35,6 +35,88 @@
     "mode": "stream",
     "how": "EPA WATERS / USGS NLDI services and nhdplusTools / pynhd; S3 7z files for full offline copies"
   },
+  "fetch": {
+    "default": "flowlines",
+    "layers": {
+      "flowlines": {
+        "title": "Network flowlines",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/2",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "NHDFlowline_Network"
+        }
+      },
+      "flowlines-nonnetwork": {
+        "title": "Non-network flowlines",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/3",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "NHDFlowline_NonNetwork"
+        }
+      },
+      "waterbodies": {
+        "title": "Waterbodies",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/4",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "NHDWaterbody"
+        }
+      },
+      "areas": {
+        "title": "NHD areas (wide rivers, estuaries)",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/5",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "NHDArea"
+        }
+      },
+      "catchments": {
+        "title": "Catchments",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/6",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "Catchment"
+        }
+      },
+      "huc12": {
+        "title": "HUC12 (NHDPlus copy)",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/7",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "HUC12"
+        }
+      },
+      "gages": {
+        "title": "Stream gages",
+        "handler": "arcgis-features",
+        "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/0",
+        "version": "NHDPlus V2.1",
+        "stage": {
+          "source": "local",
+          "holding": "nhdplus-v21/national-gdb",
+          "layer_name": "Gage"
+        }
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",

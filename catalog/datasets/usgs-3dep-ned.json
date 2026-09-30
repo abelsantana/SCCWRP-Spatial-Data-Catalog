@@ -30,6 +30,28 @@
     "mode": "stream",
     "how": "3DEPElevation ImageServer, py3dep, Planetary Computer 3dep-seamless"
   },
+  "fetch": {
+    "layers": {
+      "dem": {
+        "title": "3DEP seamless DEM, best available source resampled to the requested cell size (default 10 m)",
+        "handler": "arcgis-image",
+        "url": "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer",
+        "resolution": 10,
+        "max_size": 8000,
+        "pixel_type": "F32",
+        "nodata": -9999,
+        "resampling": "bilinear"
+      },
+      "dem-13-tiles": {
+        "title": "1/3 arc-second DEM at native cells, read in place from the USGS bucket",
+        "handler": "cog-tiles",
+        "tile_scheme": "usgs-1deg",
+        "crs": "EPSG:4269",
+        "url_template": "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/current/{tile}/USGS_13_{tile}.tif",
+        "resampling": "bilinear"
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",
@@ -39,6 +61,6 @@
   "other_access": [
     "Planetary Computer 3dep-seamless"
   ],
-  "notes": "Derived flow grids (Fdr/Fac/Cat tif) in the folder are SCCWRP-made; keep those.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

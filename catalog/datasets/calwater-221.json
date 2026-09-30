@@ -29,6 +29,6 @@
   "other_access": [
     "Hub export (shapefile/FGDB) from landing page"
   ],
-  "notes": "No agency offers a static file. Heavily used and tiny (0.3 GB): reasonable to keep a copy too.",
+  "notes": "No agency offers a static file.",
   "last_reviewed": "2026-09-29"
 }

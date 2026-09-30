@@ -35,6 +35,33 @@
     "mode": "stream",
     "how": "CDFW MPA FeatureServers"
   },
+  "fetch": {
+    "default": "mpas",
+    "layers": {
+      "mpas": {
+        "title": "Marine Protected Areas",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds582_fpu/FeatureServer/0",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "bathymetry-200m": {
+        "title": "Statewide bathymetry, 200 m (CDFW 2002)",
+        "handler": "local",
+        "holding": "cdfw-marine/bathymetry-200m",
+        "kind": "raster",
+        "resampling": "bilinear",
+        "version": "CDFW bd200m_v2 (2002)",
+        "stage": {
+          "source": "local",
+          "holding": "cdfw-marine/bathymetry-200m",
+          "extent": "ocean"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "",

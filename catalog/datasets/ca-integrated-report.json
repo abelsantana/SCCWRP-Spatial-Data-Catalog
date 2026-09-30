@@ -30,8 +30,18 @@
     "mode": "stream",
     "how": "Water Board Integrated Report FeatureServers by cycle"
   },
+  "fetch": {
+    "layers": {
+      "polygons": {
+        "title": "2024 Integrated Report assessed waterbodies (lakes, bays, estuaries; polygons)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/2024_Integrated_Report_Polygons/FeatureServer/0",
+        "version": "2024 Integrated Report"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "Folder contents not individually checked.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

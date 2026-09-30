@@ -36,8 +36,18 @@
     "mode": "read-in-place",
     "how": "Read point clouds in place: Entwine (EPT) with PDAL or NOAA COPC tiles on public S3; clip by area"
   },
+  "fetch": {
+    "layers": {
+      "points": {
+        "title": "Classified lidar points (USGS Entwine copy of LARIAC4)",
+        "handler": "ept",
+        "url": "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/USGS_LPC_CA_LosAngeles_2016_LAS_2018/ept.json",
+        "max_points": 300000000
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "~673 GB, largest single holding; no real use since cutoff.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

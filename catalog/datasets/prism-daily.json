@@ -30,6 +30,43 @@
     "mode": "download-on-demand",
     "how": "PRISM web service returns one grid per request (COG or BIL); fetch the dates you need"
   },
+  "fetch": {
+    "layers": {
+      "daily": {
+        "title": "PRISM daily 4 km grids (one file per date)",
+        "handler": "download-template",
+        "url_template": "https://services.nacse.org/prism/data/get/us/4km/{element}/{date:%Y%m%d}",
+        "iterate": "date",
+        "kind": "raster",
+        "member": "*.tif",
+        "min_interval_s": 2,
+        "resampling": "bilinear",
+        "params": {
+          "date": {
+            "type": "dates",
+            "min": "1981-01-01",
+            "required": true,
+            "max_count": 31,
+            "description": "YYYY-MM-DD, or start/end for a range (up to 31 days)"
+          },
+          "element": {
+            "type": "choice",
+            "choices": [
+              "ppt",
+              "tmin",
+              "tmax",
+              "tmean",
+              "tdmean",
+              "vpdmin",
+              "vpdmax"
+            ],
+            "default": "ppt",
+            "description": "Climate variable"
+          }
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "Old daily/ BIL paths and web service URLs retired 2025-09-30; update any scripts.",

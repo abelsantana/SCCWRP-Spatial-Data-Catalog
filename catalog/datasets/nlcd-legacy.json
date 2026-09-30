@@ -35,6 +35,6 @@
   "other_access": [
     "GEE USGS/NLCD_RELEASES/*"
   ],
-  "notes": "Old s3-us-west-2 mrlc links are dead. ~162 GB locally.",
+  "notes": "Old s3-us-west-2 mrlc links are dead.",
   "last_reviewed": "2026-09-29"
 }

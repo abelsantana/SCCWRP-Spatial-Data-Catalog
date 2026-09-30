@@ -26,8 +26,37 @@
     "mode": "keep-local",
     "how": "Toolbox runs against the geodatabase itself: keep one shared local copy (v5 from CSU Chico Box)"
   },
+  "fetch": {
+    "layers": {
+      "streamcat": {
+        "title": "EPA StreamCat metrics per NHDPlus V2 catchment (API alternative to the local geodatabase)",
+        "handler": "streamcat",
+        "url": "https://api.epa.gov/StreamCat/streams/metrics",
+        "catchments": {
+          "url": "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer/6",
+          "id_field": "featureid"
+        },
+        "params": {
+          "metrics": {
+            "type": "list",
+            "default": "pcturbmd2019,pctimp2019",
+            "description": "StreamCat metric names, comma-separated, without the ws/cat suffix (list: https://api.epa.gov/StreamCat/streams/metrics)"
+          },
+          "aoi": {
+            "type": "choice",
+            "choices": [
+              "ws",
+              "cat"
+            ],
+            "default": "ws",
+            "description": "ws = whole upstream watershed, cat = local catchment only"
+          }
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "Stored at least twice on S (Watershed_Metric_Tools and CSCI and Ref Screen Toolbox, ~23.5 GB each).",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

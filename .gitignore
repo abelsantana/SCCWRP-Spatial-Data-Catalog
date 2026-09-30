@@ -2,3 +2,5 @@ __pycache__/
 *.py[cod]
 .venv/
 link-report.txt
+tests/output/
+*.pyt.xml

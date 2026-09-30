@@ -35,8 +35,45 @@
     "mode": "download-on-demand",
     "how": "Small USGS zips; current CUSP from NOAA NSDE"
   },
+  "fetch": {
+    "default": "shoreline-1998",
+    "layers": {
+      "shoreline-1998": {
+        "title": "Lidar shoreline, 1998",
+        "handler": "download",
+        "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+        "kind": "vector",
+        "member": "Socal_1998.shp",
+        "version": "USGS OFR 2006-1251"
+      },
+      "shoreline-1971-1976": {
+        "title": "Shoreline 1971-1976",
+        "handler": "download",
+        "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+        "kind": "vector",
+        "member": "Socal1971_1976.shp",
+        "version": "USGS OFR 2006-1251"
+      },
+      "shoreline-1920-1934": {
+        "title": "Shoreline 1920-1934",
+        "handler": "download",
+        "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+        "kind": "vector",
+        "member": "SoCal1920_1934.shp",
+        "version": "USGS OFR 2006-1251"
+      },
+      "shoreline-1852-1889": {
+        "title": "Shoreline 1852-1889",
+        "handler": "download",
+        "url": "https://pubs.usgs.gov/of/2006/1251/SCal.zip",
+        "kind": "vector",
+        "member": "SoCal1852_1889.shp",
+        "version": "USGS OFR 2006-1251"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "Heavily used, tiny.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

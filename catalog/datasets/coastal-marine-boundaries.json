@@ -40,6 +40,47 @@
     "mode": "stream",
     "how": "Coastal Commission, NOAA maritime limits and BOEM services"
   },
+  "fetch": {
+    "default": "marine-regions",
+    "layers": {
+      "marine-regions": {
+        "title": "MLPA study regions",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds3178_fpu/FeatureServer/0",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "state-waters-line": {
+        "title": "Three nautical mile state maritime limit",
+        "handler": "arcgis-features",
+        "url": "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds3158_fnu/FeatureServer/0",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "asbs": {
+        "title": "Areas of Special Biological Significance (State Water Board)",
+        "handler": "arcgis-features",
+        "url": "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/AreasofSpecialBioSignificance/FeatureServer/0",
+        "stage": {
+          "source": "provider",
+          "extent": "ocean"
+        }
+      },
+      "coastal-zone": {
+        "title": "Coastal Zone boundary (Coastal Commission)",
+        "handler": "arcgis-features",
+        "url": "https://services9.arcgis.com/wwVnNW92ZHUIr0V0/arcgis/rest/services/Coastal_Zone_Boundary/FeatureServer/0",
+        "stage": {
+          "source": "provider",
+          "extent": "coast"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "ds357 = CDFW BIOS \"Oil Platforms - OSPR\".",

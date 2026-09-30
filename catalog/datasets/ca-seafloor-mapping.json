@@ -30,6 +30,17 @@
     "mode": "keep-local",
     "how": "CSUMB SFML products are request-only; USGS blocks download from CMGDS"
   },
+  "fetch": {
+    "layers": {
+      "la-jolla-bathymetry": {
+        "title": "La Jolla 2 m multibeam bathymetry (CSUMB SFML)",
+        "handler": "local",
+        "holding": "ca-seafloor-mapping/la-jolla-bathymetry",
+        "kind": "raster",
+        "resampling": "bilinear"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "SFML archive offline (cbretz@csumb.edu). Keep SoCal SFML products; link USGS blocks.",

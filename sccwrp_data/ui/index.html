@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SCCWRP Data Explorer</title>
+<link rel="stylesheet" href="vendor/maplibre-gl.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+  <header class="topbar">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 32 32" aria-hidden="true">
+        <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="var(--accent-1)"/><stop offset="1" stop-color="var(--accent-2)"/></linearGradient></defs>
+        <path d="M16 3c5 6 9 10.5 9 15.5A9 9 0 0 1 7 18.5C7 13.5 11 9 16 3z" fill="url(#lg)"/>
+        <path d="M11 19.5c1.6 2.4 4.4 3.3 7 2.4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" opacity=".9"/>
+      </svg>
+      <div class="brand-text"><strong>SCCWRP Data Explorer</strong><span>California data, clipped to your area, in seconds</span></div>
+    </div>
+    <div class="stats" id="stats">
+      <div class="stat"><b data-count="0" id="stat-datasets">0</b><span>datasets</span></div>
+      <div class="stat"><b data-count="0" id="stat-instant">0</b><span>instant layers</span></div>
+      <div class="stat"><b id="stat-speed">&lt;2 s</b><span>county request</span></div>
+    </div>
+    <div class="top-actions">
+      <button class="icon-btn" id="btn-basemap" title="Switch basemap" aria-label="Switch basemap">
+        <svg viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5zm-10 9 10 5 10-5M2 16l10 5 10-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="icon-btn" id="btn-theme" title="Light / dark" aria-label="Toggle light or dark theme">
+        <svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <nav class="tabs" id="tabs" aria-label="Sections">
+    <button data-tab="catalog" class="active">1 · Data</button>
+    <button data-tab="map">2 · Area</button>
+    <button data-tab="request">3 · Get</button>
+  </nav>
+
+  <main class="layout">
+    <aside class="panel catalog" id="panel-catalog" data-tab-panel="catalog">
+      <div class="panel-head">
+        <div class="search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <input id="search" type="search" placeholder="Search datasets, providers, layers" autocomplete="off">
+        </div>
+        <div class="chips" id="categories"></div>
+        <div class="legend">
+          <span><i class="tier-dot instant"></i>Instant: SCCWRP fast copy</span>
+          <span><i class="tier-dot on-demand"></i>On demand from provider</span>
+          <span><i class="tier-dot internal"></i>SCCWRP network</span>
+        </div>
+      </div>
+      <div class="list" id="dataset-list" role="listbox" aria-label="Datasets"></div>
+    </aside>
+
+    <section class="mapwrap" data-tab-panel="map">
+      <div id="map"></div>
+      <div class="areabar glass" id="areabar">
+        <div class="seg groups" id="area-groups" role="tablist" aria-label="Land, ocean or custom"></div>
+        <div class="seg" id="area-modes" role="tablist" aria-label="Area type"></div>
+        <div class="area-form hidden" id="area-form"></div>
+        <div class="area-summary" id="area-summary">Pick an area type, then click the map</div>
+      </div>
+      <div class="selection glass hidden" id="selection">
+        <div class="sel-chips" id="sel-chips"></div>
+        <button class="link" id="btn-clear">Clear</button>
+      </div>
+      <div class="draw-hint glass hidden" id="draw-hint">Click to add corners · double-click to finish · Esc to cancel</div>
+      <div class="hover-card glass hidden" id="hover-card"></div>
+      <div class="legend-card glass hidden" id="legend"></div>
+    </section>
+
+    <aside class="panel request" id="panel-request" data-tab-panel="request">
+      <div class="empty-state" id="request-empty">
+        <div class="pulse-ring"></div>
+        <h2>Choose a dataset</h2>
+        <p>Pick data on the left and an area on the map. Instant layers come from SCCWRP's California copies; everything else is fetched from the provider and cached.</p>
+      </div>
+      <div class="request-body hidden" id="request-body">
+        <div class="ds-head">
+          <div class="ds-cat" id="ds-cat"></div>
+          <h2 id="ds-title"></h2>
+          <div class="ds-meta" id="ds-meta"></div>
+        </div>
+        <label class="field"><span>Layer</span><select id="layer"></select></label>
+        <div id="tier-banner" class="tier-banner"></div>
+        <div id="params"></div>
+        <details class="options" id="options">
+          <summary>Options</summary>
+          <label class="field"><span>Buffer around the area <em id="buffer-val">0 km</em></span>
+            <input type="range" id="buffer" min="0" max="50" step="1" value="0"></label>
+          <div class="field"><span>Clip method</span>
+            <div class="seg small" id="method">
+              <button data-v="clip" class="active">Clip to area</button>
+              <button data-v="intersects">Whole features</button>
+              <button data-v="bbox">Bounding box</button>
+            </div></div>
+          <div class="field"><span>Land or water</span>
+            <div class="seg small" id="mask">
+              <button data-v="both" class="active">Land + water</button>
+              <button data-v="land">Land only</button>
+              <button data-v="water">Water only</button>
+            </div></div>
+          <label class="field"><span>Coordinate system</span><input id="crs" value="EPSG:26911" spellcheck="false"></label>
+          <label class="field"><span>Format</span><select id="fmt"></select></label>
+          <label class="field" id="res-field"><span>Cell size / point spacing (m)</span><input id="resolution" type="number" min="0" step="any" placeholder="dataset default"></label>
+          <label class="field"><span>Save to</span><input id="out-dir" placeholder="Documents\SCCWRP Data\&lt;dataset&gt;" spellcheck="false"></label>
+          <label class="check"><input type="checkbox" id="refresh"> Fetch again even if cached</label>
+        </details>
+        <div class="area-line" id="area-line"><i></i><span>No area selected</span></div>
+        <button class="go" id="btn-get" disabled>
+          <span class="go-label">Get data</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="progress hidden" id="progress">
+          <div class="bar"><i></i></div>
+          <ol class="log" id="log"></ol>
+        </div>
+        <div class="result hidden" id="result">
+          <div class="result-head">
+            <div class="big-time"><b id="res-time">0.0</b><span>seconds</span></div>
+            <div class="res-src" id="res-src"></div>
+          </div>
+          <div class="res-stats" id="res-stats"></div>
+          <ul class="res-files" id="res-files"></ul>
+          <div class="res-notes" id="res-notes"></div>
+          <div class="res-actions">
+            <button class="btn primary" id="btn-add" hidden>Add to map</button>
+            <button class="btn" id="btn-open">Open folder</button>
+            <button class="btn" id="btn-copy">Copy path</button>
+          </div>
+        </div>
+        <div class="error hidden" id="error"></div>
+      </div>
+    </aside>
+  </main>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+<script src="vendor/maplibre-gl.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

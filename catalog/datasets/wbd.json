@@ -35,6 +35,71 @@
     "mode": "stream",
     "how": "WBD MapServer and USGS WFS; national geodatabase on S3"
   },
+  "fetch": {
+    "default": "huc12",
+    "layers": {
+      "huc2": {
+        "title": "HUC2 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/1",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU2"
+        }
+      },
+      "huc4": {
+        "title": "HUC4 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/2",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU4"
+        }
+      },
+      "huc6": {
+        "title": "HUC6 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/3",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU6"
+        }
+      },
+      "huc8": {
+        "title": "HUC8 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/4",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU8"
+        }
+      },
+      "huc10": {
+        "title": "HUC10 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/5",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU10"
+        }
+      },
+      "huc12": {
+        "title": "HUC12 watersheds",
+        "handler": "arcgis-features",
+        "url": "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer/6",
+        "stage": {
+          "source": "local",
+          "holding": "wbd/national-gdb",
+          "layer_name": "WBDHU12"
+        }
+      }
+    }
+  },
   "packages": [
     {
       "language": "Python",

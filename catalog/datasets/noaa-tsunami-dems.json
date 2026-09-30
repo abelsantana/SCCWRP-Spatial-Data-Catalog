@@ -30,8 +30,23 @@
     "mode": "stream",
     "how": "NCEI THREDDS OPeNDAP / WCS per DEM"
   },
+  "fetch": {
+    "layers": {
+      "san-diego": {
+        "title": "San Diego 1/3 arc-second DEM, mean high water (2012)",
+        "handler": "opendap",
+        "url": "https://www.ngdc.noaa.gov/thredds/dodsC/regional/san_diego_13_mhw_2012.nc",
+        "variable": "Band1",
+        "x": "lon",
+        "y": "lat",
+        "crs": "EPSG:4326",
+        "nodata": -9999.0,
+        "resampling": "bilinear"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
-  "notes": "Duplicates files in Bathymetry\\NOAA.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

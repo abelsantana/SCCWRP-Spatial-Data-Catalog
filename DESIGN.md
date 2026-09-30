@@ -1,6 +1,6 @@
 # Access tools: design notes
 
-Planning notes for the tools built on this catalog. Nothing here is built yet except the catalog, the page and the link checker.
+Design notes for the tools built on this catalog. Built as of 2026-09-30: the engine (`sccwrp_data/`), the ArcGIS Pro toolbox and the command line, tested with one dataset per access path; usage and how to add datasets are in [TOOLS.md](TOOLS.md). Still to do: `fetch` blocks for the rest of the catalog (after the S-drive audit decisions), the R wrapper, and optional Portal items.
 
 ## Principles
 
@@ -53,7 +53,7 @@ Results are cached by (dataset, version, area, options), so a second request for
 2. **SMC boundaries.** Publish the SMC watershed layer as a public SCCWRP feature service (so every tool can reach it) or keep it internal? And confirm the 2026 watershed set, not the 2018 SMCRegion, is the definition to use.
 3. **Regional Board sub-regions.** Expose Region 5 and 6 sub-offices as separate choices, or only the nine regions?
 4. **Shared cache location** on the new server, and how long clipped results are kept.
-5. **Default output coordinate system:** California Albers (EPSG:3310), or keep each dataset's native system unless asked?
+5. ~~**Default output coordinate system**~~ Decided 2026-09-30: NAD83 / UTM zone 11N (EPSG:26911). Also decided: results cached 60 days; the county groups for Southern / Central / Northern California are confirmed; the cache stays in AppData until before beta testing.
 
 ## Build order
 

@@ -40,10 +40,37 @@
     "mode": "stream",
     "how": "NCEI DEM ImageServer, THREDDS OPeNDAP / WCS, Grid Extract"
   },
+  "fetch": {
+    "default": "best-dem",
+    "layers": {
+      "best-dem": {
+        "title": "Best available coastal DEM (NCEI mosaic: CUDEM, CRM, tsunami DEMs), default 30 m",
+        "handler": "arcgis-image",
+        "url": "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_all/ImageServer",
+        "resolution": 30,
+        "max_size": 4000,
+        "pixel_type": "F32",
+        "nodata": -9999,
+        "resampling": "bilinear"
+      },
+      "bight-bathymetry": {
+        "title": "Southern California Bight bathymetry (SCCWRP grid from NOAA sources)",
+        "handler": "local",
+        "holding": "noaa-crm-cudem/bight-bathy",
+        "kind": "raster",
+        "resampling": "bilinear",
+        "stage": {
+          "source": "local",
+          "holding": "noaa-crm-cudem/bight-bathy",
+          "extent": "ocean"
+        }
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "THREDDS OPeNDAP/WCS"
   ],
-  "notes": "Bight clips/contours in these folders are SCCWRP-derived; keep those. ~57 GB.",
+  "notes": "",
   "last_reviewed": "2026-09-29"
 }

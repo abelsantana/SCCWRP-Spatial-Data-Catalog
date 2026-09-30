@@ -17,6 +17,45 @@ LINK_TYPES = {'landing', 'web', 'download', 'cloud-bucket', 's3', 'api', 'stac',
               'arcgis-featureserver', 'arcgis-mapserver', 'arcgis-imageserver', 'arcgis-directory',
               'entwine-pointcloud'}
 ID_RE = re.compile(r'^[a-z0-9]+(-[a-z0-9]+)*$')
+# Optional "fetch" block used by the sccwrp_data tools: handler -> settings each layer must have
+HANDLER_KEYS = {
+    'arcgis-features': ['url'], 'arcgis-image': ['url'],
+    'wcs': ['url', 'coverage', 'native_crs', 'resolution'], 'opendap': ['url', 'variable', 'x', 'y', 'crs'],
+    'cog-tiles': ['url_template', 'tile_scheme', 'crs'], 'ept': ['url'],
+    'streamcat': ['url', 'catchments'], 'download': ['url', 'kind'],
+    'download-template': ['url_template', 'iterate', 'kind', 'member'], 'local': ['holding', 'kind'],
+}
+PARAM_TYPES = {'int', 'str', 'choice', 'list', 'dates'}
+
+
+def check_fetch(fetch):
+    errors = []
+    layers = fetch.get('layers')
+    if not isinstance(layers, dict) or not layers:
+        return ['fetch.layers must be a non-empty object']
+    if fetch.get('default') and fetch['default'] not in layers:
+        errors.append(f'fetch.default "{fetch["default"]}" is not a layer')
+    for name, spec in layers.items():
+        where = f'fetch.layers.{name}'
+        if not ID_RE.match(name):
+            errors.append(f'{where}: layer names are lowercase words joined by hyphens')
+        h = spec.get('handler')
+        if h not in HANDLER_KEYS:
+            errors.append(f'{where}: handler "{h}" not in {sorted(HANDLER_KEYS)}')
+            continue
+        for k in HANDLER_KEYS[h]:
+            if k not in spec:
+                errors.append(f'{where}: handler {h} needs "{k}"')
+        if spec.get('kind') and spec['kind'] not in ('vector', 'raster'):
+            errors.append(f'{where}: kind must be vector or raster')
+        for p, d in spec.get('params', {}).items():
+            if d.get('type', 'str') not in PARAM_TYPES:
+                errors.append(f'{where}.params.{p}: type must be one of {sorted(PARAM_TYPES)}')
+            if d.get('type') == 'choice' and d.get('default') not in d.get('choices', []) + [None]:
+                errors.append(f'{where}.params.{p}: default is not one of the choices')
+        if h == 'download-template' and spec.get('iterate') not in spec.get('params', {}):
+            errors.append(f'{where}: iterate names a parameter that is not declared')
+    return errors
 
 
 def check(path):
@@ -57,6 +96,8 @@ def check(path):
             errors.append(f'package entry needs language Python/R and a name: {p}')
     if not re.match(r'^\d{4}-\d{2}-\d{2}$', d['last_reviewed']):
         errors.append('last_reviewed must be YYYY-MM-DD')
+    if 'fetch' in d:
+        errors += check_fetch(d['fetch'])
     return errors
 
 

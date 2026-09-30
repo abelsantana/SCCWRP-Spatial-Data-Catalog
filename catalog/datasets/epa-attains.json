@@ -30,6 +30,25 @@
     "mode": "stream",
     "how": "ATTAINS_Assessment MapServer; dated extracts on S3 for reproducibility"
   },
+  "fetch": {
+    "layers": {
+      "lines": {
+        "title": "ATTAINS assessment units, lines (streams, rivers)",
+        "handler": "arcgis-features",
+        "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/1"
+      },
+      "areas": {
+        "title": "ATTAINS assessment units, areas (lakes, bays, estuaries)",
+        "handler": "arcgis-features",
+        "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/2"
+      },
+      "points": {
+        "title": "ATTAINS assessment units, points",
+        "handler": "arcgis-features",
+        "url": "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer/0"
+      }
+    }
+  },
   "packages": [],
   "other_access": [
     "ATTAINS REST API (api.data.gov key)"

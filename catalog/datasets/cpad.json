@@ -30,6 +30,31 @@
     "mode": "keep-local",
     "how": "2023a not public; current CPAD streams from the CNRA MapServer"
   },
+  "fetch": {
+    "layers": {
+      "units": {
+        "title": "CPAD units",
+        "handler": "local",
+        "holding": "cpad/units",
+        "kind": "vector",
+        "version": "CPAD 2023a"
+      },
+      "holdings": {
+        "title": "CPAD holdings",
+        "handler": "local",
+        "holding": "cpad/holdings",
+        "kind": "vector",
+        "version": "CPAD 2023a"
+      },
+      "superunits": {
+        "title": "CPAD super units",
+        "handler": "local",
+        "holding": "cpad/superunits",
+        "kind": "vector",
+        "version": "CPAD 2023a"
+      }
+    }
+  },
   "packages": [],
   "other_access": [],
   "notes": "Keep 2023a if reproducibility matters (small); link 2026a for new work.",
