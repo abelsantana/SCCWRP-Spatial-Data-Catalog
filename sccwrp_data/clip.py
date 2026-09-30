@@ -6,7 +6,7 @@ import shapely
 from osgeo import gdal
 from shapely.geometry import MultiLineString, MultiPoint, MultiPolygon, box
 
-from .entries import CatalogError
+from .entries import CatalogError, NoFeatures
 
 gdal.UseExceptions()
 
@@ -98,6 +98,8 @@ def vector(gdf, area, method, out_crs, fmt, out_path, layer_name):
     else:                                   # clip, and bbox (the area is already its bounding box)
         gdf = fast_clip(gdf, shape)
     gdf = _one_geometry_type(gdf[~gdf.geometry.is_empty & gdf.geometry.notna()])
+    if gdf.empty:     # an empty layer has no geometry type, which geodatabases and shapefiles need
+        raise NoFeatures(f'No {layer_name} features in {area.label}, so nothing was written.')
     driver, _ = VECTOR_FORMATS[fmt]
     if fmt == 'parquet':
         gdf.to_parquet(out_path)

@@ -13,7 +13,7 @@ __version__ = '0.2.0'
 
 import importlib.util  # noqa: E402
 
-from .entries import CatalogError, catalog, info, layers  # noqa: E402,F401
+from .entries import CatalogError, NoFeatures, catalog, info, layers  # noqa: E402,F401
 
 # Packages the engine needs beyond Pro's default environment, and one GeoPandas file engine (either will do)
 NEEDED = ['geopandas', 'shapely', 'pyproj', 'osgeo', 'requests']

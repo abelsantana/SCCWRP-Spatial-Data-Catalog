@@ -251,6 +251,9 @@ class GetData:
             r = sd.get(ds, area, lay, params=params, buffer_km=v['buffer_km'].value or 0, method=method,
                        crs=f'EPSG:{sr.factoryCode}', resolution=v['cell_size'].value, fmt=v['out_format'].valueAsText,
                        out_dir=v['out_folder'].valueAsText, refresh=bool(v['refresh'].value), log=arcpy.AddMessage)
+        except sd.NoFeatures as e:       # a valid answer, not a failure
+            arcpy.AddWarning(str(e))
+            return
         except sd.CatalogError as e:
             arcpy.AddError(str(e))
             raise arcpy.ExecuteError(str(e)) from None

@@ -16,6 +16,10 @@ class CatalogError(ValueError):
     """A request the catalog cannot satisfy (unknown dataset, layer or parameter)."""
 
 
+class NoFeatures(CatalogError):
+    """The request worked, but the layer has no features in the area (e.g. incorporated cities in a rural county)."""
+
+
 SCHEMA = 1   # docs/catalog.json format this code reads; build_site.py writes the same number
 # Handlers this code has (tests/smoke.py checks it matches handlers.base.HANDLERS). Kept here so reading the
 # catalog does not import the handlers and their GIS libraries.
