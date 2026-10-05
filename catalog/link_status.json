@@ -1,25 +1,775 @@
 {
- "checked": "2026-09-29",
+ "checked": "2026-10-05",
  "links": {
+  "https://api.census.gov/data.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://api.epa.gov/StreamCat/streams/metrics": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
   "https://api.water.usgs.gov/nldi/": {
    "status": "ok",
    "code": 200,
-   "checked": "2026-09-29"
+   "checked": "2026-10-05"
+  },
+  "https://apps.nationalmap.gov/downloader/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://bight.sccwrp.org/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://cache.gis.lacounty.gov/cache/rest/services/LACounty_Cache": {
+   "status": "error",
+   "detail": "Remote end closed connection without response",
+   "checked": "2026-10-05"
+  },
+  "https://catalog.data.gov/dataset/usgs-digital-orthophoto-quadrangles": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://chs.coast.noaa.gov/htdata/raster2/elevation/California_IfSAR_DEM_2002_244/socal_ifsar_dem_navd88.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://cmgds.marine.usgs.gov/data/csmp/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://cmgds.marine.usgs.gov/data/csmp/webservices_help.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=1124": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://coast.noaa.gov/dataviewer/#/lidar/search/where:ID=8651": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://coast.noaa.gov/dataviewer/#/raster/search/where:ID=244": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://csuchico.box.com/v/CSCI-Data-Tools": {
+   "status": "broken",
+   "code": 404,
+   "checked": "2026-10-05"
+  },
+  "https://data-cdfw.opendata.arcgis.com/datasets/CDFW::california-interagency-watershed-map-of-1999-calwater": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.ca.gov/dataset/calenviroscreen-5-0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.ca.gov/dataset/california-power-plants": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.ca.gov/dataset/california-protected-areas-database": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.ca.gov/dataset/draft-calenviroscreen-5-0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.cnra.ca.gov/dataset/0ae3cd9f-0612-4572-8862-9e9a1c41e659/resource/cadf9163-aa38-44ae-851a-86b35d4c6c0c/download/cpad_2026a_release.zip": {
+   "status": "blocked",
+   "code": 403,
+   "checked": "2026-10-05"
+  },
+  "https://data.cnra.ca.gov/dataset/nhd-archive": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.cnra.ca.gov/dataset/watershed-boundary-dataset-wbd": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.prism.oregonstate.edu/time_series/us/an/4km/ppt/daily/2013/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://data.usgs.gov/datacatalog/data/USGS:EROS5e83a1f36d8572da": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
   },
   "https://dmap-data-commons-ow.s3.amazonaws.com/NHDPlusV21/Data/": {
    "status": "ok",
    "code": 200,
-   "checked": "2026-09-29"
+   "checked": "2026-10-05"
+  },
+  "https://dmap-data-commons-ow.s3.amazonaws.com/data/attains/geospatial/fgdb/CA/ATTAINS_Assessment_CA_20250117_fgdb.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://dmap-prod-oms-edc.s3.us-east-1.amazonaws.com/ORD/Ecoregions/ca/ca_eco_l4.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://dmsdata.cr.usgs.gov/geoserver/mrlc_Land-Cover-Native_conus_year_data/wms?service=WMS&request=GetCapabilities": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://doi.org/10.23719/1500945": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://doi.org/10.5066/P94UXNTS": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://earthexplorer.usgs.gov/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://echo.epa.gov/files/echodownloads/npdes_outfalls_layer.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://echo.epa.gov/tools/data-downloads": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://echogeo.epa.gov/arcgis/rest/services/ECHO": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://edits.nationalmap.gov/arcgis/rest/services/PAD-US/PAD_US_4_1/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://egis-lacounty.hub.arcgis.com/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://filecloud.sfei.org/index.php/s/8kAp3ZqNBEepj56": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/300_399/ds357.zip": {
+   "status": "timeout",
+   "detail": "timed out",
+   "checked": "2026-10-05"
+  },
+  "https://filelib.wildlife.ca.gov/Public/BDB/GIS/BIOS/Public_Datasets/500_599/ds582.zip": {
+   "status": "timeout",
+   "detail": "timed out",
+   "checked": "2026-10-05"
+  },
+  "https://geo.sandag.org/portal/apps/experiencebuilder/experience/?id=fad9e9c038c84f799b5378e4cc3ed068": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://geo.sandag.org/server/rest/services": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://geo.sandag.org/server/rest/services/Hosted/Parcels/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://geodata.epa.gov/arcgis/rest/services/ORD/USEPA_Ecoregions_Level_III_and_IV/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.boem.gov/arcgis/rest/services/BOEM_BSEE/POC_Layers/MapServer": {
+   "status": "error",
+   "detail": "[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)",
+   "checked": "2026-10-05"
+  },
+  "https://gis.cnra.ca.gov/arcgis/rest/services/Boundaries/CPAD_AgencyLevel/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.data.ca.gov/datasets/California::california-city-boundaries-and-identifiers": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.data.ca.gov/datasets/California::california-county-boundaries-and-identifiers": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.ngdc.noaa.gov/arcgis/rest/services/DEM_mosaics/DEM_all/ImageServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/multibeam_dynamic/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gis.ngdc.noaa.gov/arcgis/rest/services/web_mercator/nos_hydro_dynamic/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gisarchive.cnra.ca.gov/iso/Boundaries/Boundaries_%28project%29/CountyBoundaries2009/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gisarchive.cnra.ca.gov/iso/ImageryBaseMapsLandCover/NAIP/naip2009/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispub.epa.gov/arcgis/rest/services/OW/ATTAINS_Assessment/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispublic.waterboards.ca.gov/portal/home/group.html?id=2de374bd11d9468d8e8919bdaf060016": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispublic.waterboards.ca.gov/portal/home/item.html?id=14496125f1764a82a6ba7c27ce9921fc": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Basin_Plan/California_Basin_Plan_Beneficial_Uses/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/2024_Integrated_Report_Polygons/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://gispublic.waterboards.ca.gov/portalserver/rest/services/Hosted/Regional_Board_Boundary_Features/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://hub.scag.ca.gov/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://hydro.nationalmap.gov/arcgis/rest/services/3DHP_all/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://hydro.nationalmap.gov/arcgis/rest/services/NHDPlus_HR/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://hydro.nationalmap.gov/arcgis/rest/services/nhd/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://hydro.nationalmap.gov/arcgis/rest/services/wbd/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://imagery.nationalmap.gov/arcgis/rest/services/USGSNAIPPlus/ImageServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://lariac-lacounty.hub.arcgis.com": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://lfps.usgs.gov/arcgis/rest/services": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://maps.scag.ca.gov/scaggis/rest/services": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://maritimeboundaries.noaa.gov/downloads/USMaritimeLimitsAndBoundariesSHP.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://ngmdb.usgs.gov/topoview/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://noaa-nos-coastal-lidar-pds.s3.amazonaws.com/laz/geoid18/8651/index.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_IfSAR_DEM_2002_244/index.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_2011_2616/index.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://noaa-nos-coastal-lidar-pds.s3.us-east-1.amazonaws.com/dem/California_Topobathy_DEM_Interp_8684/index.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://nrcs.app.box.com/v/huc": {
+   "status": "broken",
+   "code": 404,
+   "checked": "2026-10-05"
+  },
+  "https://nrcs.app.box.com/v/soils": {
+   "status": "broken",
+   "code": 404,
+   "checked": "2026-10-05"
+  },
+  "https://nrcs.app.box.com/v/soils/folder/233398887779": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://nsde.ngs.noaa.gov/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pasteur.epa.gov/uploads/10.23719/1500945/RefModelData_508.xlsx": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://planetarycomputer.microsoft.com/api/stac/v1/collections/naip": {
+   "status": "broken",
+   "code": 502,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/13/TIFF/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/StagedProducts/Elevation/1m/Projects/CA_CaliforniaGaps_B23/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/NHD/State/GDB/NHD_H_California_State_GDB.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/HU2/GDB/WBD_18_HU2_GDB.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/StagedProducts/Maps/HistoricalTopo/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Hydrography/NHDPlusHR/": {
+   "status": "broken",
+   "code": 200,
+   "detail": "no objects under prefix",
+   "checked": "2026-10-05"
+  },
+  "https://prism.oregonstate.edu/downloads/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://public.gis.lacounty.gov/public/rest/services/LACounty_Cache/LACounty_Parcel/MapServer/0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pubs.usgs.gov/ds/781/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pubs.usgs.gov/of/2006/1251/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pubs.usgs.gov/of/2006/1251/SCal.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pubs.usgs.gov/of/2009/1151/data/basemap/statesp020.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://purl.stanford.edu/ns150wp8904": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://pwadmin.oc.gov/sites/ocpwocs/files/2023-07/OCPW%20Geospatial%20Data%20Details.pdf": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://rdp.scag.ca.gov/mapping/rest/services": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/CA_OrangeCo_2011/ept.json": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://s3-us-west-2.amazonaws.com/usgs-lidar-public/USGS_LPC_CA_LosAngeles_2016_LAS_2018/ept.json": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://sdgis-sandag.opendata.arcgis.com/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://sdmdataaccess.nrcs.usda.gov/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/PredECHydroline/FeatureServer/0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services.nacse.org/prism/data/get/us/4km/ppt/YYYYMMDD?format=bil": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services1.arcgis.com/PCHfdHz4GlDNAhBb/arcgis/rest/services/calenviroscreen50results_F_070126_gdb/FeatureServer/2": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services1.arcgis.com/gfvMa5URH3rFRQ7T/arcgis/rest/services/AllBight_Strata/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services1.arcgis.com/jUJYIo9tSA7EHvfZ/arcgis/rest/services/California_County_Boundaries/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services2.arcgis.com/Uq9r85Potqm3MfRV/ArcGIS/rest/services/biosds582_fpu/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/biosds2835_fpu/FeatureServer/0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services2.arcgis.com/Uq9r85Potqm3MfRV/arcgis/rest/services/calw_poly_wm/FeatureServer/0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services3.arcgis.com/bWPjFyq029ChCGur/arcgis/rest/services/Power_Plant/FeatureServer/0": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services3.arcgis.com/uknczv4rpevve42E/arcgis/rest/services/California_Cities_and_Identifiers_Blue_Version_view/FeatureServer/2": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://services9.arcgis.com/wwVnNW92ZHUIr0V0/arcgis/rest/services/Coastal_Zone_Boundary/FeatureServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://tethys.pnnl.gov/publications/pacific-coast-fisheries-gis-resource-database": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Transportation/MapServer": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://topotools.cr.usgs.gov/gmted_viewer/index.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://trw.sdsu.edu/English/Data/Data/TRW/trwdata.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
   },
   "https://watersgeo.epa.gov/arcgis/rest/services/NHDPlus/NHDPlus/MapServer": {
    "status": "ok",
    "code": 200,
-   "checked": "2026-09-29"
+   "checked": "2026-10-05"
+  },
+  "https://wildlife.ca.gov/Conservation/Marine/GIS": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.caltsheets.org/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.coastal.ca.gov/open-data/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.epa.gov/eco-research/level-iii-and-iv-ecoregions-state": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
   },
   "https://www.epa.gov/waterdata/nhdplus-national-hydrography-dataset-plus": {
    "status": "ok",
    "code": 200,
-   "checked": "2026-09-29"
+   "checked": "2026-10-05"
+  },
+  "https://www.epa.gov/waterdata/waters-geospatial-data-downloads": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.fisheries.noaa.gov/inport/item/49417": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.fisheries.noaa.gov/inport/item/55233": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.inegi.org.mx/temas/mg/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.mrlc.gov/geoserver/mrlc_display/wms?service=WMS&request=GetCapabilities": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ncei.noaa.gov/maps/grid-extract/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ncei.noaa.gov/products/coastal-elevation-models": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ncei.noaa.gov/products/coastal-relief-model": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ncei.noaa.gov/products/seafloor-mapping": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ngdc.noaa.gov/next-web/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ngdc.noaa.gov/thredds/catalog/crm/catalog.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ngdc.noaa.gov/thredds/catalog/regional/catalog.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.ngdc.noaa.gov/thredds/wcs/regional/san_diego_13_mhw_2012.nc": {
+   "status": "broken",
+   "code": 400,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/532c5b23e4b0cd7393d07783": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/573cc51be4b0dae0d5e4b0c5": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/592f007de4b0e9bd0ea793c2": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/5b030c7ae4b0da30c1c1d6de": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/619668d0d34eb622f69155a7": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/6345b637d34e342aee0863aa": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/6345bfffd34e342aee0863d7": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/65294599d34e44db0e2ed7cf": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/652d4f80d34e44db0e2ee45c": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sciencebase.gov/catalog/item/6810c1a4d4be022940554075": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.sfei.org/data/california-aquatic-resource-inventory-cari-gis-data": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.waterboards.ca.gov/resources/data_databases/basin_plan_portal.html": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www.waterboards.ca.gov/water_issues/programs/water_quality_assessment/docs/Final_2020-22_IR.gdb.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www2.census.gov/geo/tiger/": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www2.census.gov/geo/tiger/PREVGENZ/ua/ua00shp/ua99_d00_shp.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "https://www2.census.gov/geo/tiger/TIGER_DP/2014ACS/ACS_2014_5YR_ZCTA.gdb.zip": {
+   "status": "ok",
+   "code": 200,
+   "checked": "2026-10-05"
+  },
+  "s3://usgs-landcover/annual-nlcd/": {
+   "status": "not-http",
+   "checked": "2026-10-05"
   }
  }
 }
